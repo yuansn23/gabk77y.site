@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>表單後台管理</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, 'PingFang TC', 'Microsoft YaHei', sans-serif; background: #F5F1EA; color: #2A231D; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }
+  .wrap { width: 100%; max-width: 900px; }
+  .card { background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.07); padding: 28px; }
+  h1 { font-size: 1.25rem; margin-bottom: 20px; }
+  label { display: block; font-size: 0.82rem; margin-bottom: 6px; color: #6b635a; }
+  input[type=text], input[type=password], input[type=date] {
+    width: 100%; padding: 11px 13px; border: 1px solid #e5dbcf; border-radius: 10px;
+    font-size: 0.95rem; margin-bottom: 14px; background: #fdfbf8; color: #2A231D;
+  }
+  input:focus { outline: none; border-color: #06C755; box-shadow: 0 0 0 3px rgba(6,199,85,0.15); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: #06C755; color: #fff; border: none; border-radius: 10px; padding: 11px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; }
+  .btn:hover { background: #00B84A; }
+  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn.ghost { background: #eee6da; color: #5b5145; }
+  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .topbar h1 { margin-bottom: 0; }
+  .filters { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 18px; }
+  .filters .f-group { min-width: 160px; }
+  .filters label { margin-bottom: 6px; }
+  .filters input { margin-bottom: 0; }
+  .summary { font-size: 0.85rem; color: #6b635a; margin-bottom: 12px; }
+  .table-wrap { overflow-x: auto; border: 1px solid #eee5d9; border-radius: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 640px; }
+  th, td { padding: 11px 13px; text-align: left; border-bottom: 1px solid #f2ece2; white-space: nowrap; }
+  th { background: #faf6ef; color: #6b635a; font-weight: 700; }
+  tbody tr:last-child td { border-bottom: none; }
+  .empty { text-align: center; color: #a9a093; padding: 30px; display: none; }
+  .err { color: #e05a4a; font-size: 0.85rem; margin-top: 10px; min-height: 1.2em; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="loginView">
+      <h1>🔐 表單後台登入</h1>
+      <label>帳號</label>
+      <input type="text" id="username" autocomplete="username" />
+      <label>密碼</label>
+      <input type="password" id="password" autocomplete="current-password" />
+      <button class="btn" id="loginBtn" style="width:100%">登入</button>
+      <div class="err" id="loginError"></div>
+    </div>
+
+    <div class="card" id="adminView" style="display:none">
+      <div class="topbar">
+        <h1>📋 表單查詢後台</h1>
+        <button class="btn ghost" id="logoutBtn">登出</button>
+      </div>
+      <div class="filters">
+        <div class="f-group">
+          <label>開始日期</label>
+          <input type="date" id="fromDate" />
+        </div>
+        <div class="f-group">
+          <label>結束日期</label>
+          <input type="date" id="toDate" />
+        </div>
+        <button class="btn" id="queryBtn">查詢</button>
+      </div>
+      <div class="summary" id="summary"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>提交時間</th><th>姓名</th><th>年紀</th><th>身高(cm)</th><th>體重(kg)</th><th>使用過產品</th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="empty">這個時間範圍內沒有資料</div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    'use strict';
+
+    // 同域部署（Worker 路由到 gabk77y.site/api/*）留空即可；
+    // 若 API 用獨立子域，改成 'https://api.gabk77y.site'
+    var API_BASE = '';
+    var TOKEN_KEY = 'jianfei_admin_token';
+
+    var loginView = document.getElementById('loginView');
+    var adminView = document.getElementById('adminView');
+    var loginError = document.getElementById('loginError');
+    var usernameEl = document.getElementById('username');
+    var passwordEl = document.getElementById('password');
+    var loginBtn = document.getElementById('loginBtn');
+    var logoutBtn = document.getElementById('logoutBtn');
+    var queryBtn = document.getElementById('queryBtn');
+    var fromDate = document.getElementById('fromDate');
+    var toDate = document.getElementById('toDate');
+    var tbody = document.getElementById('tbody');
+    var empty = document.getElementById('empty');
+    var summary = document.getElementById('summary');
+
+    function getToken() { return localStorage.getItem(TOKEN_KEY); }
+    function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
+    function clearToken() { localStorage.removeItem(TOKEN_KEY); }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function fmtDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+    function dateToMs(str, endOfDay) {
+      if (!str) return null;
+      var t = endOfDay ? (str + 'T23:59:59.999') : (str + 'T00:00:00');
+      return new Date(t).getTime();
+    }
+    function fmtTime(ms) {
+      var d = new Date(ms);
+      return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+    }
+    function setDefaultRange() {
+      var now = new Date();
+      fromDate.value = fmtDate(new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000));
+      toDate.value = fmtDate(now);
+    }
+    function showLogin() { loginView.style.display = 'block'; adminView.style.display = 'none'; }
+    function showAdmin() { loginView.style.display = 'none'; adminView.style.display = 'block'; }
+    function esc(s) { return s == null ? '' : String(s); }
+
+    function render(list) {
+      tbody.innerHTML = '';
+      if (!list || list.length === 0) {
+        empty.style.display = 'block';
+        summary.textContent = '共 0 筆';
+        return;
+      }
+      empty.style.display = 'none';
+      summary.textContent = '共 ' + list.length + ' 筆';
+      list.forEach(function(r) {
+        var tr = document.createElement('tr');
+        var vals = [fmtTime(r.created_at), esc(r.name), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product)];
+        vals.forEach(function(v) {
+          var td = document.createElement('td');
+          td.textContent = v;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    function loadData() {
+      var from = dateToMs(fromDate.value, false) || (Date.now() - 3 * 24 * 60 * 60 * 1000);
+      var to = dateToMs(toDate.value, true) || Date.now();
+      var token = getToken();
+      fetch(API_BASE + '/api/submissions?from=' + from + '&to=' + to, {
+        headers: { 'Authorization': 'Bearer ' + token }
+      }).then(function(res) {
+        if (res.status === 401) { clearToken(); showLogin(); throw new Error('unauth'); }
+        return res.json();
+      }).then(function(data) {
+        render(data.results);
+      }).catch(function(e) {
+        if (e.message !== 'unauth') render([]);
+      });
+    }
+
+    function checkLogin() {
+      if (!getToken()) { showLogin(); return; }
+      showAdmin();
+      loadData();
+    }
+
+    loginBtn.addEventListener('click', function() {
+      if (!usernameEl.value || !passwordEl.value) { loginError.textContent = '請輸入帳號與密碼'; return; }
+      loginError.textContent = '';
+      loginBtn.disabled = true;
+      loginBtn.textContent = '登入中…';
+      fetch(API_BASE + '/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: usernameEl.value, password: passwordEl.value })
+      }).then(function(res) { return res.json(); }).then(function(d) {
+        loginBtn.disabled = false;
+        loginBtn.textContent = '登入';
+        if (d.ok && d.token) {
+          setToken(d.token);
+          showAdmin();
+          loadData();
+        } else {
+          loginError.textContent = d.error || '帳號或密碼錯誤';
+        }
+      }).catch(function() {
+        loginBtn.disabled = false;
+        loginBtn.textContent = '登入';
+        loginError.textContent = '登入失敗，請稍後再試';
+      });
+    });
+
+    passwordEl.addEventListener('keydown', function(e) { if (e.key === 'Enter') loginBtn.click(); });
+    logoutBtn.addEventListener('click', function() {
+      clearToken();
+      showLogin();
+    });
+    queryBtn.addEventListener('click', loadData);
+
+    setDefaultRange();
+    checkLogin();
+  })();
+  </script>
+</body>
+</html>
