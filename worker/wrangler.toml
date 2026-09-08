@@ -1,0 +1,15 @@
+name = "jianfei-form-api"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+# 綁定 D1 資料庫：把 database_id 換成你實際建立的 D1 資料庫 ID
+[[d1_databases]]
+binding = "DB"
+database_name = "jianfei-submissions"
+database_id = "c1e591dc-15aa-467f-ba68-7708510aabda"
+
+# 路由：讓 Worker 接管 gabk77y.site/api/*（其餘路徑仍走 Pages）
+# 若在後台手動加路由，這段可留著不動；zone_name 需為你的域名
+routes = [
+  { pattern = "gabk77y.site/api/*", zone_name = "gabk77y.site" }
+]
