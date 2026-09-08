@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>表單後台管理</title>
+<title>表单后台管理</title>
 <style>
   :root {
     --bg: #f4f6f8;
@@ -18,7 +18,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
     background: var(--bg); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased;
   }
 
@@ -35,7 +35,7 @@
   .btn.ghost:hover { background: #e4e8ec; }
   .btn.block { width: 100%; }
 
-  /* ---------- 登入頁 ---------- */
+  /* ---------- 登录页 ---------- */
   .login-page {
     min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
     background:
@@ -64,7 +64,7 @@
   .field input:focus { outline: none; border-color: var(--line); box-shadow: 0 0 0 3px rgba(6,199,85,.14); background: #fff; }
   .err { color: #e05a4a; font-size: .84rem; margin-top: 12px; min-height: 1.2em; text-align: center; }
 
-  /* ---------- 後台 ---------- */
+  /* ---------- 后台 ---------- */
   .app { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
   .topbar {
     display: flex; align-items: center; justify-content: space-between;
@@ -106,7 +106,7 @@
 
   .table-head { padding: 18px 20px 0; font-weight: 700; font-size: 1rem; }
   .table-wrap { padding: 14px 20px 20px; overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 640px; }
+  table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 760px; }
   th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
   th { color: var(--ink-3); font-weight: 600; font-size: .76rem; letter-spacing: .02em; }
   tbody tr { transition: background .12s; }
@@ -122,39 +122,39 @@
 </style>
 </head>
 <body>
-  <!-- 登入 -->
+  <!-- 登录 -->
   <div class="login-page" id="loginView">
     <div class="login-card">
       <div class="login-logo">📊</div>
-      <h1>表單後台</h1>
-      <p class="sub">請登入以查看提交資料</p>
+      <h1>表单后台</h1>
+      <p class="sub">请登录以查看提交数据</p>
       <div class="field">
-        <label>帳號</label>
-        <input type="text" id="username" autocomplete="username" placeholder="請輸入帳號" />
+        <label>账号</label>
+        <input type="text" id="username" autocomplete="username" placeholder="请输入账号" />
       </div>
       <div class="field">
-        <label>密碼</label>
-        <input type="password" id="password" autocomplete="current-password" placeholder="請輸入密碼" />
+        <label>密码</label>
+        <input type="password" id="password" autocomplete="current-password" placeholder="请输入密码" />
       </div>
-      <button class="btn block" id="loginBtn">登入</button>
+      <button class="btn block" id="loginBtn">登录</button>
       <div class="err" id="loginError"></div>
     </div>
   </div>
 
-  <!-- 後台 -->
+  <!-- 后台 -->
   <div class="app" id="adminView" style="display:none">
     <header class="topbar">
-      <div class="brand"><span class="logo">📊</span> 表單查詢後台</div>
-      <button class="btn ghost" id="logoutBtn">登出</button>
+      <div class="brand"><span class="logo">📊</span> 表单查询后台</div>
+      <button class="btn ghost" id="logoutBtn">退出登录</button>
     </header>
 
     <div class="stats">
       <div class="stat-card">
-        <div class="stat-label">本次查詢結果</div>
-        <div class="stat-value" id="statCount">0<small>筆</small></div>
+        <div class="stat-label">本次查询结果</div>
+        <div class="stat-value" id="statCount">0<small>条</small></div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">時間範圍</div>
+        <div class="stat-label">时间范围</div>
         <div class="stat-value text" id="statRange">—</div>
       </div>
       <div class="stat-card">
@@ -166,11 +166,11 @@
     <div class="card">
       <div class="filters">
         <div class="f-group">
-          <label>開始日期</label>
+          <label>开始日期</label>
           <input type="date" id="fromDate" />
         </div>
         <div class="f-group">
-          <label>結束日期</label>
+          <label>结束日期</label>
           <input type="date" id="toDate" />
         </div>
         <div class="quick">
@@ -178,21 +178,21 @@
           <button class="chip" data-days="7">近 7 天</button>
           <button class="chip" data-days="30">近 30 天</button>
         </div>
-        <button class="btn" id="queryBtn">查詢</button>
+        <button class="btn" id="queryBtn">查询</button>
       </div>
     </div>
 
     <div class="card">
-      <div class="table-head">提交記錄</div>
+      <div class="table-head">提交记录</div>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>提交時間</th><th>姓名</th><th>年紀</th><th>身高(cm)</th><th>體重(kg)</th><th>使用過產品</th></tr>
+            <tr><th>提交时间</th><th>姓名</th><th>LINE ID</th><th>年龄</th><th>身高(cm)</th><th>体重(kg)</th><th>使用过产品</th></tr>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
       </div>
-      <div class="empty" id="empty">這個時間範圍內沒有資料</div>
+      <div class="empty" id="empty">这个时间范围内没有数据</div>
     </div>
   </div>
 
@@ -201,7 +201,7 @@
     'use strict';
 
     // 同域部署（Worker 路由到 gabk77y.site/api/*）留空即可；
-    // 若 API 用獨立子域，改成 'https://api.gabk77y.site'
+    // 若 API 用独立子域，改成 'https://api.gabk77y.site'
     var API_BASE = '';
     var TOKEN_KEY = 'jianfei_admin_token';
 
@@ -254,7 +254,7 @@
       empty.style.display = 'none';
       list.forEach(function(r) {
         var tr = document.createElement('tr');
-        var vals = [fmtTime(r.created_at), esc(r.name), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product)];
+        var vals = [fmtTime(r.created_at), esc(r.name), esc(r.line_id), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product)];
         vals.forEach(function(v) {
           var td = document.createElement('td');
           td.textContent = v;
@@ -265,7 +265,7 @@
     }
 
     function updateStats(list, from, to) {
-      statCount.innerHTML = (list ? list.length : 0) + '<small>筆</small>';
+      statCount.innerHTML = (list ? list.length : 0) + '<small>条</small>';
       statRange.textContent = fmtDate(new Date(from)) + ' ~ ' + fmtDate(new Date(to));
       statLatest.textContent = (list && list.length) ? fmtTime(list[0].created_at) : '—';
     }
@@ -294,28 +294,28 @@
     }
 
     loginBtn.addEventListener('click', function() {
-      if (!usernameEl.value || !passwordEl.value) { loginError.textContent = '請輸入帳號與密碼'; return; }
+      if (!usernameEl.value || !passwordEl.value) { loginError.textContent = '请输入账号与密码'; return; }
       loginError.textContent = '';
       loginBtn.disabled = true;
-      loginBtn.textContent = '登入中…';
+      loginBtn.textContent = '登录中…';
       fetch(API_BASE + '/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: usernameEl.value, password: passwordEl.value })
       }).then(function(res) { return res.json(); }).then(function(d) {
         loginBtn.disabled = false;
-        loginBtn.textContent = '登入';
+        loginBtn.textContent = '登录';
         if (d.ok && d.token) {
           setToken(d.token);
           showAdmin();
           loadData();
         } else {
-          loginError.textContent = d.error || '帳號或密碼錯誤';
+          loginError.textContent = d.error || '账号或密码错误';
         }
       }).catch(function() {
         loginBtn.disabled = false;
-        loginBtn.textContent = '登入';
-        loginError.textContent = '登入失敗，請稍後再試';
+        loginBtn.textContent = '登录';
+        loginError.textContent = '登录失败，请稍后再试';
       });
     });
 
