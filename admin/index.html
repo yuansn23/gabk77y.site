@@ -106,7 +106,7 @@
 
   .table-head { padding: 18px 20px 0; font-weight: 700; font-size: 1rem; }
   .table-wrap { padding: 14px 20px 20px; overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 640px; }
+  table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 900px; }
   th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
   th { color: var(--ink-3); font-weight: 600; font-size: .76rem; letter-spacing: .02em; }
   tbody tr { transition: background .12s; }
@@ -187,7 +187,7 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>提交时间</th><th>姓名</th><th>年龄</th><th>身高(cm)</th><th>体重(kg)</th><th>使用过产品</th></tr>
+            <tr><th>提交时间</th><th>姓名</th><th>年龄</th><th>身高(cm)</th><th>体重(kg)</th><th>使用过产品</th><th>访问落地页</th></tr>
           </thead>
           <tbody id="tbody"></tbody>
         </table>
@@ -254,7 +254,7 @@
       empty.style.display = 'none';
       list.forEach(function(r) {
         var tr = document.createElement('tr');
-        var vals = [fmtTime(r.created_at), esc(r.name), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product)];
+        var vals = [fmtTime(r.created_at), esc(r.name), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product), esc(r.page_url)];
         vals.forEach(function(v) {
           var td = document.createElement('td');
           td.textContent = v;
