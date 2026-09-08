@@ -5,54 +5,165 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>表單後台管理</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: -apple-system, 'PingFang TC', 'Microsoft YaHei', sans-serif; background: #F5F1EA; color: #2A231D; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }
-  .wrap { width: 100%; max-width: 900px; }
-  .card { background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.07); padding: 28px; }
-  h1 { font-size: 1.25rem; margin-bottom: 20px; }
-  label { display: block; font-size: 0.82rem; margin-bottom: 6px; color: #6b635a; }
-  input[type=text], input[type=password], input[type=date] {
-    width: 100%; padding: 11px 13px; border: 1px solid #e5dbcf; border-radius: 10px;
-    font-size: 0.95rem; margin-bottom: 14px; background: #fdfbf8; color: #2A231D;
+  :root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --ink: #1a1f36;
+    --ink-2: #5b6372;
+    --ink-3: #9aa1ae;
+    --line: #06C755;
+    --line-dark: #00B84A;
+    --border: #e9edf2;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
   }
-  input:focus { outline: none; border-color: #06C755; box-shadow: 0 0 0 3px rgba(6,199,85,0.15); }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: #06C755; color: #fff; border: none; border-radius: 10px; padding: 11px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; }
-  .btn:hover { background: #00B84A; }
-  .btn:disabled { opacity: 0.6; cursor: not-allowed; }
-  .btn.ghost { background: #eee6da; color: #5b5145; }
-  .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-  .topbar h1 { margin-bottom: 0; }
-  .filters { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 18px; }
-  .filters .f-group { min-width: 160px; }
-  .filters label { margin-bottom: 6px; }
-  .filters input { margin-bottom: 0; }
-  .summary { font-size: 0.85rem; color: #6b635a; margin-bottom: 12px; }
-  .table-wrap { overflow-x: auto; border: 1px solid #eee5d9; border-radius: 12px; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 640px; }
-  th, td { padding: 11px 13px; text-align: left; border-bottom: 1px solid #f2ece2; white-space: nowrap; }
-  th { background: #faf6ef; color: #6b635a; font-weight: 700; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    background: var(--bg); color: var(--ink); min-height: 100vh; -webkit-font-smoothing: antialiased;
+  }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--line); color: #fff; border: none; border-radius: 10px;
+    padding: 11px 18px; font-size: .9rem; font-weight: 600; cursor: pointer;
+    transition: background .15s, transform .05s;
+  }
+  .btn:hover { background: var(--line-dark); }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: .6; cursor: not-allowed; }
+  .btn.ghost { background: #eef1f4; color: var(--ink-2); }
+  .btn.ghost:hover { background: #e4e8ec; }
+  .btn.block { width: 100%; }
+
+  /* ---------- 登入頁 ---------- */
+  .login-page {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;
+    background:
+      radial-gradient(1100px 560px at 18% -10%, #e7fbe9, transparent),
+      radial-gradient(900px 480px at 100% 0%, #e3f1ff, transparent),
+      var(--bg);
+  }
+  .login-card {
+    width: 100%; max-width: 400px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; box-shadow: var(--shadow); padding: 40px 32px;
+  }
+  .login-logo {
+    width: 56px; height: 56px; border-radius: 16px; margin: 0 auto 18px;
+    background: linear-gradient(135deg, #06C755, #00B84A);
+    display: flex; align-items: center; justify-content: center; font-size: 26px;
+    box-shadow: 0 8px 20px rgba(6,199,85,.28);
+  }
+  .login-card h1 { font-size: 1.4rem; text-align: center; margin-bottom: 6px; }
+  .login-card .sub { text-align: center; color: var(--ink-2); font-size: .88rem; margin-bottom: 28px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: .82rem; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
+  .field input {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: 10px;
+    font-size: .95rem; background: #fbfcfe; color: var(--ink); transition: border-color .15s, box-shadow .15s;
+  }
+  .field input:focus { outline: none; border-color: var(--line); box-shadow: 0 0 0 3px rgba(6,199,85,.14); background: #fff; }
+  .err { color: #e05a4a; font-size: .84rem; margin-top: 12px; min-height: 1.2em; text-align: center; }
+
+  /* ---------- 後台 ---------- */
+  .app { max-width: 1080px; margin: 0 auto; padding: 24px 20px 60px; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 14px 18px; box-shadow: var(--shadow); margin-bottom: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.05rem; }
+  .brand .logo {
+    width: 38px; height: 38px; border-radius: 10px; background: linear-gradient(135deg, #06C755, #00B84A);
+    display: flex; align-items: center; justify-content: center; font-size: 19px; color: #fff;
+  }
+
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 18px; }
+  .stat-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 18px; box-shadow: var(--shadow);
+  }
+  .stat-label { font-size: .78rem; color: var(--ink-3); font-weight: 600; margin-bottom: 8px; letter-spacing: .02em; }
+  .stat-value { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+  .stat-value small { font-size: .85rem; font-weight: 600; color: var(--ink-3); margin-left: 3px; }
+  .stat-value.text { font-size: .95rem; font-weight: 600; color: var(--ink); line-height: 1.5; }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); margin-bottom: 18px; }
+  .filters { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; padding: 20px; }
+  .f-group { min-width: 170px; }
+  .f-group label { display: block; font-size: .78rem; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
+  .f-group input {
+    width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 10px;
+    font-size: .92rem; background: #fbfcfe; color: var(--ink);
+  }
+  .f-group input:focus { outline: none; border-color: var(--line); box-shadow: 0 0 0 3px rgba(6,199,85,.14); background: #fff; }
+  .quick { display: flex; gap: 8px; align-items: center; margin-bottom: 1px; }
+  .chip {
+    padding: 9px 14px; border: 1px solid var(--border); background: #fff; color: var(--ink-2);
+    border-radius: 999px; font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .15s;
+  }
+  .chip:hover { border-color: var(--line); color: var(--line-dark); }
+  .chip.active { background: var(--line); border-color: var(--line); color: #fff; }
+
+  .table-head { padding: 18px 20px 0; font-weight: 700; font-size: 1rem; }
+  .table-wrap { padding: 14px 20px 20px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .87rem; min-width: 640px; }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--ink-3); font-weight: 600; font-size: .76rem; letter-spacing: .02em; }
+  tbody tr { transition: background .12s; }
+  tbody tr:hover { background: #f6faf7; }
   tbody tr:last-child td { border-bottom: none; }
-  .empty { text-align: center; color: #a9a093; padding: 30px; display: none; }
-  .err { color: #e05a4a; font-size: 0.85rem; margin-top: 10px; min-height: 1.2em; }
+  .empty { text-align: center; color: var(--ink-3); padding: 40px; display: none; font-size: .9rem; }
+
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: 1fr; }
+    .filters { flex-direction: column; align-items: stretch; }
+    .f-group { min-width: 0; }
+  }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card" id="loginView">
-      <h1>🔐 表單後台登入</h1>
-      <label>帳號</label>
-      <input type="text" id="username" autocomplete="username" />
-      <label>密碼</label>
-      <input type="password" id="password" autocomplete="current-password" />
-      <button class="btn" id="loginBtn" style="width:100%">登入</button>
+  <!-- 登入 -->
+  <div class="login-page" id="loginView">
+    <div class="login-card">
+      <div class="login-logo">📊</div>
+      <h1>表單後台</h1>
+      <p class="sub">請登入以查看提交資料</p>
+      <div class="field">
+        <label>帳號</label>
+        <input type="text" id="username" autocomplete="username" placeholder="請輸入帳號" />
+      </div>
+      <div class="field">
+        <label>密碼</label>
+        <input type="password" id="password" autocomplete="current-password" placeholder="請輸入密碼" />
+      </div>
+      <button class="btn block" id="loginBtn">登入</button>
       <div class="err" id="loginError"></div>
     </div>
+  </div>
 
-    <div class="card" id="adminView" style="display:none">
-      <div class="topbar">
-        <h1>📋 表單查詢後台</h1>
-        <button class="btn ghost" id="logoutBtn">登出</button>
+  <!-- 後台 -->
+  <div class="app" id="adminView" style="display:none">
+    <header class="topbar">
+      <div class="brand"><span class="logo">📊</span> 表單查詢後台</div>
+      <button class="btn ghost" id="logoutBtn">登出</button>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-label">本次查詢結果</div>
+        <div class="stat-value" id="statCount">0<small>筆</small></div>
       </div>
+      <div class="stat-card">
+        <div class="stat-label">時間範圍</div>
+        <div class="stat-value text" id="statRange">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">最新提交</div>
+        <div class="stat-value text" id="statLatest">—</div>
+      </div>
+    </div>
+
+    <div class="card">
       <div class="filters">
         <div class="f-group">
           <label>開始日期</label>
@@ -62,9 +173,17 @@
           <label>結束日期</label>
           <input type="date" id="toDate" />
         </div>
+        <div class="quick">
+          <button class="chip" data-days="3">近 3 天</button>
+          <button class="chip" data-days="7">近 7 天</button>
+          <button class="chip" data-days="30">近 30 天</button>
+        </div>
         <button class="btn" id="queryBtn">查詢</button>
       </div>
-      <div class="summary" id="summary"></div>
+    </div>
+
+    <div class="card">
+      <div class="table-head">提交記錄</div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -98,7 +217,9 @@
     var toDate = document.getElementById('toDate');
     var tbody = document.getElementById('tbody');
     var empty = document.getElementById('empty');
-    var summary = document.getElementById('summary');
+    var statCount = document.getElementById('statCount');
+    var statRange = document.getElementById('statRange');
+    var statLatest = document.getElementById('statLatest');
 
     function getToken() { return localStorage.getItem(TOKEN_KEY); }
     function setToken(t) { localStorage.setItem(TOKEN_KEY, t); }
@@ -120,7 +241,7 @@
       fromDate.value = fmtDate(new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000));
       toDate.value = fmtDate(now);
     }
-    function showLogin() { loginView.style.display = 'block'; adminView.style.display = 'none'; }
+    function showLogin() { loginView.style.display = 'flex'; adminView.style.display = 'none'; }
     function showAdmin() { loginView.style.display = 'none'; adminView.style.display = 'block'; }
     function esc(s) { return s == null ? '' : String(s); }
 
@@ -128,11 +249,9 @@
       tbody.innerHTML = '';
       if (!list || list.length === 0) {
         empty.style.display = 'block';
-        summary.textContent = '共 0 筆';
         return;
       }
       empty.style.display = 'none';
-      summary.textContent = '共 ' + list.length + ' 筆';
       list.forEach(function(r) {
         var tr = document.createElement('tr');
         var vals = [fmtTime(r.created_at), esc(r.name), esc(r.age), esc(r.height), esc(r.weight), esc(r.used_product)];
@@ -143,6 +262,12 @@
         });
         tbody.appendChild(tr);
       });
+    }
+
+    function updateStats(list, from, to) {
+      statCount.innerHTML = (list ? list.length : 0) + '<small>筆</small>';
+      statRange.textContent = fmtDate(new Date(from)) + ' ~ ' + fmtDate(new Date(to));
+      statLatest.textContent = (list && list.length) ? fmtTime(list[0].created_at) : '—';
     }
 
     function loadData() {
@@ -156,6 +281,7 @@
         return res.json();
       }).then(function(data) {
         render(data.results);
+        updateStats(data.results, from, to);
       }).catch(function(e) {
         if (e.message !== 'unauth') render([]);
       });
@@ -200,7 +326,21 @@
     });
     queryBtn.addEventListener('click', loadData);
 
+    var chips = document.querySelectorAll('.chip');
+    chips.forEach(function(c) {
+      c.addEventListener('click', function() {
+        chips.forEach(function(x) { x.classList.remove('active'); });
+        c.classList.add('active');
+        var days = parseInt(c.getAttribute('data-days'), 10);
+        var now = new Date();
+        toDate.value = fmtDate(now);
+        fromDate.value = fmtDate(new Date(now.getTime() - days * 24 * 60 * 60 * 1000));
+        loadData();
+      });
+    });
+
     setDefaultRange();
+    document.querySelector('.chip[data-days="3"]').classList.add('active');
     checkLogin();
   })();
   </script>
