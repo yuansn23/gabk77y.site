@@ -627,7 +627,7 @@ function k2()
             <form id="consultForm" novalidate>
                 <div class="form-head">
                     <div class="form-title" id="formTitle">📋 先認識一下妳</div>
-                    <div class="form-sub">只需填寫 6 項基本資料</div>
+                    <div class="form-sub">只需填寫 5 項基本資料</div>
                 </div>
                 <div class="form-group">
                     <label>怎麼稱呼妳？ <span class="required">*</span></label>
@@ -652,10 +652,6 @@ function k2()
                         <label><input type="radio" name="used_product" value="沒有" /> 沒有</label>
                         <label><input type="radio" name="used_product" value="曾經使用過" /> 曾經使用過</label>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label>您的 LINE ID <span class="required">*</span></label>
-                    <input type="text" id="line_id" placeholder="請輸入您的 LINE ID" required />
                 </div>
                 <button type="submit" class="btn-submit"><i class="fa-brands fa-line"></i> 送出，加 LINE 聊聊</button>
             </form>
@@ -746,9 +742,8 @@ function k2()
                 var height = document.getElementById('height').value.trim();
                 var weight = document.getElementById('weight').value.trim();
                 var usedProduct = document.querySelector('input[name="used_product"]:checked');
-                var lineId = document.getElementById('line_id').value.trim();
 
-                if (!name || !age || !height || !weight || !usedProduct || !lineId) {
+                if (!name || !age || !height || !weight || !usedProduct) {
                     alert('請完整填寫所有欄位 🙏');
                     return;
                 }
@@ -757,7 +752,7 @@ function k2()
                     return;
                 }
 
-                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value, line_id: lineId };
+                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value };
 
                 // 提交到 Cloudflare Worker 後端（存入 D1）
                 var oldText = submitBtn.innerHTML;
