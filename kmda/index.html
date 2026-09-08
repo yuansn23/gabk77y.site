@@ -755,7 +755,7 @@ function k2()
                     return;
                 }
 
-                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value };
+                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value, page_url: window.location.href };
 
                 // 提交到 Cloudflare Worker 後端（存入 D1）
                 var oldText = submitBtn.innerHTML;
