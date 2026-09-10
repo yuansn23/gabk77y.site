@@ -8,17 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-	
-	  <script src="https://api.xcty68.vip/js/meetu-sdk.js"></script>
-	  
-<script>
-function k2()
 
-{
+    <script src="https://api.xcty68.vip/js/meetu-sdk.js"></script>
 
-	MeetU.download(event);
-}
-</script>
+    <script>
+        function k2() {
+            MeetU.download(event);
+        }
+    </script>
     <style>
         :root {
             /* 溫暖明亮色系 */
@@ -279,53 +276,6 @@ function k2()
         }
         .float-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius); font-weight: 700; font-size: 0.92rem; border: none; }
 
-        /* ===== 彈窗 ===== */
-        .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: flex-end; justify-content: center; visibility: hidden; pointer-events: none; }
-        .modal.open { visibility: visible; pointer-events: auto; }
-        .modal-backdrop { position: absolute; inset: 0; background: rgba(42,35,29,0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.3s var(--ease-out); }
-        .modal.open .modal-backdrop { opacity: 1; }
-        .modal-dialog {
-            position: relative; width: 100%; max-width: 500px; max-height: 92dvh; overflow-y: auto; -webkit-overflow-scrolling: touch;
-            background: #FFFDFA; border: 1px solid var(--border-light); border-bottom: none;
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0; box-shadow: 0 -20px 60px rgba(42,35,29,0.2);
-            padding: 10px 18px calc(30px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.4s var(--ease-spring);
-        }
-        .modal.open .modal-dialog { transform: translateY(0); }
-        .modal-handle { width: 42px; height: 5px; border-radius: 999px; background: #D8CEBF; margin: 6px auto 14px; flex-shrink: 0; }
-        .modal-close {
-            position: absolute; top: 14px; right: 14px; z-index: 2; width: 34px; height: 34px; border-radius: 50%;
-            border: 1px solid var(--border-light); background: rgba(42,35,29,0.05); color: var(--white-muted);
-            display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.95rem; transition: all 0.2s;
-        }
-        .modal-close:active { background: rgba(42,35,29,0.1); color: var(--white); transform: rotate(90deg); }
-
-        .form-head { text-align: center; margin-bottom: 22px; }
-        .form-head .form-title { font-size: 1.15rem; font-weight: 800; color: var(--white); margin-bottom: 4px; }
-        .form-head .form-sub { font-size: 0.7rem; color: var(--white-muted); }
-        .form-group { margin-bottom: 16px; }
-        .form-group > label { display: block; font-size: 0.74rem; font-weight: 700; color: var(--white); margin-bottom: 7px; }
-        .form-group > label .required { color: var(--gold-bright); margin-left: 2px; }
-        .form-group input { width: 100%; padding: 13px 14px; font-size: 0.85rem; font-family: inherit; color: var(--white); background: var(--bg-card2); border: 1px solid var(--border-light); border-radius: var(--radius); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
-        .form-group input::placeholder { color: #B8AE9F; }
-        .form-group input:focus { border-color: var(--line); box-shadow: 0 0 0 3px var(--line-glow); background: #fff; }
-        .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
-        .radio-group label { display: flex; align-items: center; gap: 6px; font-size: 0.74rem; font-weight: 500; color: var(--white-dim); cursor: pointer; padding: 9px 14px; border: 1px solid var(--border-light); border-radius: 999px; background: var(--bg-card2); transition: all 0.2s; }
-        .radio-group label:has(input:checked) { border-color: var(--line); background: rgba(6,199,85,0.1); color: var(--line-dark); }
-        .radio-group input[type="radio"] { width: 14px; height: 14px; accent-color: var(--line); margin: 0; flex-shrink: 0; }
-        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius); background: linear-gradient(135deg, var(--line), var(--line-dark)); color: #fff; font-size: 0.92rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 6px 20px var(--line-glow); transition: transform 0.2s; margin-top: 6px; }
-        .btn-submit:active { transform: scale(0.97); }
-
-        .success-msg { display: none; text-align: center; padding: 30px 8px 10px; }
-        .success-msg.show { display: block; animation: fadeUp 0.35s var(--ease-out); }
-        .success-msg .icon { font-size: 3rem; margin-bottom: 12px; }
-        .success-msg h3 { font-size: 1.2rem; font-weight: 800; color: var(--line-dark); margin-bottom: 8px; }
-        .success-msg p { font-size: 0.78rem; color: var(--white-dim); }
-        .success-msg .line-id { display: inline-block; font-weight: 700; color: var(--line-dark); font-size: 0.9rem; background: rgba(6,199,85,0.08); border: 1px solid rgba(6,199,85,0.22); padding: 9px 24px; border-radius: 999px; margin: 14px 0 8px; }
-        .success-msg .line-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 13px 36px; background: var(--line); color: #fff; font-size: 0.9rem; font-weight: 700; border-radius: var(--radius); text-decoration: none; box-shadow: 0 8px 20px var(--line-glow); }
-        .success-msg .foot-note { font-size: 0.66rem; color: var(--white-muted); margin-top: 14px; }
-
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-
         .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
         .reveal.on { opacity: 1; transform: translateY(0); }
 
@@ -342,7 +292,7 @@ function k2()
 
         <div class="header">
             <div class="header-l"><span class="header-logo">彭</span><span class="header-name">彭詩琪</span></div>
-            <button class="header-cta-btn" id="headerCta"><i class="fa-brands fa-line"></i> LINE 諮詢</button>
+            <button class="header-cta-btn" id="headerCta" onclick="k2()"><i class="fa-brands fa-line"></i> LINE 諮詢</button>
         </div>
 
         <!-- HERO -->
@@ -368,7 +318,7 @@ function k2()
                 <div class="hero-stat"><div class="hero-stat-num">45kg</div><div class="hero-stat-lbl">現在</div></div>
                 <div class="hero-stat"><div class="hero-stat-num">半年</div><div class="hero-stat-lbl">真實改變</div></div>
             </div> 
-            <p class="hero-footnote">填寫資料後，加 LINE 發送姓名</p>
+            <p class="hero-footnote">點擊下方按鈕，直接與我聯繫</p>
         </section>
 
         <!-- 第一章 · 我的故事（時間線） -->
@@ -465,7 +415,7 @@ function k2()
                     <p>這半年我不只用產品，同時也在調整飲食。<br>減重結果是綜合努力的成果，不能單獨歸因於產品。<br><strong>個人結果不代表效果保證。</strong></p>
                 </div>
                 <p class="story-text" style="margin-top:16px;">我不想用我媽媽的悲劇去包裝任何虛假承諾。我知道這個世界的現實——長相、身材、健康，都會影響一個人的生活。但我也知道，<span class="hl">真正改變人的，從來不是任何產品，而是一個人對自己的決心。</span></p>
-                <p class="story-text">如果你想知道我具體用的什麼，我不會藏著掖著。加我的LINE，發你的名字給我，我們從你想問的問題開始聊。</p>
+                <p class="story-text">如果你想知道我具體用的什麼，我不會藏著掖著。點下面的按鈕直接找我，我們從你想問的問題開始聊。</p>
 
                 <div class="promise-card">
                     <div class="pc-icon">🤝</div>
@@ -506,7 +456,7 @@ function k2()
         <!-- 好處清單 -->
         <section class="sec reveal">
             <div class="sec-label">免費服務</div>
-            <h2 class="sec-title">加入 LINE 後，你能得到</h2>
+            <h2 class="sec-title">聯繫我後，你能得到</h2>
             <div class="check-list" style="margin-top:18px;">
                 <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>一對一 LINE 諮詢</strong>，詩琪親自回覆你</div></div>
                 <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>了解半年 90kg→45kg</strong> 的完整減重經歷與方法</div></div>
@@ -542,8 +492,8 @@ function k2()
             <div class="sec-label">如何開始</div>
             <h2 class="sec-title">只需三步，開始聊聊</h2>
             <div class="step-list" style="margin-top:18px;">
-                <div class="step-item"><div class="num">1</div><div class="step-body"><div class="step-title">加 LINE</div><div class="step-desc">加入詩琪的 LINE 好友</div></div></div>
-                <div class="step-item"><div class="num">2</div><div class="step-body"><div class="step-title">填資料</div><div class="step-desc">填寫 5 項基本資料</div></div></div>
+                <div class="step-item"><div class="num">1</div><div class="step-body"><div class="step-title">點擊按鈕</div><div class="step-desc">直接與詩琪聯繫</div></div></div>
+                <div class="step-item"><div class="num">2</div><div class="step-body"><div class="step-title">說明來意</div><div class="step-desc">告訴我你想了解什麼</div></div></div>
                 <div class="step-item"><div class="num">3</div><div class="step-body"><div class="step-title">開始聊</div><div class="step-desc">我們從你想問的問題開始</div></div></div>
             </div>
         </section>
@@ -563,7 +513,7 @@ function k2()
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">需要花錢嗎？<span class="faq-icon">▼</span></button>
-                    <div class="faq-a"><div class="faq-a-inner"><strong>諮詢完全免費。</strong> 加 LINE、填資料、聊聊，都不需要先付任何費用。</div></div>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>諮詢完全免費。</strong> 點擊按鈕聯繫、聊聊，都不需要先付任何費用。</div></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">會不會強迫我購買產品？<span class="faq-icon">▼</span></button>
@@ -571,7 +521,7 @@ function k2()
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">我該怎麼開始？<span class="faq-icon">▼</span></button>
-                    <div class="faq-a"><div class="faq-a-inner"><strong>加我的LINE，發你的名字給我。</strong> 我們從你想問的問題開始聊。不必急著把我的數字當成你的目標——你的身體，你的故事，值得被認真對待。</div></div>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>點擊下方的按鈕直接聯繫我。</strong> 我們從你想問的問題開始聊。不必急著把我的數字當成你的目標——你的身體，你的故事，值得被認真對待。</div></div>
                 </div>
             </div>
         </section>
@@ -593,8 +543,8 @@ function k2()
         <!-- CTA -->
         <section class="cta-section">
             <h2>準備好開始了嗎？</h2>
-            <p>加 LINE 聊聊，我們從你想問的問題開始。</p>
-            <button class="cta-btn" id="ctaBtn"><i class="fa-brands fa-line"></i> 我想了解產品</button>
+            <p>點擊下方按鈕，我們從你想問的問題開始。</p>
+            <button class="cta-btn" id="ctaBtn" onclick="k2()"><i class="fa-brands fa-line"></i> 我想了解產品</button>
             <div class="urgency"><span class="u-dot"></span> 本週免費諮詢名額有限 · 把握時間</div>
         </section>
 
@@ -603,7 +553,7 @@ function k2()
             <div class="line-guide">
                 <div class="lg-label">想了解更多？</div>
                 <div class="line-id"><i class="fa-brands fa-line"></i> 找詩琪聊聊</div>
-                <div class="lg-hint">加入 LINE 後，傳送這個姓名就可以</div>
+                <div class="lg-hint">點擊按鈕即可直接與我聯繫</div>
             </div>
         </section>
 
@@ -615,57 +565,9 @@ function k2()
         </footer>
 
         <div class="float-bar">
-            <button class="float-btn" id="floatBtn"><i class="fa-brands fa-line"></i> 我想了解產品</button>
+            <button class="float-btn" id="floatBtn" onclick="k2()"><i class="fa-brands fa-line"></i> 我想了解產品</button>
         </div>
 
-    </div>
-
-    <!-- 彈窗 -->
-    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal-dialog">
-            <div class="modal-handle"></div>
-            <button class="modal-close" id="modalClose" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
-
-            <form id="consultForm" novalidate>
-                <div class="form-head">
-                    <div class="form-title" id="formTitle">📋 先認識一下妳</div>
-                    <div class="form-sub">只需填寫 5 項基本資料</div>
-                </div>
-                <div class="form-group">
-                    <label>怎麼稱呼妳？ <span class="required">*</span></label>
-                    <input type="text" id="name" placeholder="請輸入姓名" required />
-                </div>
-                <div class="form-group">
-                    <label>年紀 <span class="required">*</span></label>
-                    <input type="number" id="age" placeholder="請輸入年齡" min="10" max="99" required />
-                </div>
-                <div class="form-group">
-                    <label>身高 (cm) <span class="required">*</span></label>
-                    <input type="number" id="height" placeholder="請輸入身高，例如 165" min="100" max="250" required />
-                </div>
-                <div class="form-group">
-                    <label>體重 (kg) <span class="required">*</span></label>
-                    <input type="number" id="weight" placeholder="請輸入體重，例如 70" min="20" max="300" required />
-                </div>
-                <div class="form-group">
-                    <label>有無使用過減肥產品？ <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="used_product" value="有" required /> 有</label>
-                        <label><input type="radio" name="used_product" value="沒有" /> 沒有</label>
-                        <label><input type="radio" name="used_product" value="曾經使用過" /> 曾經使用過</label>
-                    </div>
-                </div>
-                <button type="submit" class="btn-submit"><i class="fa-brands fa-line"></i> 送出，加 LINE 聊聊</button>
-            </form>
-
-            <div class="success-msg" id="successMsg">
-                
-                <h3>資料已收到！</h3>
-                <p>詩琪會親自回覆您，請先加入 LINE。</p>
-                <a onclick="k2()" class="line-btn" ><i class="fa-brands fa-line"></i> 加入 LINE 諮詢</a>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -682,125 +584,6 @@ function k2()
             document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
             if (!was) p.classList.add('open');
         }
-
-        (function() {
-            'use strict';
-
-            var modal = document.getElementById('modal');
-            var backdrop = document.getElementById('modalBackdrop');
-            var closeBtn = document.getElementById('modalClose');
-            var consultForm = document.getElementById('consultForm');
-            var successMsg = document.getElementById('successMsg');
-            var submitBtn = consultForm.querySelector('.btn-submit');
-            var API_BASE = ''; // 同域部署：Worker 路由到 gabk77y.site/api/*，相對路徑即可
-            var bodyScrollTop = 0;
-
-            function showSuccess() {
-                consultForm.style.display = 'none';
-                successMsg.classList.add('show');
-                var dialog = modal.querySelector('.modal-dialog');
-                if (dialog) dialog.scrollTop = 0;
-            }
-
-            function openModal() {
-                bodyScrollTop = window.scrollY;
-                modal.classList.add('open');
-                document.body.style.overflow = 'hidden';
-                document.body.style.position = 'fixed';
-                document.body.style.top = '-' + bodyScrollTop + 'px';
-                document.body.style.left = '0';
-                document.body.style.right = '0';
-                document.body.style.width = '100%';
-                consultForm.style.display = 'block';
-                successMsg.classList.remove('show');
-            }
-
-            function closeModal() {
-                modal.classList.remove('open');
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.top = '';
-                document.body.style.left = '';
-                document.body.style.right = '';
-                document.body.style.width = '';
-                window.scrollTo(0, bodyScrollTop);
-            }
-
-            ['headerCta', 'heroCta', 'ctaBtn', 'floatBtn'].forEach(function(id) {
-                var el = document.getElementById(id);
-                if (el) el.addEventListener('click', openModal);
-            });
-
-            closeBtn.addEventListener('click', closeModal);
-            backdrop.addEventListener('click', closeModal);
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-            });
-
-            consultForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                var name = document.getElementById('name').value.trim();
-                var age = document.getElementById('age').value.trim();
-                var height = document.getElementById('height').value.trim();
-                var weight = document.getElementById('weight').value.trim();
-                var usedProduct = document.querySelector('input[name="used_product"]:checked');
-
-                if (!name || !age || !height || !weight || !usedProduct) {
-                    alert('請完整填寫所有欄位 🙏');
-                    return;
-                }
-                if (parseInt(age) < 10 || parseInt(age) > 99) {
-                    alert('請輸入有效的年齡 (10-99)');
-                    return;
-                }
-
-                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value, page_url: window.location.href };
-
-                // 提交到 Cloudflare Worker 後端（存入 D1）
-                var oldText = submitBtn.innerHTML;
-                submitBtn.disabled = true;
-                submitBtn.innerHTML = '送出中…';
-
-                fetch(API_BASE + '/api/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                }).then(function(r) { return r.json(); }).then(function(d) {
-                    if (d && d.ok) {
-                        showSuccess();
-                    } else {
-                        console.error('提交失敗', d);
-                        showSuccess(); // 後端異常也不流失客戶，仍顯示 LINE 資訊
-                    }
-                }).catch(function(err) {
-                    console.error('提交失敗', err);
-                    showSuccess(); // 網路異常也先顯示 LINE 資訊
-                }).finally(function() {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = oldText;
-                });
-            });
-
-            var lineBtn = document.getElementById('lineCopyBtn');
-            lineBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                var lineId = '詩琪的LINE_ID';
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(lineId).then(function() {
-                        alert('✅ LINE ID 已複製！請打開 LINE 貼上搜尋加入。');
-                    }).catch(function() { prompt('請複製以下 LINE ID 加入好友：', lineId); });
-                } else {
-                    prompt('請複製以下 LINE ID 加入好友：', lineId);
-                }
-            });
-
-            document.querySelectorAll('input[type="number"]').forEach(function(input) {
-                input.addEventListener('blur', function() {
-                    if (this.value && this.value < 0) this.value = '';
-                });
-            });
-        })();
     </script>
 
 </body>
