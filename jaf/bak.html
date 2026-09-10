@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>彭詩琪 · 半年減重故事</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	
+	  <script src="https://api.xcty68.vip/js/meetu-sdk.js"></script>
+	  
+<script>
+function k2()
+
+{
+
+	MeetU.download(event);
+}
+</script>
+    <style>
+        :root {
+            /* 溫暖明亮色系 */
+            --bg: #FDF8F2;            /* 奶油底 */
+            --bg-card: #FFFFFF;        /* 白卡片 */
+            --bg-card2: #F6EDE2;       /* 柔暖沙色 */
+            --gold: #F0854B;           /* 珊瑚橘（主強調） */
+            --gold-bright: #E06A2E;    /* 深珊瑚（重點文字） */
+            --gold-glow: rgba(240, 133, 75, 0.16);
+            --green: #1FB56B;          /* 健康綠 */
+            --line: #06C755;           /* LINE 品牌綠 */
+            --line-dark: #00B84A;
+            --line-glow: rgba(6, 199, 85, 0.20);
+            --white: #2A231D;          /* 主文字（暖炭） */
+            --white-dim: #5B5145;      /* 次要文字 */
+            --white-muted: #9C9181;    /* 弱化文字 */
+            --border: #EFE4D7;
+            --border-light: #F4EBDF;
+            --shadow-card: 0 1px 2px rgba(42, 35, 29, 0.03), 0 6px 20px rgba(42, 35, 29, 0.06);
+            --radius: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 22px;
+            --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        body {
+            font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg); color: var(--white-dim); line-height: 1.7;
+            min-height: 100vh; -webkit-tap-highlight-color: transparent;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        ::selection { background: var(--gold); color: #fff; }
+
+        .page { max-width: 500px; margin: 0 auto; background: var(--bg); position: relative; overflow-x: hidden; padding-bottom: 80px; }
+
+        /* ===== 跑馬燈 ===== */
+        .flash-bar {
+            background: linear-gradient(90deg, #FF9A6B, #F0854B, #FF9A6B);
+            background-size: 200% 100%; animation: flash-move 2s linear infinite;
+            color: #fff; text-align: center; padding: 8px 16px; font-size: 0.72rem; font-weight: 800;
+            letter-spacing: 0.04em; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        @keyframes flash-move { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+        .flash-bar .dot { width: 7px; height: 7px; background: #fff; border-radius: 50%; animation: blink-dot 0.7s infinite; }
+        @keyframes blink-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+        /* ===== 導航 ===== */
+        .header {
+            position: sticky; top: 0; z-index: 100; background: rgba(253, 248, 242, 0.92);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            padding: 8px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border);
+        }
+        .header-l { display: flex; align-items: center; gap: 8px; }
+        .header-logo { width: 30px; height: 30px; background: var(--line); border-radius: 7px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 0.6rem; }
+        .header-name { font-size: 0.82rem; font-weight: 700; color: var(--white); }
+        .header-cta-btn {
+            padding: 7px 14px; background: linear-gradient(135deg, var(--line), var(--line-dark)); color: #fff;
+            border-radius: 999px; font-size: 0.72rem; font-weight: 700; display: flex; align-items: center; gap: 6px;
+            transition: transform 0.2s; border: none; cursor: pointer; box-shadow: 0 6px 20px var(--line-glow);
+        }
+        .header-cta-btn:active { transform: scale(0.94); }
+
+        /* ===== HERO ===== */
+        .hero { padding: 16px 16px 20px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px;
+            background: rgba(240, 133, 75, 0.12); border: 1px solid rgba(240, 133, 75, 0.28);
+            border-radius: 999px; font-size: 0.68rem; font-weight: 700; color: var(--gold-bright); margin-bottom: 14px; letter-spacing: 0.04em;
+        }
+        .hero-badge .live { color: var(--gold-bright); animation: blink-dot 0.8s infinite; }
+
+        .hero-banner { position: relative; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 16px; aspect-ratio: 16/9; background: var(--bg-card2); }
+        .hero-banner img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-banner-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(42,35,29,0.5) 0%, transparent 55%, rgba(42,35,29,0.06) 100%); pointer-events: none; }
+        .hero-banner-tag {
+            position: absolute; bottom: 10px; right: 10px; background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 6px; padding: 5px 10px;
+            font-size: 0.65rem; font-weight: 800; color: var(--gold-bright); display: flex; align-items: center; gap: 5px;
+        }
+
+        .hero-mentor {
+            display: flex; align-items: center; gap: 12px; background: var(--bg-card);
+            border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 12px 16px; margin-bottom: 16px; box-shadow: var(--shadow-card);
+        }
+        .hero-mentor-avatar { width: 56px; height: 56px; border-radius: 50%; flex-shrink: 0; overflow: hidden; border: 2px solid var(--line); background: var(--bg-card2); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; }
+        .hero-mentor-info { flex: 1; min-width: 0; }
+        .hero-mentor-name { font-size: 0.92rem; font-weight: 800; color: var(--white); margin-bottom: 2px; }
+        .hero-mentor-role { font-size: 0.66rem; color: var(--white-muted); }
+        .hero-mentor-badge { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; padding: 3px 8px; background: rgba(6,199,85,0.12); border-radius: 999px; font-size: 0.55rem; font-weight: 700; color: var(--line-dark); }
+
+        .hero h1 { font-size: 1.55rem; font-weight: 900; line-height: 1.3; color: var(--white); margin-bottom: 10px; letter-spacing: -0.02em; }
+        .hero h1 em { font-style: normal; color: var(--gold-bright); }
+        .hero-sub { font-size: 0.82rem; color: var(--white-dim); margin-bottom: 16px; }
+
+        .hero-stats-row { display: flex; gap: 6px; margin-bottom: 18px; }
+        .hero-stat { flex: 1; text-align: center; padding: 14px 6px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); }
+        .hero-stat-num { font-size: 1.25rem; font-weight: 900; color: var(--gold-bright); line-height: 1; margin-bottom: 3px; }
+        .hero-stat-lbl { font-size: 0.58rem; color: var(--white-muted); }
+
+        .hero-cta, .cta-btn, .float-btn { background: linear-gradient(135deg, var(--line), var(--line-dark)); color: #fff; box-shadow: 0 6px 20px var(--line-glow); border: none; cursor: pointer; transition: transform 0.2s; }
+        .hero-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius); font-weight: 700; font-size: 0.92rem; }
+        .hero-cta i, .cta-btn i, .float-btn i { font-size: 1.05rem; }
+        .hero-cta:active, .cta-btn:active, .float-btn:active { transform: scale(0.96); }
+
+        @keyframes breathe {
+            0%, 100% { box-shadow: 0 4px 16px var(--line-glow); }
+            50% { box-shadow: 0 6px 30px rgba(6,199,85,0.4), 0 0 50px rgba(6,199,85,0.15); }
+        }
+        .float-btn { animation: breathe 2s ease-in-out infinite; }
+        .float-btn:active { animation: none; }
+        .hero-footnote { text-align: center; font-size: 0.62rem; color: var(--white-muted); margin-top: 8px; }
+
+        /* ===== 區塊 ===== */
+        .sec { padding: 32px 18px; }
+        .sec-dark { background: #F7EFE4; }
+        .sec-label { text-align: center; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-bright); margin-bottom: 8px; }
+        .sec-title { font-size: 1.25rem; font-weight: 800; text-align: center; color: var(--white); margin-bottom: 8px; letter-spacing: -0.02em; }
+
+        .story-text { font-size: 0.82rem; color: var(--white-dim); line-height: 1.8; margin-bottom: 14px; }
+        .story-text strong { color: var(--white); }
+        .story-text .hl { color: var(--gold-bright); font-weight: 700; }
+        .story-byline { font-size: 0.68rem; color: var(--white-muted); margin-top: 6px; }
+
+        /* ===== 人生時間線 ===== */
+        .timeline { position: relative; margin: 22px 0 0; padding-left: 30px; }
+        .timeline::before { content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(180deg, var(--gold), rgba(240,133,75,0.15)); border-radius: 2px; }
+        .tl-item { position: relative; padding-bottom: 20px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot { position: absolute; left: -30px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); box-shadow: 0 0 0 4px rgba(240,133,75,0.12); }
+        .tl-dot::after { content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--gold); }
+        .tl-item.end .tl-dot { border-color: var(--line); box-shadow: 0 0 0 4px rgba(6,199,85,0.12); }
+        .tl-item.end .tl-dot::after { background: var(--line); }
+        .tl-period { display: inline-block; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.06em; color: var(--gold-bright); margin-bottom: 4px; }
+        .tl-item.end .tl-period { color: var(--line-dark); }
+        .tl-text { font-size: 0.8rem; color: var(--white-dim); line-height: 1.7; }
+        .tl-text strong { color: var(--white); }
+
+        /* ===== 遺言信 ===== */
+        .vow-card {
+            position: relative; padding: 30px 22px 24px; margin-top: 18px;
+            background: linear-gradient(160deg, rgba(240,133,75,0.08), rgba(240,133,75,0.02));
+            border: 1px solid rgba(240,133,75,0.22); border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-card);
+        }
+        .vow-card::before { content: '「'; position: absolute; top: 2px; left: 16px; font-size: 3rem; font-weight: 900; color: var(--gold); opacity: 0.28; line-height: 1; font-family: Georgia, serif; }
+        .vow-text { font-size: 0.95rem; font-weight: 700; color: var(--gold-bright); line-height: 2; position: relative; }
+        .vow-statement { margin-top: 16px; padding: 18px 16px 18px 20px; border-left: 3px solid var(--gold); background: linear-gradient(90deg, rgba(240,133,75,0.07), transparent); border-radius: 0 var(--radius) var(--radius) 0; }
+
+        /* 愛好標籤 */
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 4px; }
+        .chip { padding: 8px 14px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 999px; font-size: 0.72rem; color: var(--white-dim); font-weight: 600; }
+
+        .alert-box { padding: 16px; background: rgba(240,133,75,0.07); border: 1px solid rgba(240,133,75,0.16); border-radius: var(--radius); margin-top: 16px; }
+        .alert-box p { font-size: 0.7rem; color: var(--white-dim); line-height: 1.65; }
+        .alert-box strong { color: var(--gold-bright); }
+
+        /* ===== 承諾卡 ===== */
+        .promise-card { display: flex; align-items: flex-start; gap: 12px; padding: 16px; margin-top: 16px; background: rgba(6,199,85,0.06); border: 1px solid rgba(6,199,85,0.2); border-radius: var(--radius); }
+        .promise-card .pc-icon { font-size: 1.5rem; line-height: 1; }
+        .promise-card .pc-title { font-size: 0.82rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+        .promise-card .pc-text { font-size: 0.7rem; color: var(--white-dim); line-height: 1.6; }
+
+        /* ===== 信任徽章 ===== */
+        .trust-strip { display: flex; gap: 8px; }
+        .trust-item { flex: 1; text-align: center; padding: 16px 8px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+        .trust-item .ti-icon { font-size: 1.4rem; margin-bottom: 6px; }
+        .trust-item .ti-label { font-size: 0.62rem; color: var(--white-dim); font-weight: 600; line-height: 1.45; }
+
+        /* 成果 */
+        .highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+        .highlight-card { padding: 20px 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; box-shadow: var(--shadow-card); }
+        .highlight-card .hc-num { font-size: 1.8rem; font-weight: 900; color: var(--gold-bright); line-height: 1.1; }
+        .highlight-card.after .hc-num { color: var(--line-dark); }
+        .highlight-card .hc-unit { font-size: 0.72rem; font-weight: 700; color: var(--white-muted); margin-left: 3px; }
+        .highlight-card .hc-sub { font-size: 0.6rem; color: var(--white-muted); margin-top: 4px; }
+        .highlight-card .hc-tag { display: inline-block; font-size: 0.55rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; margin-bottom: 8px; background: rgba(156,145,129,0.12); color: var(--white-muted); }
+        .highlight-card.after .hc-tag { background: rgba(6,199,85,0.12); color: var(--line-dark); }
+
+        .progress-wrap { padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 8px; }
+        .progress-labels { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 0.65rem; font-weight: 700; color: var(--white-muted); }
+        .progress-labels .pl-right { color: var(--line-dark); }
+        .progress-bar { position: relative; height: 10px; border-radius: 999px; background: var(--bg-card2); overflow: hidden; }
+        .progress-fill { position: absolute; top: 0; left: 0; height: 100%; width: 50%; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--line)); }
+        .progress-marker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border-radius: 50%; background: #fff; border: 4px solid var(--line); box-shadow: 0 2px 8px var(--line-glow); }
+
+        /* 全幅圖片 */
+        .media-full { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--bg-card2); }
+        .media-full img { width: 100%; height: 100%; object-fit: cover; }
+        .media-full .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(42,35,29,0.05) 0%, rgba(42,35,29,0.35) 55%, rgba(42,35,29,0.72) 100%); }
+        .media-full .caption { position: absolute; left: 20px; right: 20px; bottom: 18px; text-align: center; }
+        .media-full .cap-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; color: #FFD7B8; margin-bottom: 6px; }
+        .media-full .cap-title { font-size: 1.12rem; font-weight: 800; color: #fff; line-height: 1.4; }
+
+        /* 好處清單 */
+        .check-list { display: flex; flex-direction: column; gap: 10px; }
+        .check-item { display: flex; align-items: flex-start; gap: 10px; padding: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+        .check-icon { width: 36px; height: 36px; min-width: 36px; border-radius: 50%; background: rgba(6,199,85,0.12); color: var(--line-dark); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; }
+        .check-text { font-size: 0.78rem; color: var(--white-dim); line-height: 1.55; }
+        .check-text strong { color: var(--white); }
+
+        /* ===== 適合誰 ===== */
+        .fit-wrap { display: flex; flex-direction: column; gap: 10px; }
+        .fit-card { padding: 18px 16px; border-radius: var(--radius); border: 1px solid; }
+        .fit-yes { background: rgba(31,181,107,0.05); border-color: rgba(31,181,107,0.24); }
+        .fit-no { background: rgba(240,133,75,0.05); border-color: rgba(240,133,75,0.2); }
+        .fit-head { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+        .fit-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 900; color: #fff; }
+        .fit-yes .fit-icon { background: var(--green); }
+        .fit-no .fit-icon { background: #C9A08A; }
+        .fit-card ul { list-style: none; }
+        .fit-card li { position: relative; padding-left: 16px; font-size: 0.74rem; color: var(--white-dim); line-height: 1.7; margin-bottom: 6px; }
+        .fit-card li::before { content: '·'; position: absolute; left: 3px; top: 0; color: var(--gold-bright); font-weight: 900; }
+        .fit-card li:last-child { margin-bottom: 0; }
+
+        /* 三步流程 */
+        .step-list { display: flex; flex-direction: column; gap: 8px; }
+        .step-item { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+        .step-item .num { width: 34px; height: 34px; min-width: 34px; border-radius: 50%; background: var(--line); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 900; }
+        .step-item .step-title { font-size: 0.82rem; font-weight: 700; color: var(--white); }
+        .step-item .step-desc { font-size: 0.68rem; color: var(--white-muted); }
+
+        /* FAQ */
+        .faq { display: flex; flex-direction: column; gap: 6px; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+        .faq-q { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px; font-size: 0.78rem; font-weight: 700; color: var(--white); cursor: pointer; user-select: none; width: 100%; text-align: left; background: none; border: none; font-family: inherit; line-height: 1.5; }
+        .faq-q .faq-icon { transition: transform 0.3s; font-size: 0.6rem; color: var(--white-muted); flex-shrink: 0; }
+        .faq-item.open .faq-q .faq-icon { transform: rotate(180deg); color: var(--gold-bright); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s var(--ease-out); }
+        .faq-item.open .faq-a { max-height: 500px; }
+        .faq-a-inner { padding: 0 16px 16px; font-size: 0.7rem; color: var(--white-dim); line-height: 1.7; }
+        .faq-a-inner strong { color: var(--gold-bright); }
+
+        /* CTA 區 */
+        .cta-section { padding: 32px 18px; text-align: center; }
+        .cta-section h2 { font-size: 1.25rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+        .cta-section p { font-size: 0.75rem; color: var(--white-dim); margin-bottom: 16px; }
+        .cta-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; max-width: 320px; margin: 0 auto; padding: 14px; border-radius: var(--radius); font-weight: 700; font-size: 0.92rem; }
+        .urgency { margin-top: 14px; display: inline-flex; align-items: center; gap: 7px; font-size: 0.68rem; color: var(--white-muted); }
+        .urgency .u-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: blink-dot 0.8s infinite; }
+
+        .line-guide { text-align: center; padding: 4px 0; }
+        .line-guide .lg-label { font-size: 0.68rem; color: var(--white-muted); }
+        .line-guide .line-id { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--line-dark); font-size: 0.95rem; background: var(--bg-card); border: 1px solid var(--border-light); padding: 11px 26px; border-radius: 999px; margin: 12px 0 14px; box-shadow: var(--shadow-card); }
+        .line-guide .lg-hint { font-size: 0.68rem; color: var(--white-dim); }
+
+        .footer { text-align: center; padding: 24px 16px; font-size: 0.6rem; color: var(--white-muted); border-top: 1px solid var(--border); }
+        .footer .f-brand { font-size: 0.78rem; font-weight: 700; color: var(--white); letter-spacing: 2px; margin-bottom: 8px; }
+        .footer p { margin-bottom: 3px; }
+        .footer .f-fine { font-size: 0.58rem; color: #B8AE9F; margin-top: 10px; }
+
+        .float-bar {
+            position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 500px; z-index: 200;
+            padding: 8px 16px max(8px, env(safe-area-inset-bottom)); background: rgba(253,248,242,0.95);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border);
+        }
+        .float-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius); font-weight: 700; font-size: 0.92rem; border: none; }
+
+        /* ===== 彈窗 ===== */
+        .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: flex-end; justify-content: center; visibility: hidden; pointer-events: none; }
+        .modal.open { visibility: visible; pointer-events: auto; }
+        .modal-backdrop { position: absolute; inset: 0; background: rgba(42,35,29,0.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity 0.3s var(--ease-out); }
+        .modal.open .modal-backdrop { opacity: 1; }
+        .modal-dialog {
+            position: relative; width: 100%; max-width: 500px; max-height: 92dvh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+            background: #FFFDFA; border: 1px solid var(--border-light); border-bottom: none;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0; box-shadow: 0 -20px 60px rgba(42,35,29,0.2);
+            padding: 10px 18px calc(30px + env(safe-area-inset-bottom)); transform: translateY(100%); transition: transform 0.4s var(--ease-spring);
+        }
+        .modal.open .modal-dialog { transform: translateY(0); }
+        .modal-handle { width: 42px; height: 5px; border-radius: 999px; background: #D8CEBF; margin: 6px auto 14px; flex-shrink: 0; }
+        .modal-close {
+            position: absolute; top: 14px; right: 14px; z-index: 2; width: 34px; height: 34px; border-radius: 50%;
+            border: 1px solid var(--border-light); background: rgba(42,35,29,0.05); color: var(--white-muted);
+            display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.95rem; transition: all 0.2s;
+        }
+        .modal-close:active { background: rgba(42,35,29,0.1); color: var(--white); transform: rotate(90deg); }
+
+        .form-head { text-align: center; margin-bottom: 22px; }
+        .form-head .form-title { font-size: 1.15rem; font-weight: 800; color: var(--white); margin-bottom: 4px; }
+        .form-head .form-sub { font-size: 0.7rem; color: var(--white-muted); }
+        .form-group { margin-bottom: 16px; }
+        .form-group > label { display: block; font-size: 0.74rem; font-weight: 700; color: var(--white); margin-bottom: 7px; }
+        .form-group > label .required { color: var(--gold-bright); margin-left: 2px; }
+        .form-group input { width: 100%; padding: 13px 14px; font-size: 0.85rem; font-family: inherit; color: var(--white); background: var(--bg-card2); border: 1px solid var(--border-light); border-radius: var(--radius); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-group input::placeholder { color: #B8AE9F; }
+        .form-group input:focus { border-color: var(--line); box-shadow: 0 0 0 3px var(--line-glow); background: #fff; }
+        .radio-group { display: flex; gap: 8px; flex-wrap: wrap; }
+        .radio-group label { display: flex; align-items: center; gap: 6px; font-size: 0.74rem; font-weight: 500; color: var(--white-dim); cursor: pointer; padding: 9px 14px; border: 1px solid var(--border-light); border-radius: 999px; background: var(--bg-card2); transition: all 0.2s; }
+        .radio-group label:has(input:checked) { border-color: var(--line); background: rgba(6,199,85,0.1); color: var(--line-dark); }
+        .radio-group input[type="radio"] { width: 14px; height: 14px; accent-color: var(--line); margin: 0; flex-shrink: 0; }
+        .btn-submit { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: var(--radius); background: linear-gradient(135deg, var(--line), var(--line-dark)); color: #fff; font-size: 0.92rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 6px 20px var(--line-glow); transition: transform 0.2s; margin-top: 6px; }
+        .btn-submit:active { transform: scale(0.97); }
+
+        .success-msg { display: none; text-align: center; padding: 30px 8px 10px; }
+        .success-msg.show { display: block; animation: fadeUp 0.35s var(--ease-out); }
+        .success-msg .icon { font-size: 3rem; margin-bottom: 12px; }
+        .success-msg h3 { font-size: 1.2rem; font-weight: 800; color: var(--line-dark); margin-bottom: 8px; }
+        .success-msg p { font-size: 0.78rem; color: var(--white-dim); }
+        .success-msg .line-id { display: inline-block; font-weight: 700; color: var(--line-dark); font-size: 0.9rem; background: rgba(6,199,85,0.08); border: 1px solid rgba(6,199,85,0.22); padding: 9px 24px; border-radius: 999px; margin: 14px 0 8px; }
+        .success-msg .line-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 13px 36px; background: var(--line); color: #fff; font-size: 0.9rem; font-weight: 700; border-radius: var(--radius); text-decoration: none; box-shadow: 0 8px 20px var(--line-glow); }
+        .success-msg .foot-note { font-size: 0.66rem; color: var(--white-muted); margin-top: 14px; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out); }
+        .reveal.on { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <div class="flash-bar"><span class="dot"></span> 免費 LINE 諮詢 · 名額有限</div>
+
+        <div class="header">
+            <div class="header-l"><span class="header-logo">彭</span><span class="header-name">彭詩琪</span></div>
+            <button class="header-cta-btn" id="headerCta"><i class="fa-brands fa-line"></i> LINE 諮詢</button>
+        </div>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-badge"><span class="live">●</span> 個人分享 · 真實故事</div>
+            <div class="hero-banner">
+                <img src="img/1.jpg?v=d" alt="健康生活" onerror="this.style.display='none'" />
+                <div class="hero-banner-overlay"></div>
+                <div class="hero-banner-tag"><i class="fa-solid fa-arrow-down-long"></i> 90 → 45 · 半年真實改變</div>
+            </div>
+            <div class="hero-mentor">
+                <div class="hero-mentor-avatar"><img src="img/2.jpg"></div>
+                <div class="hero-mentor-info">
+                    <div class="hero-mentor-name">彭詩琪</div>
+                    <div class="hero-mentor-role">半年減重 · 90公斤到45公斤</div>
+                    <div class="hero-mentor-badge"><i class="fa-solid fa-check-circle"></i> 個人真實分享</div>
+                </div>
+            </div>
+            <h1>從<em>90公斤</em>到<em>45公斤</em></h1>
+            <p class="hero-sub">這半年，我是這樣走過來的。</p>
+            <div class="hero-stats-row">
+                <div class="hero-stat"><div class="hero-stat-num">90kg</div><div class="hero-stat-lbl">以前</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">45kg</div><div class="hero-stat-lbl">現在</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">半年</div><div class="hero-stat-lbl">真實改變</div></div>
+            </div> 
+            <p class="hero-footnote">填寫資料後，加 LINE 發送姓名</p>
+        </section>
+
+        <!-- 第一章 · 我的故事（時間線） -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">我的故事</div>
+            <h2 class="sec-title">🌧️ 五歲那年，天塌了</h2>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">小時候</div>
+                    <div class="tl-text">爸爸是新加坡人，媽媽是台灣基隆人，一見鍾情結婚，有了姐姐和我。媽媽很瘦、很美。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">我出生後</div>
+                    <div class="tl-text">媽媽的身材開始走樣，健康也跟著出了問題。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">五歲那年</div>
+                    <div class="tl-text">媽媽的梳妝台擺滿了瓶瓶罐罐。這些東西沒讓她變好，反讓家裡變了味——爸媽頻繁爭吵，媽媽發現爸爸出軌。</div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">此後十幾年</div>
+                    <div class="tl-text">她更瘋狂地買各種減肥產品，<strong>什麼都試，什麼都買</strong>。她沒瘦，反被劣質產品徹底拖垮，疾病纏身。</div>
+                </div>
+                <div class="tl-item end">
+                    <div class="tl-dot"></div>
+                    <div class="tl-period">46歲那年</div>
+                    <div class="tl-text"><strong>她走了。</strong></div>
+                </div>
+            </div>
+        </section>
+
+      
+        <!-- 第三章 · 現在的我 -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">關於我</div>
+            <h2 class="sec-title">🌸 現在的我 · 認真生活</h2>
+            <div style="margin-top:18px;">
+                <p class="story-text">媽媽走後，我拼命讀書、做研究。25歲找到研究方向，28歲研發成功。31歲嫁給香港老公，34歲生下女兒艾米。</p>
+                <div class="chips">
+                    <span class="chip">🍜 美食</span><span class="chip">📷 拍照</span><span class="chip">⛰️ 爬山</span><span class="chip">🪂 跳傘</span>
+                    <span class="chip">✈️ 旅遊</span><span class="chip">⛳ 高爾夫</span><span class="chip">🎤 演唱會</span><span class="chip">🖼️ 畫展</span>
+                </div>
+                <p class="story-text">我熱愛生活，一直努力活成媽媽希望的樣子——一個愛自己、認真生活的人。</p>
+                <p class="story-text">但即便是這樣的我，<span class="hl">也曾被體重困住過。</span></p>
+            </div>
+        </section>
+
+        <!-- 第四章 · 半年成果 -->
+        <section class="sec reveal">
+            <div class="sec-label">半年成果</div>
+            <h2 class="sec-title">💪 從90kg到45kg</h2>
+            <div style="margin-top:18px;">
+                <p class="story-text">半年前，我的體重是 <span class="hl">90公斤（180斤）</span>。作為一個從小看著媽媽被體重折磨長大的人，我比誰都清楚——<span class="hl">那不是數字問題，是健康問題，更是人生問題。</span></p>
+                <p class="story-text">於是這半年，我把自己多年研究的東西用在了自己身上。配合飲食調整，一點一點，從90公斤走到了 <span class="hl">45公斤（90斤）</span>。</p>
+                <div class="highlight-grid">
+                    <div class="highlight-card"><span class="hc-tag">以前</span><div class="hc-num">90<span class="hc-unit">公斤</span></div><div class="hc-sub">180 斤</div></div>
+                    <div class="highlight-card after"><span class="hc-tag">現在</span><div class="hc-num">45<span class="hc-unit">公斤</span></div><div class="hc-sub">90 斤</div></div>
+                </div>
+
+				  <div class="hero-banner">
+                <img src="img/1.jpg?v=d" alt="健康生活" onerror="this.style.display='none'" />
+                <div class="hero-banner-overlay"></div>
+                <div class="hero-banner-tag"><i class="fa-solid fa-arrow-down-long"></i> 90 → 45 · 半年真實改變</div>
+            </div>
+				
+                <div class="progress-wrap">
+                    <div class="progress-labels"><span>90 kg</span><span class="pl-right">45 kg</span></div>
+                    <div class="progress-bar"><div class="progress-fill"></div><div class="progress-marker"></div></div>
+                </div>
+                <p class="story-text" style="margin-top:16px;">封面照片上的，就是現在的我。我喜歡旅行，喜歡拍照，也喜歡美食——這些仍然是我的生活。而這半年的減重經歷，也成了我想分享給你的一部分。</p>
+                <p class="story-text"><strong>我想讓更多像我媽媽一樣的女人，不再走那條錯的路。</strong></p>
+            </div>
+        </section>
+
+        <!-- 中間圖片 -->
+        <div class="media-full">
+            <img src="img/3.jpg" alt="認真生活" onerror="this.style.display='none'" />
+            <div class="overlay"></div>
+            <div class="caption"><div class="cap-label">認真生活</div><div class="cap-title">美食 · 拍照 · 爬山 · 跳傘 · 旅遊</div></div>
+        </div>
+
+        <!-- 第五章 · 產品 -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">產品說明</div>
+            <h2 class="sec-title">✨ 關於我用的產品</h2>
+            <div style="margin-top:18px;">
+                <p class="story-text">很多人在問：你到底用了什麼？</p>
+                <p class="story-text">我直接說——<span class="hl">我用了自己參與研發的產品。</span> 但我也必須跟你講清楚：</p>
+                <div class="alert-box">
+                    <p>這半年我不只用產品，同時也在調整飲食。<br>減重結果是綜合努力的成果，不能單獨歸因於產品。<br><strong>個人結果不代表效果保證。</strong></p>
+                </div>
+                <p class="story-text" style="margin-top:16px;">我不想用我媽媽的悲劇去包裝任何虛假承諾。我知道這個世界的現實——長相、身材、健康，都會影響一個人的生活。但我也知道，<span class="hl">真正改變人的，從來不是任何產品，而是一個人對自己的決心。</span></p>
+                <p class="story-text">如果你想知道我具體用的什麼，我不會藏著掖著。加我的LINE，發你的名字給我，我們從你想問的問題開始聊。</p>
+
+                <div class="promise-card">
+                    <div class="pc-icon">🤝</div>
+                    <div>
+                        <div class="pc-title">詩琪的承諾</div>
+                        <div class="pc-text">免費諮詢 · 不強迫購買。你的身體、你的故事，值得被認真對待，隨時可以結束。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+		  <!-- 第二章 · 我的誓言（遺言信） -->
+        <section class="sec reveal">
+            <div class="sec-label">我的誓言</div>
+            <h2 class="sec-title">🕊️ 媽媽最後的話</h2>
+            <div style="margin-top:18px;">
+                <p class="story-text" style="text-align:center;">媽媽走前，拉著我的手說了一句話，我這輩子都不會忘：</p>
+                <div class="vow-card">
+                    <div class="vow-text">一定要愛自己，讓自己成為一個有用的人。<br>要成為一個愛自己的人，不要等待成為一個被愛的人——<br>因為任何人都會變。</div>
+                </div>
+                <div class="vow-statement">
+                    <p class="story-text" style="margin-bottom:0;">從那天起我發誓：<span class="hl">用我自己的能力，去幫助每一個因發胖而失去信心、健康、甚至生活的人。</span> 讓每個女人，都能擁有屬於自己的健康和身材。</p>
+                </div>
+                <p class="story-byline" style="text-align:center;margin-top:14px;">—— 我叫彭詩琪，今年37歲。這是我故事的起點。</p>
+            </div>
+        </section>
+
+
+        <!-- 信任徽章 -->
+        <section class="sec" style="padding-top:8px;padding-bottom:8px;">
+            <div class="trust-strip">
+                <div class="trust-item"><div class="ti-icon">🛡️</div><div class="ti-label">個人真實分享</div></div>
+                <div class="trust-item"><div class="ti-icon">💬</div><div class="ti-label">一對一 LINE 諮詢</div></div>
+                <div class="trust-item"><div class="ti-icon">🤝</div><div class="ti-label">不強迫購買</div></div>
+            </div>
+        </section>
+
+        <!-- 好處清單 -->
+        <section class="sec reveal">
+            <div class="sec-label">免費服務</div>
+            <h2 class="sec-title">加入 LINE 後，你能得到</h2>
+            <div class="check-list" style="margin-top:18px;">
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>一對一 LINE 諮詢</strong>，詩琪親自回覆你</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>了解半年 90kg→45kg</strong> 的完整減重經歷與方法</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>從你想問的問題開始聊</strong>，不必急著做決定</div></div>
+            </div>
+        </section>
+
+        <!-- 適合誰 -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">適合誰</div>
+            <h2 class="sec-title">這份分享，適合這樣的你</h2>
+            <div class="fit-wrap" style="margin-top:18px;">
+                <div class="fit-card fit-yes">
+                    <div class="fit-head"><span class="fit-icon">✓</span> 適合你，如果…</div>
+                    <ul>
+                        <li>想健康減重，不想再靠傷身的產品</li>
+                        <li>試過很多方法都沒用，想認真了解一次</li>
+                        <li>願意配合飲食調整，一步一腳印</li>
+                    </ul>
+                </div>
+                <div class="fit-card fit-no">
+                    <div class="fit-head"><span class="fit-icon">✗</span> 不適合你，如果…</div>
+                    <ul>
+                        <li>只想靠一款產品快速瘦下來</li>
+                        <li>不願意調整任何飲食習慣</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三步流程 -->
+        <section class="sec reveal">
+            <div class="sec-label">如何開始</div>
+            <h2 class="sec-title">只需三步，開始聊聊</h2>
+            <div class="step-list" style="margin-top:18px;">
+                <div class="step-item"><div class="num">1</div><div class="step-body"><div class="step-title">加 LINE</div><div class="step-desc">加入詩琪的 LINE 好友</div></div></div>
+                <div class="step-item"><div class="num">2</div><div class="step-body"><div class="step-title">填資料</div><div class="step-desc">填寫 5 項基本資料</div></div></div>
+                <div class="step-item"><div class="num">3</div><div class="step-body"><div class="step-title">開始聊</div><div class="step-desc">我們從你想問的問題開始</div></div></div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">FAQ</div>
+            <h2 class="sec-title">常見問題</h2>
+            <div class="faq" style="margin-top:18px;">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">你到底用了什麼？<span class="faq-icon">▼</span></button>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>我用了自己參與研發的產品。</strong> 但這半年我不只用產品，同時也在調整飲食。減重結果是綜合努力的成果，不能單獨歸因於產品。</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">只靠產品就能瘦下來嗎？<span class="faq-icon">▼</span></button>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>個人結果不代表效果保證。</strong> 真正改變人的，從來不是任何產品，而是一個人對自己的決心。我不想用我媽媽的悲劇去包裝任何虛假承諾。</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">需要花錢嗎？<span class="faq-icon">▼</span></button>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>諮詢完全免費。</strong> 加 LINE、填資料、聊聊，都不需要先付任何費用。</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">會不會強迫我購買產品？<span class="faq-icon">▼</span></button>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>不會。</strong> 我不會強迫你做任何決定，你的身體由你做主，隨時可以結束。</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">我該怎麼開始？<span class="faq-icon">▼</span></button>
+                    <div class="faq-a"><div class="faq-a-inner"><strong>加我的LINE，發你的名字給我。</strong> 我們從你想問的問題開始聊。不必急著把我的數字當成你的目標——你的身體，你的故事，值得被認真對待。</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 免責聲明 -->
+        <section class="sec" style="padding-top:8px;">
+            <div class="alert-box" style="margin-top:0;">
+                <p>⚠️ <strong>免責聲明</strong><br>以上依個人自述整理。期間同時調整飲食，不能將減重結果單獨歸因於產品；個人結果不代表效果保證。健康減重請諮詢專業人士。</p>
+            </div>
+        </section>
+
+        <!-- 底部圖片 -->
+        <div class="media-full">
+            <img src="img/4.jpg" alt="重新出發" onerror="this.style.display='none'" />
+            <div class="overlay"></div>
+            <div class="caption"><div class="cap-label">我的願望</div><div class="cap-title">讓更多女人，不再走那條錯的路</div></div>
+        </div>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>準備好開始了嗎？</h2>
+            <p>加 LINE 聊聊，我們從你想問的問題開始。</p>
+            <button class="cta-btn" id="ctaBtn"><i class="fa-brands fa-line"></i> 我想了解產品</button>
+            <div class="urgency"><span class="u-dot"></span> 本週免費諮詢名額有限 · 把握時間</div>
+        </section>
+
+        <!-- LINE 引導 -->
+        <section class="sec" style="padding-top:8px;">
+            <div class="line-guide">
+                <div class="lg-label">想了解更多？</div>
+                <div class="line-id"><i class="fa-brands fa-line"></i> 找詩琪聊聊</div>
+                <div class="lg-hint">加入 LINE 後，傳送這個姓名就可以</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="f-brand">彭詩琪</div>
+            <p>彭詩琪 · 旅行 · 生活 · 我的選擇</p>
+            <p>從90公斤到45公斤 · 以前和現在，我都在認真生活。</p>
+            <p class="f-fine">© 2026 彭詩琪 個人分享 · 以上依個人自述整理</p>
+        </footer>
+
+        <div class="float-bar">
+            <button class="float-btn" id="floatBtn"><i class="fa-brands fa-line"></i> 我想了解產品</button>
+        </div>
+
+    </div>
+
+    <!-- 彈窗 -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-dialog">
+            <div class="modal-handle"></div>
+            <button class="modal-close" id="modalClose" aria-label="關閉"><i class="fa-solid fa-xmark"></i></button>
+
+            <form id="consultForm" novalidate>
+                <div class="form-head">
+                    <div class="form-title" id="formTitle">📋 先認識一下妳</div>
+                    <div class="form-sub">只需填寫 5 項基本資料</div>
+                </div>
+                <div class="form-group">
+                    <label>怎麼稱呼妳？ <span class="required">*</span></label>
+                    <input type="text" id="name" placeholder="請輸入姓名" required />
+                </div>
+                <div class="form-group">
+                    <label>年紀 <span class="required">*</span></label>
+                    <input type="number" id="age" placeholder="請輸入年齡" min="10" max="99" required />
+                </div>
+                <div class="form-group">
+                    <label>身高 (cm) <span class="required">*</span></label>
+                    <input type="number" id="height" placeholder="請輸入身高，例如 165" min="100" max="250" required />
+                </div>
+                <div class="form-group">
+                    <label>體重 (kg) <span class="required">*</span></label>
+                    <input type="number" id="weight" placeholder="請輸入體重，例如 70" min="20" max="300" required />
+                </div>
+                <div class="form-group">
+                    <label>有無使用過減肥產品？ <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="used_product" value="有" required /> 有</label>
+                        <label><input type="radio" name="used_product" value="沒有" /> 沒有</label>
+                        <label><input type="radio" name="used_product" value="曾經使用過" /> 曾經使用過</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fa-brands fa-line"></i> 送出，加 LINE 聊聊</button>
+            </form>
+
+            <div class="success-msg" id="successMsg">
+                
+                <h3>資料已收到！</h3>
+                <p>詩琪會親自回覆您，請先加入 LINE。</p>
+                <a onclick="k2()" class="line-btn" ><i class="fa-brands fa-line"></i> 加入 LINE 諮詢</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ro = new IntersectionObserver(function(e) {
+            e.forEach(function(en) {
+                if (en.isIntersecting) { en.target.classList.add('on'); ro.unobserve(en.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -16px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+        function toggleFaq(q) {
+            var p = q.closest('.faq-item');
+            var was = p.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+            if (!was) p.classList.add('open');
+        }
+
+        (function() {
+            'use strict';
+
+            var modal = document.getElementById('modal');
+            var backdrop = document.getElementById('modalBackdrop');
+            var closeBtn = document.getElementById('modalClose');
+            var consultForm = document.getElementById('consultForm');
+            var successMsg = document.getElementById('successMsg');
+            var submitBtn = consultForm.querySelector('.btn-submit');
+            var API_BASE = ''; // 同域部署：Worker 路由到 gabk77y.site/api/*，相對路徑即可
+            var bodyScrollTop = 0;
+
+            function showSuccess() {
+                consultForm.style.display = 'none';
+                successMsg.classList.add('show');
+                var dialog = modal.querySelector('.modal-dialog');
+                if (dialog) dialog.scrollTop = 0;
+            }
+
+            function openModal() {
+                bodyScrollTop = window.scrollY;
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                document.body.style.position = 'fixed';
+                document.body.style.top = '-' + bodyScrollTop + 'px';
+                document.body.style.left = '0';
+                document.body.style.right = '0';
+                document.body.style.width = '100%';
+                consultForm.style.display = 'block';
+                successMsg.classList.remove('show');
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+                document.body.style.position = '';
+                document.body.style.top = '';
+                document.body.style.left = '';
+                document.body.style.right = '';
+                document.body.style.width = '';
+                window.scrollTo(0, bodyScrollTop);
+            }
+
+            ['headerCta', 'heroCta', 'ctaBtn', 'floatBtn'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('click', openModal);
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            backdrop.addEventListener('click', closeModal);
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+            });
+
+            consultForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                var name = document.getElementById('name').value.trim();
+                var age = document.getElementById('age').value.trim();
+                var height = document.getElementById('height').value.trim();
+                var weight = document.getElementById('weight').value.trim();
+                var usedProduct = document.querySelector('input[name="used_product"]:checked');
+
+                if (!name || !age || !height || !weight || !usedProduct) {
+                    alert('請完整填寫所有欄位 🙏');
+                    return;
+                }
+                if (parseInt(age) < 10 || parseInt(age) > 99) {
+                    alert('請輸入有效的年齡 (10-99)');
+                    return;
+                }
+
+                var formData = { name: name, age: age, height: height, weight: weight, used_product: usedProduct.value, page_url: window.location.href };
+
+                // 提交到 Cloudflare Worker 後端（存入 D1）
+                var oldText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '送出中…';
+
+                fetch(API_BASE + '/api/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                }).then(function(r) { return r.json(); }).then(function(d) {
+                    if (d && d.ok) {
+                        showSuccess();
+                    } else {
+                        console.error('提交失敗', d);
+                        showSuccess(); // 後端異常也不流失客戶，仍顯示 LINE 資訊
+                    }
+                }).catch(function(err) {
+                    console.error('提交失敗', err);
+                    showSuccess(); // 網路異常也先顯示 LINE 資訊
+                }).finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = oldText;
+                });
+            });
+
+            var lineBtn = document.getElementById('lineCopyBtn');
+            lineBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                var lineId = '詩琪的LINE_ID';
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(lineId).then(function() {
+                        alert('✅ LINE ID 已複製！請打開 LINE 貼上搜尋加入。');
+                    }).catch(function() { prompt('請複製以下 LINE ID 加入好友：', lineId); });
+                } else {
+                    prompt('請複製以下 LINE ID 加入好友：', lineId);
+                }
+            });
+
+            document.querySelectorAll('input[type="number"]').forEach(function(input) {
+                input.addEventListener('blur', function() {
+                    if (this.value && this.value < 0) this.value = '';
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
